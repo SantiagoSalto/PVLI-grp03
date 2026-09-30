@@ -1,30 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>HTML</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estilo.css"> <!-- Esto cargaria un archivo de estilo, pero no es necesario en Fiddle porque lo hace automáticamente -->
-  <script src="script.js"></script> <!--Aquí podriamos cargar los scripts, también se puede en el <body>, y pasa lo mismo que con el css de antes, en verdad aquí no estamos cargando nada-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TÍTULO DEL JUEGO</title>
+  <link rel="stylesheet" href="./estilo.css">
+  <script src="./script.js"></script>
 </head>
-
 <body>
-  <h1>Esto es un título de primer nivel.</h1>
-  <div>
-    <h2 class=clase>Este es de 2º y hay más</h2>
+  <div class="pagina">
 
-    <p class=clase id="magico"> Esto es un párrafo. Y abajo aparece una imagen con un link a la UCM</p>
-    <a href="https://www.ucm.es/" target="_blank">
-      <img src="https://www.ucm.es/themes/ucm16/media/img/logo.png" alt="Si la imagen no se carga, se ve esto"><!--Modifica el atributo src y verás como se muestra el mensaje, pero el link (etiqueta <a>) seguirá funcionando al ser un hijo -->
-    </a>
-  </div>
-  <div>
-    <button onclick="alert(devuelveTextoDeAlerta())">Soy un botón de Alerta</button>
-  </div>
-  <div>
-    <button onclick="document.getElementById('magico').style.visibility='hidden'"> Desaparece!!! </button>
-    <button onclick="desaparece('magico')"> Desaparece!!! (pero usando una función) </button>
+    <header>
+      <h1>TÍTULO DEL JUEGO</h1>
+    </header>
+
+    <!-- Aquí se montará el juego de Phaser -->
+    <div id="game">
+      <span>Aquí irá el juego</span>
+    </div>
+
+    <nav>
+      <button class="pestana activa" onclick="mostrarPestana('juego', this)">El juego</button>
+      <button class="pestana" onclick="mostrarPestana('controles', this)">Controles</button>
+      <button class="pestana" onclick="mostrarPestana('autores', this)">Autores y créditos</button>
+      <button class="pestana" onclick="mostrarPestana('redes', this)">Redes y repositorio</button>
+    </nav>
+
+    <section id="juego" class="panel activo">
+      <h2>Sobre el juego</h2>
+      <p>Eres una ardilla exploradora y tienes que abrirte camino entre obstáculos y loros pirata para llegar antes que nadie al tesoro de la «gran bellota».</p>
+      <p>En cada nivel debes recoger todos los coleccionables, que son las piezas de un símbolo asiático, para poder salir. Hazlo antes de que se acabe el tiempo: cuanto más te sobre, más puntos consigues.</p>
+      <p>Plataformas, puzzles y enemigos que puedes esquivar o derrotar lanzándoles proyectiles. Todo se controla solo con el ratón.</p>
+    </section>
+
+    <section id="controles" class="panel">
+      <h2>Controles</h2>
+      <p>El juego se controla solo con el ratón.</p>
+      <ul>
+        <li><b>Clic izquierdo:</b> mover a la ardilla hacia el cursor. Cuanto más lejos esté el cursor, más rápido corre.</li>
+        <li><b>Saltar:</b> coloca el cursor por encima de la ardilla y haz clic izquierdo. Saltará hacia donde apuntes, y más alto cuanto más lejos esté el cursor.</li>
+        <li><b>Clic derecho:</b> mantenlo pulsado para apuntar y suéltalo para lanzar un proyectil en parábola. Mientras apuntas no puedes moverte; si estabas en el aire, sigues con tu impulso.</li>
+      </ul>
+      <p>Los proyectiles derrotan enemigos, activan dianas, rompen bloques frágiles y empujan cajas.</p>
+    </section>
+
+    <section id="autores" class="panel">
+      <h2>KOSA Studio</h2>
+      <ul>
+        <li>Santiago Salto Molodojen</li>
+        <li>Zhuokai Zhu</li>
+        <li>Óscar Silva Urbina</li>
+        <li>Alejandro Menéndez Fierro</li>
+      </ul>
+      <h2>Créditos</h2>
+      <p>Proyecto realizado en el Grado en Desarrollo de Videojuegos, Facultad de Informática (UCM).</p>
+    </section>
+
+    <section id="redes" class="panel">
+      <h2>Síguenos</h2>
+      <p><a href="https://x.com/kosa_estudios" target="_blank">X: @kosa_estudios</a></p>
+      <h2>Código</h2>
+      <p><a href="https://github.com/SantiagoSalto/PVLI-grp03" target="_blank">Repositorio en GitHub</a></p>
+    </section>
+
+    <footer>
+      <p>© KOSA Studio</p>
+    </footer>
+
   </div>
 </body>
-<!--2023-2024-->
 </html>
