@@ -147,7 +147,7 @@ Solo se usarán el clic izquierdo y derecho del ratón, en combinación con el m
 - **Mantener pulsado:** se detecta el input de movimiento de forma constante, y por lo tanto la ardilla seguirá continua e inmediatamente la dirección y posición del cursor a medida que el jugador va arrastrando el ratón.
 
 <p align="center">
-  <img src="ImagesGDD/Controles2.png" alt="" width="300"/>
+  <img src="ImagesGDD/Controles2.png" alt="" width="600"/>
 </p>
 
 **Clic derecho:** se entra en el estado de ataque, donde la ardilla podrá lanzar proyectiles. Si está en tierra, se quedará quieta; si está en el aire, conservará la inercia del movimiento hasta quedarse sin ella. Podemos ver 2 tipos de comportamiento:
@@ -156,7 +156,7 @@ Solo se usarán el clic izquierdo y derecho del ratón, en combinación con el m
 - **Un clic:** al estar diseñado de forma que se haga un pre-aim a la hora de efectuar un ataque, en este caso, aunque no se pueda efectuar el primer paso de forma eficaz, se seguirá lanzando un proyectil, pero saldrá con una trayectoria totalmente errónea.
 
 <p align="center">
-  <img src="ImagesGDD/Controles1.png" alt="" width="300"/>
+  <img src="ImagesGDD/Controles1.png" alt="" width="600"/>
 </p>
 
 ---
