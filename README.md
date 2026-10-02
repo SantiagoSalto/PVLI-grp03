@@ -169,8 +169,16 @@ Solo se usarán el clic izquierdo y derecho del ratón, en combinación con el m
 Se presenta un camino sin salida, donde habrá una serie de dianas, moviéndose en constante movimiento hacia arriba y hacia abajo. La ardilla tendrá que acertar en todas, con su proyectil para poder accionar una plataforma, que le permitirá seguir con el nivel.
 Habrá un instante donde con el pre-aim de la ardilla podrás acertar a todas las dianas a la vez, con un solo disparo. Aquí se presenta la dualidad de ser paciente y tirar todas de una, o ser ágil con el disparo y acertar disparando singularmente a cada una de ellas.
 
+<p align="center">
+  <img src="ImagesGDD/Puzzle1.png" alt="" width="600"/>
+</p>
+
 **Entorno interactuable:**
 Se presenta de nuevo un camino, aparentemente sin salida. Mediante el uso del lenguaje visual, se presentará a la ardilla una pista de elementos de entorno con los que puede interactuar con su disparo para abrirse camino, tendrán que ser disparados una o varias veces dependiendo del elemento.
+
+<p align="center">
+  <img src="ImagesGDD/Puzzle2.png" alt="" width="600"/>
+</p>
 
 ### 4.2 Mundos
 
