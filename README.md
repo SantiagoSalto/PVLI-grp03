@@ -170,14 +170,14 @@ Se presenta un camino sin salida, donde habrá una serie de dianas, moviéndose 
 Habrá un instante donde con el pre-aim de la ardilla podrás acertar a todas las dianas a la vez, con un solo disparo. Aquí se presenta la dualidad de ser paciente y tirar todas de una, o ser ágil con el disparo y acertar disparando singularmente a cada una de ellas.
 
 <p align="center">
-  <img src="ImagesGDD/Puzzle1.png" alt="" width="600"/>
+  <img src="ImagesGDD/Puzzle1.png" alt="" width="1000"/>
 </p>
 
 **Entorno interactuable:**
 Se presenta de nuevo un camino, aparentemente sin salida. Mediante el uso del lenguaje visual, se presentará a la ardilla una pista de elementos de entorno con los que puede interactuar con su disparo para abrirse camino, tendrán que ser disparados una o varias veces dependiendo del elemento.
 
 <p align="center">
-  <img src="ImagesGDD/Puzzle2.png" alt="" width="600"/>
+  <img src="ImagesGDD/Puzzle2.png" alt="" width="1000"/>
 </p>
 
 ### 4.2 Mundos
