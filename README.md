@@ -165,13 +165,18 @@ Solo se usarán el clic izquierdo y derecho del ratón, en combinación con el m
 
 ### 4.1 Puzles
 
-*(Pendiente)*
+**Diana:**
+Se presenta un camino sin salida, donde habrá una serie de dianas, moviéndose en constante movimiento hacia arriba y hacia abajo. La ardilla tendrá que acertar en todas, con su proyectil para poder accionar una plataforma, que le permitirá seguir con el nivel.
+Habrá un instante donde con el pre-aim de la ardilla podrás acertar a todas las dianas a la vez, con un solo disparo. Aquí se presenta la dualidad de ser paciente y tirar todas de una, o ser ágil con el disparo y acertar disparando singularmente a cada una de ellas.
+
+**Entorno interactuable:**
+Se presenta de nuevo un camino, aparentemente sin salida. Mediante el uso del lenguaje visual, se presentará a la ardilla una pista de elementos de entorno con los que puede interactuar con su disparo para abrirse camino, tendrán que ser disparados una o varias veces dependiendo del elemento.
 
 ### 4.2 Mundos
 
-- **Mundo Fantasía:** tutorial.
-- **Mundo Asiático:** introducción de los símbolos.
-- **Mundo Infierno:** algún obstáculo más difícil/peligroso.
+- **Mundo Fantasía:** Tutorial.
+- **Mundo Asiático:** Introducción de los símbolos.
+- **Mundo Infierno:** Obstáculos mortales.
 
 ---
 
@@ -201,12 +206,23 @@ Notas extra: cuanta mayor sensibilidad en los ajustes (entre los valores 1 y 5),
 
 **Pantalla de créditos** (todavía no definitiva)
 
+Tendrá 2 líneas de texto destinadas a nombrar el estudio y a los autores. Aunque principalmente se centrará en dar crédito a todos los assets utilizados (ya sean nuestros o utilizados), siendo estos divididos en las secciones de Sonido, Música y Visuales/Arte.
+
 <p align="center">
   <img src="ImagesGDD/MenuPausa.png" alt="" width="500"/>
 </p>
 
-
 **Pantalla de pausa en un nivel**
+
+Se presenta una ventana emergente en medio de la pantalla. Cuando sale, hace que la escena del nivel quede de fondo, con una tonalidad algo opaca. Tenemos los botones:
+
+1. Reanudar la partida.
+2. Reiniciar el Nivel.
+3. Controladores, como en el menú de ajustes:
+   - Sonido
+   - SFX
+   - Sensibilidad
+4. Salir del Nivel: que te llevará al Selector de Niveles.
 
 ### 5.2 Niveles
 
@@ -214,23 +230,21 @@ Notas extra: cuanta mayor sensibilidad en los ajustes (entre los valores 1 y 5),
   <img src="ImagesGDD/Seleccion.png" alt="" width="500"/>
 </p>
 
-Como el mapa de niveles es más grande que la propia cámara, si acercas el ratón al extremo de la pantalla, la cámara se moverá hacia ese lado pasados unos instantes, hasta que alejes el ratón de ese extremo.
+A la hora de seleccionar el nivel a jugar, como el mapa de niveles es más grande que la propia cámara, haremos que si acercas el ratón al extremo de la pantalla, la cámara se mueva hacia ese lado pasados unos pocos instantes si no alejando la pantalla de ese extremo.
 
-Cuando el jugador pulse un icono de nivel (un círculo que muestra las estrellas que ha conseguido el jugador si ya ha jugado el nivel, y que estará vacío si aún no lo ha superado) se mostrará una ventana que indicará las estrellas conseguidas en el nivel, cómo se consiguen (requisito de puntos en el nivel), la mejor puntuación y el mejor tiempo, aprovechando la mecánica contrarreloj del juego y aportando algo de rejugabilidad.
+Cuando el jugador pulse a un icono del nivel (es decir, un círculo que muestra las estrellas que ha conseguido el jugador si ya ha jugado el nivel, pero el cual estará vacío si no lo ha superado aún) se mostrará una ventana que indicará las estrellas conseguidas en el nivel, cómo se consiguen (requisito de puntos en el nivel para obtenerlas), la mejor puntuación en el nivel, y el mejor tiempo en el nivel, aprovechando la mecánica contrarreloj del juego y también para aportar algo de rejugabilidad al juego.
 
-Los niveles deberán vencerse secuencialmente del primero al último y no se puede pasar al siguiente mundo hasta que ganes todos los niveles del mundo anterior. Los mundos inaccesibles se verán con un poco menos de opacidad de la normal, y los niveles bloqueados (los que no tienen su nivel anterior vencido) mostrarán un candado.
+Los niveles deberán vencerse secuencialmente del primero al último y no se puede pasar al siguiente mundo hasta que ganes todos los niveles del mundo anterior. Los mundos inaccesibles se verán con un poco menos de opacidad de la normal, y los niveles bloqueados (es decir, los que no tienen su nivel anterior vencido) mostrarán un candado.
 
 ### 5.3 UI
 
-Durante el gameplay la pantalla del juego se verá completa, y se apreciará:
-
-- **Esquina superior izquierda:** las vidas (corazones) de la ardilla y el progreso en la colección de las piezas del símbolo del nivel (si existe; en caso contrario simplemente no estará presente en la interfaz).
-- **Esquina superior derecha:** el botón de pausa.
-- **Esquina inferior izquierda:** un recordatorio de los controles del juego (posiblemente modificables en los ajustes).
+La UI del juego durante el gameplay principal del juego es:
 
 <p align="center">
   <img src="ImagesGDD/Gameplay.png" alt="" width="500"/>
 </p>
+
+La pantalla del juego se verá completa, y se apreciarán en la esquina superior izquierda las vidas (corazones) de la ardilla, el progreso en la colección de las piezas del símbolo del nivel (si existe, que en caso de que no simplemente no estará presente en la interfaz), en la esquina superior derecha estará el botón de pausa, y en la esquina inferior izquierda se verá un recordatorio para los controles del juego (posiblemente se puedan quitar en los ajustes del juego).
 
 ---
 
@@ -246,7 +260,18 @@ Finalmente, tras superar el nivel, se te dará un resultado en forma de puntuaci
 
 ## 7. Estética y Contenido
 
-*(Pendiente)*
+Buscamos simplicidad de formas, como en Mario Bros. Pero una paleta de color más suave como en la siguiente portada de Rayman, y evitar colores muy saturados.
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="ImagesGDD/Mario.png" alt="" width="400"/>
+    </td>
+    <td align="center">
+      <img src="ImagesGDD/RayMan.png" alt="" width="400"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -259,6 +284,8 @@ Implementaremos una máquina de estados para gestionar los estados de la ardilla
 <p align="center">
   <img src="ImagesGDD/StateMachine.png" alt="" width="500"/>
 </p>
+
+*El valor 0 indica false, mientras que el valor 1 indica true.*
 
 ### 8.2 Component Pattern
 
