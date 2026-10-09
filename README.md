@@ -8,7 +8,7 @@
 
 ### 1.1 Descripción
 
-Eres una ardilla exploradora, y te tendrás que hacer camino entre múltiples obstáculos y loros pirata, para llegar antes al tesoro de la "gran bellota". Para guiarte de qué camino seguir, deberás conseguir todos los coleccionables del nivel para poder superarlo, volverte más rápido, y también para conseguir aura.
+Eres una ardilla exploradora, y te tendrás que hacer camino entre múltiples obstáculos, puzzles y enemigos antes de que se te acabe el tiempo.
 
 ### 1.2 Género
 
@@ -51,10 +51,11 @@ En el mundo de (x) los loros piratas de la isla de (x) se han propuesto conquist
 
 ### 2.2 Core Loops
 
-Correr por el nivel, pasar los obstáculos, recoger los coleccionables y terminar el nivel.
+2.2 Core Loops
+Avanzar por el nivel, superar los obstáculos, recoger los coleccionables y terminar el nivel.
 
-- **Victoria:** conseguir superar todos los niveles.
-- **Derrota:** al perder las vidas que tiene la ardilla, reiniciando el nivel actual.
+- **Victoria:** conseguir superar el nivel a tiempo y con los coleccionables necesarios.
+- **Derrota:** quedarte sin vidas o no superar el nivel a tiempo. Esto hace que se tenga que reiniciar el nivel.
 
 ---
 
@@ -74,7 +75,7 @@ El personaje se controla con el ratón. Al mover el cursor, se define la direcci
 
 ### 3.2 Salto
 
-Para saltar, el sistema detecta si el cursor está colocado sobre el personaje respecto al eje y positivo. Si es así, el personaje saltará en la dirección a la que está apuntando el cursor. Al igual que con el movimiento en el suelo, alejar más el ratón del personaje hará que este salte más alto.
+Para saltar, el sistema detecta si el cursor está colocado sobre el personaje respecto al eje y positivo. Si es así, el personaje saltará en la dirección a la que está apuntando el cursor. Al igual que con el movimiento en el suelo, alejar más el ratón del personaje hará que este salte más alto. Una vez en el aire aunque se deje de pulsar el “click” del ratón, el personaje mantendrá la dirección de movimiento por inercia. Aun así es posible modificar la dirección una vez en el aire (movimiento horizontal).
 
 <p align="center">
   <img src="ImagesGDD/Jump.png" alt="" width="500"/>
@@ -82,9 +83,9 @@ Para saltar, el sistema detecta si el cursor está colocado sobre el personaje r
 
 ### 3.3 Ataque
 
-Para atacar, se utiliza el clic derecho. Al pulsarlo el personaje entra en estado de ataque y se detiene. Cuando se está en el estado de ataque, el jugador no puede moverse, pero si estaba en el aire antes de entrar en ese estado, se seguirá impulsando en la dirección a la que estaba cayendo antes de pulsar el clic derecho del ratón (*Bullet Time*). Mientras se mantiene pulsado el clic derecho, el jugador puede apuntar en la dirección deseada, y al soltarlo, el personaje lanzará un proyectil en esa misma dirección. Dependiendo de la distancia arrastrada desde la posición original del clic, más fuerte se lanzará el proyectil.
+Para atacar, se utiliza el clic derecho. Al pulsarlo el personaje entra en estado de ataque y se detiene, puesto que cuando se está en el estado de ataque, el jugador no puede moverse. En caso de activar el ataque mientras el jugador estaba saltando, este mantendrá la inercia y se seguirá moviendo en esa dirección. Así mismo se activará un bullet time event en este caso específico, donde se ralentizará el tiempo mientras está en modo ataque. Mientras se mantiene pulsado el clic derecho, el jugador puede apuntar en la dirección deseada, y al soltarlo, el personaje lanzará un proyectil en esa misma dirección, y dependiendo de la distancia arrastrado de la posición clickeado original, más fuerte se lanzará el proyectil.
 
-El proyectil que se lanza en el ataque se mueve en forma de parábola. Este proyectil se usará para derrotar a enemigos que están por el nivel, disparar a objetivos que hay que acertar para avanzar (hacer aparecer un elemento de nivel que te ayude, o eliminar uno que te estorbaba), o romper bloques frágiles que hay por el nivel. El ataque también puede empujar cajas irrompibles cuando impacta en ellas.
+El proyectil que se lanza en el ataque se mueve en forma de parábola. Este proyectil se usará para derrotar a enemigos, disparar a objetivos que activan mecanismos, o romper bloques frágiles que hay por el nivel. El ataque también puede empujar cajas irrompibles cuando impacta en ellas.
 
 <p align="center">
   <img src="ImagesGDD/Attack1.png" alt="" width="400"/>
