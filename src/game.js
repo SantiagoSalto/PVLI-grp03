@@ -1,18 +1,24 @@
-import Village from './VillageScene.js';
-/**
- * Inicio del juego en Phaser. Creamos el archivo de configuración del juego y creamos
- * la clase Game de Phaser, encargada de crear e iniciar el juego.
- */
+import PlayScene from './scenes/PlayScene.js';
+import PreloadScene from './scenes/PreloadScene.js';
+import MainMenuScene from './scenes/MainMenuScene.js';
+import GameOverScene from './scenes/GameOverScene.js';
+
+const WIDTH = 800;
+const HEIGHT = 600;
+
+document.getElementById('game').style.aspectRatio = `${WIDTH} / ${HEIGHT}`;
+
 let config = {
     type: Phaser.AUTO,
     parent: 'game',
-    width:  800,
-    height: 600,
+    width:  WIDTH,
+    height: HEIGHT,
     pixelArt: true,
 	scale: {
-        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [Village], // El juego contiene una escena de la clase Village, que extiende de Phaser.Scene
+    scene: [PreloadScene, MainMenuScene, PlayScene, GameOverScene], 
     physics: { 
         default: 'arcade', 
         arcade: { 
