@@ -11,4 +11,8 @@ export default class InputManager {
     getX() {
         return this.pointer.x;
     }
+
+    getY() {
+        return this.pointer.y;
+    }
 }

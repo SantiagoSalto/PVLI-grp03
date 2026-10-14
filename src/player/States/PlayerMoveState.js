@@ -4,6 +4,12 @@ export default class PlayerMoveState extends BaseState {
 
     execute(player) {
 
+        // si el cursor esta por encima ir a jump
+        if (player.wantsToJump()) {
+            player.stateMachine.setState('jump');
+            return;
+        }
+
         // si suelta el clic o el cursor esta encima idle
         if (!player.wantsToMove()) {
             player.stateMachine.setState('idle');
@@ -12,16 +18,15 @@ export default class PlayerMoveState extends BaseState {
 
         let distance = player.mouse.getX() - player.x;
 
+        // direccion hacia el cursor: 1 derecha, -1 izquierda
+        let direction = 1;
+        if (distance < 0) direction = -1;
+
         // mirar hacia el cursor
-        let direction = Math.sign(distance);
         player.setFlipX(direction < 0);
 
-        // cursor lejos corre, cerca anda
-        let speed = player.walkSpeed;
-        if (Math.abs(distance) > player.runDistance) speed = player.runSpeed;
-
         // aplicar velocidad horizontal
-        player.setVelocityX(direction * speed);
+        player.setVelocityX(direction * player.getSpeed(distance));
     }
 
     exit(player) {

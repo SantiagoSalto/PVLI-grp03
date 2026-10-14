@@ -8,6 +8,12 @@ export default class PlayerIdleState extends BaseState {
 
     execute(player) {
 
+        // si el cursor esta por encima ir a jump
+        if (player.wantsToJump()) {
+            player.stateMachine.setState('jump');
+            return;
+        }
+
         // si se mantiene el clic ir a move
         if (player.wantsToMove()) {
             player.stateMachine.setState('move');
