@@ -10,12 +10,18 @@ export default class PlayerMoveState extends BaseState {
             return;
         }
 
+        let distance = player.mouse.getX() - player.x;
+
         // mirar hacia el cursor
-        let direction = Math.sign(player.mouse.getX() - player.x);
+        let direction = Math.sign(distance);
         player.setFlipX(direction < 0);
 
+        // cursor lejos corre, cerca anda
+        let speed = player.walkSpeed;
+        if (Math.abs(distance) > player.runDistance) speed = player.runSpeed;
+
         // aplicar velocidad horizontal
-        player.setVelocityX(direction * player.walkSpeed);
+        player.setVelocityX(direction * speed);
     }
 
     exit(player) {

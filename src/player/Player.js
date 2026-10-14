@@ -17,7 +17,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.body.setOffset(130, 70);                          // colocar hitbox
 
         // movimiento
-        this.walkSpeed = 150;                                  // velocidad andando
+        this.walkSpeed = 120;                                  // velocidad andando
+        this.runSpeed = 380;                                   // velocidad corriendo
+        this.runDistance = 200;                                // distancia al cursor a partir de la que corre
         this.stopDistance = 5;                                 // distancia al cursor para pararse
 
         // input
