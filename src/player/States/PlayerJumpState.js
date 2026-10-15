@@ -20,13 +20,11 @@ export default class PlayerJumpState extends BaseState {
             return;
         }
 
-        // si se suelta el clic mantiene la inercia, si se mantiene puede cambiar de direccion
+        // en el aire sigue al cursor aunque no se mantenga el clic (como poptropica)
         this.moveTowardsCursor(player);
     }
 
     moveTowardsCursor(player) {
-        if (!player.wantsToMove()) return;
-
         let distance = player.mouse.getX() - player.x;
 
         // direccion hacia el cursor: 1 derecha, -1 izquierda
