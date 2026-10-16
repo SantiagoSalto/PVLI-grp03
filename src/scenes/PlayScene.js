@@ -7,12 +7,15 @@ export default class Village extends Phaser.Scene {
 	}
 
 	create() {
-        this.background = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'background2');
+        const ancho = this.cameras.main.width;
+        const alto = this.cameras.main.height;
+
+        this.background = this.add.image(ancho / 2, alto / 2, 'background2');
 
         this.inputManager = new InputManager(this);                      
 
         // plataforma provisional para probar el movimiento
-        this.platform = this.add.rectangle(this.cameras.main.width / 2, this.cameras.main.height - 20, this.cameras.main.width, 40, 0x6b4f2a);
+        this.platform = this.add.rectangle(ancho/ 2, alto - 20, ancho, 40, 0x6b4f2a);
         this.physics.add.existing(this.platform, true);
 
         // plataformas provisionales en el aire para probar el salto
@@ -22,12 +25,13 @@ export default class Village extends Phaser.Scene {
         this.platform3 = this.add.rectangle(550, 330, 150, 20, 0x6b4f2a);
         this.physics.add.existing(this.platform3, true);
 
-        this.player = new Player(this, 100, this.cameras.main.height - 100);
+        this.player = new Player(this, 100, alto - 100);
         this.physics.add.collider(this.player, this.platform);
         this.physics.add.collider(this.player, this.platform2);
         this.physics.add.collider(this.player, this.platform3);
 
-        var play = this.add.image(this.cameras.main.width - 10, 10, 'play');
+        //Iconos Interaccionables UI
+        var play = this.add.image(ancho - 10, 10, 'play');
         play.setOrigin(1, 0);
         play.setScale(0.3);
         play.setInteractive();
@@ -36,6 +40,14 @@ export default class Village extends Phaser.Scene {
             this.scene.stop();
             this.scene.start('GameOverScene');
         });
+
+        //Icono menu de pausa
+        var pausa = this.add.image(100, 100, 'pausa');
+        pausa.setInteractive();
+        pausa.on('pointerdown', () =>{
+            this.scene.pause()
+            this.scene.launch('PauseScene');
+        })
 	}
 
     update(time, delta) {
