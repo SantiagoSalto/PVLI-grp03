@@ -7,6 +7,9 @@ export default class PlayerJumpState extends BaseState {
         // booleano para comprobar si player ha llegado al cursor
         this.reachedCursor = false;
 
+        // velocidad horizontal fija durante todo el salto (segun la distancia al cursor al saltar)
+        this.speedX = player.getSpeed(player.mouse.getX() - player.x);
+
         // la altura del salto siempre es la misma
         player.setVelocityY(-player.jumpSpeed);
 
@@ -29,8 +32,11 @@ export default class PlayerJumpState extends BaseState {
 
     moveTowardsCursor(player) {
 
-        // Si ha llegado al cursor, sigue con la inercia (línea parabólica)
-        if (this.reachedCursor) return;
+        // si el raton se mueve vuelve a seguirlo
+        if (this.reachedCursor) {
+            if (player.mouse.getX() === this.reachedMouseX) return;
+            this.reachedCursor = false;
+        }
 
         let distance = player.mouse.getX() - player.x;
 
@@ -41,6 +47,7 @@ export default class PlayerJumpState extends BaseState {
         // Arreglar bug de fix cursor y player junto
         if (Math.abs(distance) <= player.stopDistance) {
             this.reachedCursor = true;
+            this.reachedMouseX = player.mouse.getX();
             return;
         }
 
@@ -48,6 +55,6 @@ export default class PlayerJumpState extends BaseState {
         player.setFlipX(direction < 0);
 
         // aplicar velocidad horizontal
-        player.setVelocityX(direction * player.getSpeed(distance));
+        player.setVelocityX(direction * this.speedX);
     }
 }
