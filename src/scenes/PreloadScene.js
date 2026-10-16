@@ -36,6 +36,9 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('redSquare', './assets/Menu/loseSquare.png');
         this.load.image('redbutton', './assets/Menu/button2.png')
         this.load.image('death', './assets/Menu/death.png');
+
+        //Credits
+        this.load.image('border', './assets/Menu/border.png');
     }
 
     create() {
