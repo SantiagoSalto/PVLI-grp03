@@ -1,7 +1,7 @@
 import Player from '../player/Player.js';
 import InputManager from '../managers/InputManager.js';
 
-export default class Village extends Phaser.Scene {
+export default class PlayScene extends Phaser.Scene {
 	constructor() {
 		super({ key: 'PlayScene' });
 	}
