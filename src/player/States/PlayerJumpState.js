@@ -31,6 +31,12 @@ export default class PlayerJumpState extends BaseState {
         let direction = 1;
         if (distance < 0) direction = -1;
 
+        // Arreglar bug de fix puntero y player junto
+        if (Math.abs(distance) <= player.stopDistance) {
+            player.setVelocityX(0);
+            return;
+        }
+
         // mirar hacia el cursor
         player.setFlipX(direction < 0);
 
