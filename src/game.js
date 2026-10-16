@@ -8,6 +8,7 @@ import WinScene from './scenes/WinScene.js';
 import LevelSelector from './scenes/LevelSelector.js';
 import LevelInfo from './scenes/LevelInfo.js';
 import PauseScene from './scenes/PauseScene.js';
+import LoseScene from './scenes/LoseScene.js';
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -25,7 +26,8 @@ let config = {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     scene: [PreloadScene, MainMenuScene, PlayScene, GameOverScene, 
-        AjustesScene, CreditsScene, WinScene, LevelSelector, LevelInfo, PauseScene], 
+        AjustesScene, CreditsScene, WinScene, LevelSelector, LevelInfo, PauseScene,
+    LoseScene], 
     physics: { 
         default: 'arcade', 
         arcade: { 
