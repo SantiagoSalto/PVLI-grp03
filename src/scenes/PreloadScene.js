@@ -30,10 +30,12 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('nostar', '/assets/Menu/star_outline.png');
         //Win scene
         this.load.image('bluebutton', './assets/Menu/button3.png')
+        this.load.image('win', './assets/Menu/win.png');
 
         //Lose Scene
         this.load.image('redSquare', './assets/Menu/loseSquare.png');
         this.load.image('redbutton', './assets/Menu/button2.png')
+        this.load.image('death', './assets/Menu/death.png');
     }
 
     create() {

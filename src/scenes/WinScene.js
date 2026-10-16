@@ -32,7 +32,7 @@ constructor() {
 
         resume.on('pointerdown', () => {
             this.scene.stop();
-            this.scene.play('LevelSelector'); 
+            this.scene.start('LevelSelector'); 
         });
 
         //boton reset nivel 
