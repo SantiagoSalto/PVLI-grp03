@@ -39,10 +39,14 @@ export default class PreloadScene extends Phaser.Scene {
 
         //Credits
         this.load.image('border', './assets/Menu/border.png');
+
+        //proyectil
+        this.load.image('projectile', 'assets/Personajes/projectile.png');
     }
 
     create() {
         this.scene.stop();          
         this.scene.start('MainMenuScene'); 
+        
     }
 }

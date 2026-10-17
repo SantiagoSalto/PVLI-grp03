@@ -12,7 +12,14 @@ export default class PlayScene extends Phaser.Scene {
 
         this.background = this.add.image(ancho / 2, alto / 2, 'background2');
 
-        this.inputManager = new InputManager(this);                      
+        this.inputManager = new InputManager(this);  
+        
+        this.input.mouse.disableContextMenu();
+
+
+        this.game.canvas.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+          });
 
         // plataforma provisional para probar el movimiento
         this.platform = this.add.rectangle(ancho/ 2, alto - 20, ancho, 40, 0x6b4f2a);

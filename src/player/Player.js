@@ -2,6 +2,7 @@ import StateMachine from '../stateMachine/StateMachine.js';
 import PlayerIdleState from './States/PlayerIdleState.js';
 import PlayerMoveState from './States/PlayerMoveState.js';
 import PlayerJumpState from './States/PlayerJumpState.js';
+import PlayerAttackState from './States/PlayerAttackState.js';
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
@@ -28,6 +29,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
         // input
         this.mouse = scene.inputManager;
+        // Ataque
+        this.attackPressed = false;
+
+        scene.input.mouse.disableContextMenu();
+
+        scene.input.on('pointerdown', (pointer) => {
+            if (pointer.button === 2) {
+                this.attackPressed = true;
+            }
+        });
 
         // estados
         this.stateMachine = new StateMachine(this);
@@ -35,6 +46,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             .addState('idle', new PlayerIdleState())
             .addState('move', new PlayerMoveState())
             .addState('jump', new PlayerJumpState())
+            .addState('attack', new PlayerAttackState())
             .setState('idle');
     }
 
@@ -58,6 +70,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     getSpeed(distance) {
         if (Math.abs(distance) > this.runDistance) return this.runSpeed;
         return this.walkSpeed;
+    }
+
+    wantsToAttack() {
+        if (!this.attackPressed) return false;
+
+        this.attackPressed = false;
+        return true;
     }
 
     isGrounded() {

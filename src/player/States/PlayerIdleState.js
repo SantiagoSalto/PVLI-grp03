@@ -19,5 +19,9 @@ export default class PlayerIdleState extends BaseState {
             player.stateMachine.setState('move');
             return;
         }
+        if(player.wantsToAttack()){
+            player.stateMachine.setState('attack');
+            return;
+        }
     }
 }
