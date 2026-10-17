@@ -11,6 +11,7 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
 
         this.body.setAllowGravity(true);
         this.setCollideWorldBounds(false);
+        this.setGravityY(1000);
     }
 
     shoot(velocityX, velocityY) {
