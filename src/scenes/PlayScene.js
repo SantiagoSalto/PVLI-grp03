@@ -1,4 +1,5 @@
 import Player from '../player/Player.js';
+import Enemy from '../Enemy.js';
 import InputManager from '../managers/InputManager.js';
 
 export default class PlayScene extends Phaser.Scene {
@@ -29,6 +30,9 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.add.collider(this.player, this.platform);
         this.physics.add.collider(this.player, this.platform2);
         this.physics.add.collider(this.player, this.platform3);
+
+
+        this.Enemy = new Enemy(this, 200, 200, 25, 0);
 
         //Iconos Interaccionables UI
         var play = this.add.image(ancho - 10, 10, 'play');

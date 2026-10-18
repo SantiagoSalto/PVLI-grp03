@@ -14,6 +14,8 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('lose', './assets/Menu/lose.png');
         //Jugador
         this.load.image('squirrel', './assets/Personajes/squirrel.png');
+        //Enemigo
+        this.load.image('enemy', './assets/Personajes/parrot.png');
 
         //Iconos
         this.load.image('ajustes', './assets/Menu/gear.png');
