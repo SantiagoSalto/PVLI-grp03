@@ -40,6 +40,10 @@ export default class PlayScene extends Phaser.Scene {
         // this.physics.add.collider(this.player, this.platform);
         // this.physics.add.collider(this.player, this.platform2);
         // this.physics.add.collider(this.player, this.platform3);
+
+        // NOTA de Alejandro: Hay que hacer que la colisión con el jugador se aplique en el mismo constructor si es posible. Por ahora las colisiones se administrarán aquí hasta que
+        // encontremos una solución. 
+
         this.physics.add.collider(this.player, this.Platform);
         this.physics.add.collider(this.player, this.Platform2);
         this.physics.add.collider(this.player, this.Platform3);
@@ -48,7 +52,9 @@ export default class PlayScene extends Phaser.Scene {
 
 
 
-        this.Enemy = new Enemy(this, 200, 200, 25, 0);
+        this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
+        this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
+
 
         //Iconos Interaccionables UI
         var play = this.add.image(ancho - 10, 10, 'play');
