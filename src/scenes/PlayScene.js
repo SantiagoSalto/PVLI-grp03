@@ -17,25 +17,34 @@ export default class PlayScene extends Phaser.Scene {
         this.inputManager = new InputManager(this);                      
 
         // plataforma provisional para probar el movimiento
-        this.platform = this.add.rectangle(ancho/ 2, alto - 20, ancho, 40, 0x6b4f2a);
-        this.physics.add.existing(this.platform, true);
+        //this.platform = this.add.rectangle(ancho/ 2, alto - 20, ancho, 40, 0x6b4f2a);
+        //this.physics.add.existing(this.platform, true);
 
         // plataformas provisionales en el aire para probar el salto
-        this.platform2 = this.add.rectangle(300, 450, 150, 20, 0x6b4f2a);
-        this.physics.add.existing(this.platform2, true);
+        // this.platform2 = this.add.rectangle(300, 450, 150, 20, 0x6b4f2a);
+        // this.physics.add.existing(this.platform2, true);
 
-        this.platform3 = this.add.rectangle(550, 330, 150, 20, 0x6b4f2a);
-        this.physics.add.existing(this.platform3, true);
+        // this.platform3 = this.add.rectangle(550, 330, 150, 20, 0x6b4f2a);
+        // this.physics.add.existing(this.platform3, true);
+
 
         this.player = new Player(this, 100, alto - 100);
 
-        this.Platform = new Platform(this, 100, 100, 25, 25);
+        // Plataformas con su propio constructor para componer el nivel de prueba.
+        this.Platform = new Platform(this, 300, 580, 250, 10);
+        this.Platform2 = new Platform(this, 300, 450, 33, 6);
+        this.Platform3 = new Platform(this, 550, 329, 33, 6);
 
 
-        this.physics.add.collider(this.player, this.platform);
-        this.physics.add.collider(this.player, this.platform2);
-        this.physics.add.collider(this.player, this.platform3);
+
+        // this.physics.add.collider(this.player, this.platform);
+        // this.physics.add.collider(this.player, this.platform2);
+        // this.physics.add.collider(this.player, this.platform3);
         this.physics.add.collider(this.player, this.Platform);
+        this.physics.add.collider(this.player, this.Platform2);
+        this.physics.add.collider(this.player, this.Platform3);
+
+
 
 
 
