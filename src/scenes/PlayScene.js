@@ -29,11 +29,14 @@ export default class PlayScene extends Phaser.Scene {
 
         this.player = new Player(this, 100, alto - 100);
 
-        this.Platform = new Platform(this, 100, 50, 100, 100);
+        this.Platform = new Platform(this, 100, 100, 25, 25);
+
 
         this.physics.add.collider(this.player, this.platform);
         this.physics.add.collider(this.player, this.platform2);
         this.physics.add.collider(this.player, this.platform3);
+        this.physics.add.collider(this.player, this.Platform);
+
 
 
         this.Enemy = new Enemy(this, 200, 200, 25, 0);

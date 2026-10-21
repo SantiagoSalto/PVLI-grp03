@@ -1,5 +1,3 @@
-import Player from '../player/Player.js';
-
 /**
  * Clase que representa una plataforma
  * @extends Phaser.GameObjects.Sprite
@@ -18,9 +16,7 @@ export default class Platform extends Phaser.GameObjects.Sprite {
 
 
 		this.scene.add.existing(this);
-		this.scene.physics.add.existing(this);
+		this.scene.physics.add.existing(this, true);
     	this.setSize(width, height);
-        this.physics.add.collider(this.player, this);
-
 	}
 }
