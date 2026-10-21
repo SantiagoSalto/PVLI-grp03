@@ -4,9 +4,12 @@ export default class GameOverScene extends Phaser.Scene {
     }
 
     create() {
-        this.background = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'lose');
+        const ancho = this.cameras.main.width;
+        const alto = this.cameras.main.height;
+
+        this.background = this.add.image(ancho / 2, alto / 2, 'lose');
         
-        var play = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 1.25, 'play');
+        var play = this.add.image(ancho / 2, alto / 1.25, 'play');
         play.setInteractive();
 
         play.on('pointerdown', () => {
