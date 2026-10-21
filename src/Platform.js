@@ -1,3 +1,5 @@
+import Player from '../player/Player.js';
+
 /**
  * Clase que representa una plataforma
  * @extends Phaser.GameObjects.Sprite
@@ -11,11 +13,14 @@ export default class Platform extends Phaser.GameObjects.Sprite {
 	 * @param {number} width - anchura de la plataforma
      * @param {number} height - altura de la plataforma
 	 */
-	constructor(scene, x, y, width, height, imgKey) {
-		super(scene, x, y, width, height, imgKey);
+	constructor(scene, x, y, width, height) {
+		super(scene, x, y, 'platform1');
+
+
 		this.scene.add.existing(this);
-		this.setOrigin(x, y);
 		this.scene.physics.add.existing(this);
-    	this.setSize(width, height),
+    	this.setSize(width, height);
+        this.physics.add.collider(this.player, this);
+
 	}
 }

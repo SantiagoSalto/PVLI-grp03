@@ -1,5 +1,6 @@
 import Player from '../player/Player.js';
 import Enemy from '../Enemy.js';
+import Platform from '../Platform.js';
 import InputManager from '../managers/InputManager.js';
 
 export default class PlayScene extends Phaser.Scene {
@@ -27,6 +28,9 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.add.existing(this.platform3, true);
 
         this.player = new Player(this, 100, alto - 100);
+
+        this.Platform = new Platform(this, 100, 50, 100, 100);
+
         this.physics.add.collider(this.player, this.platform);
         this.physics.add.collider(this.player, this.platform2);
         this.physics.add.collider(this.player, this.platform3);
