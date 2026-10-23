@@ -31,7 +31,7 @@ export default class PreloadScene extends Phaser.Scene {
         //Info PreNivel
         this.load.image('blueSquare', './assets/Menu/levelSquare.png');
         this.load.image('star', './assets/Menu/star.png');
-        this.load.image('nostar', '/assets/Menu/star_outline.png');
+        this.load.image('nostar', './assets/Menu/star_outline.png');
         //Win scene
         this.load.image('bluebutton', './assets/Menu/button3.png')
         this.load.image('win', './assets/Menu/win.png');
