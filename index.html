@@ -6,18 +6,18 @@
   <title>TÍTULO DEL JUEGO</title>
   <link rel="stylesheet" href="./estilo.css">
   <script src="./script.js"></script>
+  <script src="./lib/phaser.js"></script>
 </head>
 <body>
   <div class="pagina">
 
     <header>
-      <h1>TÍTULO DEL JUEGO</h1>
+      <h1>PROYECTO BELLOTA</h1>
     </header>
 
     <!-- Aquí se montará el juego de Phaser -->
-    <div id="game">
-      <span>Aquí irá el juego</span>
-    </div>
+    <div id="game"></div>
+    <script src="./src/game.js" type="module"></script>
 
     <nav>
       <button class="pestana activa" onclick="mostrarPestana('juego', this)">El juego</button>
