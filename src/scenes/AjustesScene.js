@@ -54,7 +54,7 @@ create() {
         const anchoBarra = bar1.displayWidth;
 
         // Círculo 1 (SFX) - Color Rosa Oscuro (0xd946ef)
-        let bolita1 = this.add.circle(bar1.x, sfxY, 10, 0xd946ef).setInteractive({ useHandCursor: true });
+        let bolita1 = this.add.circle(bar1.x, sfxY, 10, 0xEDF71E).setInteractive({ useHandCursor: true });
         this.input.setDraggable(bolita1);
         //El setData se trata de para leer valores necesarios, en este caso, de los limites y ancho de barra con 
         // el valor de que tendra cada ajuste. Esto se hace asi para que la variable pueda ser leida dentro de otra funcion
@@ -62,12 +62,12 @@ create() {
         bolita1.setData({ minX: minX, maxX: maxX, anchoBarra: anchoBarra, textoValor: sfxValor });
 
         // Círculo 2 (MUSICA)
-        let bolita2 = this.add.circle(bar2.x, musicY, 10, 0xd946ef).setInteractive({ useHandCursor: true });
+        let bolita2 = this.add.circle(bar2.x, musicY, 10, 0xEDF71E).setInteractive({ useHandCursor: true });
         this.input.setDraggable(bolita2);
         bolita2.setData({ minX: minX, maxX: maxX, anchoBarra: anchoBarra, textoValor: musicaValor });
 
         // Círculo 3 (SENS)
-        let bolita3 = this.add.circle(bar3.x, sensY, 10, 0xd946ef).setInteractive({ useHandCursor: true });
+        let bolita3 = this.add.circle(bar3.x, sensY, 10, 0xEDF71E).setInteractive({ useHandCursor: true });
         this.input.setDraggable(bolita3);
         bolita3.setData({ minX: minX, maxX: maxX, anchoBarra: anchoBarra, textoValor: sensValor });
 

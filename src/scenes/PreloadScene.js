@@ -47,6 +47,7 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('blueBar', './assets/Menu/settingsbar2.png')
         //Credits
         this.load.image('border', './assets/Menu/border.png');
+        this.load.image('yellowSquare', './assets/Menu/creditsSquare.png')
     }
 
     create() {
