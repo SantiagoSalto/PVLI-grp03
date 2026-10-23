@@ -41,6 +41,10 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('redbutton', './assets/Menu/button2.png')
         this.load.image('death', './assets/Menu/death.png');
 
+        //Ajustes barras
+        this.load.image('barra', './assets/Menu/barra.png');
+        this.load.image('pinkBar', './assets/Menu/settingsbar.png');
+        this.load.image('blueBar', './assets/Menu/settingsbar2.png')
         //Credits
         this.load.image('border', './assets/Menu/border.png');
     }
