@@ -31,9 +31,9 @@ export default class PlayScene extends Phaser.Scene {
         this.player = new Player(this, 100, alto - 100);
 
         // Plataformas con su propio constructor para componer el nivel de prueba.
-        this.Platform = new Platform(this, 300, 580, 250, 10);
-        this.Platform2 = new Platform(this, 300, 450, 33, 6);
-        this.Platform3 = new Platform(this, 550, 329, 33, 6);
+        this.Platform = new Platform(this, 300, 580, 250, 10, this.player);
+        this.Platform2 = new Platform(this, 300, 450, 33, 6, this.player);
+        this.Platform3 = new Platform(this, 550, 329, 33, 6, this.player);
 
 
 
@@ -44,9 +44,9 @@ export default class PlayScene extends Phaser.Scene {
         // NOTA de Alejandro: Hay que hacer que la colisión con el jugador se aplique en el mismo constructor si es posible. Por ahora las colisiones se administrarán aquí hasta que
         // encontremos una solución. 
 
-        this.physics.add.collider(this.player, this.Platform);
-        this.physics.add.collider(this.player, this.Platform2);
-        this.physics.add.collider(this.player, this.Platform3);
+        // this.physics.add.collider(this.player, this.Platform);
+        // this.physics.add.collider(this.player, this.Platform2);
+        // this.physics.add.collider(this.player, this.Platform3);
 
 
 
