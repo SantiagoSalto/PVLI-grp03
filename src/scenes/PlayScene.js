@@ -33,6 +33,7 @@ export default class PlayScene extends Phaser.Scene {
 
         this.physics.add.overlap(this.player, this.enemies);
 
+        // Corazones de vida en la UI
 
         this.heart1 = this.add.image(90, 40, 'life');
         this.heart2 = this.add.image(180, 40, 'life');
@@ -51,7 +52,7 @@ export default class PlayScene extends Phaser.Scene {
         //Iconos Interaccionables UI
 
         //Icono menu de pausa
-        var pausa = this.add.image(ancho - 10, 100, 'pausa');
+        var pausa = this.add.image(ancho -50, 60, 'pausa');
         pausa.setInteractive();
         pausa.on('pointerdown', () =>{
             this.scene.pause();
