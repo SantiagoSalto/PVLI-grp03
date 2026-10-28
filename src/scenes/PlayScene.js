@@ -14,19 +14,7 @@ export default class PlayScene extends Phaser.Scene {
 
         this.background = this.add.image(ancho / 2, alto / 2, 'background2');
 
-        this.inputManager = new InputManager(this);                      
-
-        // plataforma provisional para probar el movimiento
-        //this.platform = this.add.rectangle(ancho/ 2, alto - 20, ancho, 40, 0x6b4f2a);
-        //this.physics.add.existing(this.platform, true);
-
-        // plataformas provisionales en el aire para probar el salto
-        // this.platform2 = this.add.rectangle(300, 450, 150, 20, 0x6b4f2a);
-        // this.physics.add.existing(this.platform2, true);
-
-        // this.platform3 = this.add.rectangle(550, 330, 150, 20, 0x6b4f2a);
-        // this.physics.add.existing(this.platform3, true);
-
+        this.inputManager = new InputManager(this);
 
         this.player = new Player(this, 100, alto - 100);
 
@@ -35,25 +23,16 @@ export default class PlayScene extends Phaser.Scene {
         this.Platform2 = new Platform(this, 300, 450, 33, 6, this.player);
         this.Platform3 = new Platform(this, 550, 329, 33, 6, this.player);
 
-
-
-        // this.physics.add.collider(this.player, this.platform);
-        // this.physics.add.collider(this.player, this.platform2);
-        // this.physics.add.collider(this.player, this.platform3);
-
-        // NOTA de Alejandro: Hay que hacer que la colisión con el jugador se aplique en el mismo constructor si es posible. Por ahora las colisiones se administrarán aquí hasta que
-        // encontremos una solución. 
-
-        // this.physics.add.collider(this.player, this.Platform);
-        // this.physics.add.collider(this.player, this.Platform2);
-        // this.physics.add.collider(this.player, this.Platform3);
-
-
-
-
+        this.enemies = this.physics.add.group();
 
         this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
         this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
+
+        this.enemies.add(this.Enemy1);
+        this.enemies.add(this.Enemy2);
+
+        this.physics.add.overlap(this.player, this.enemies);
+        //this.physics.add.overlap(this.player, this.Enemy1);
 
 
         //Iconos Interaccionables UI
@@ -99,6 +78,12 @@ export default class PlayScene extends Phaser.Scene {
 
     update(time, delta) {
         this.player.update(time, delta);
+        if (this.physics.overlap(this.player, this.enemies) && this.player.invencible == 0)
+        {
+            this.player.lives -= 1;
+            this.player.invencible = 1;
+            console.log("Enemigo tocado. Vidas restantes: " + this.player.lives)
+        }
     }
 
 }
