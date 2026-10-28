@@ -32,50 +32,53 @@ export default class PlayScene extends Phaser.Scene {
         this.enemies.add(this.Enemy2);
 
         this.physics.add.overlap(this.player, this.enemies);
-        //this.physics.add.overlap(this.player, this.Enemy1);
 
+
+        this.heart1 = this.add.image(90, 40, 'life');
+        this.heart2 = this.add.image(180, 40, 'life');
+        this.heart3 = this.add.image(270, 40, 'life');
+
+
+        this.heart1.setOrigin(1, 0);
+        this.heart1.setScale(0.015);
+
+        this.heart2.setOrigin(1, 0);
+        this.heart2.setScale(0.015);
+
+        this.heart3.setOrigin(1, 0);
+        this.heart3.setScale(0.015);
 
         //Iconos Interaccionables UI
-        var play = this.add.image(ancho - 10, 10, 'play');
-        play.setOrigin(1, 0);
-        play.setScale(0.3);
-        play.setInteractive();
-
-        play.on('pointerdown', () => {
-            this.scene.stop();
-            this.scene.start('GameOverScene');
-        });
 
         //Icono menu de pausa
-        var pausa = this.add.image(100, 100, 'pausa');
+        var pausa = this.add.image(ancho - 10, 100, 'pausa');
         pausa.setInteractive();
         pausa.on('pointerdown', () =>{
-            this.scene.pause()
+            this.scene.pause();
             this.scene.launch('PauseScene');
         })
 
         //Provisioales para visualización
             //Win scene
-            var win = this.add.image(ancho -200, 70, 'win');
-            play.setOrigin(1, 0);
-            win.setScale(0.10);
-            win.setInteractive();
-            win.on('pointerdown', () =>{
-                this.scene.pause();
-                this.scene.launch('WinScene');
-            });
+            // var win = this.add.image(ancho -200, 70, 'win');
+            // play.setOrigin(1, 0);
+            // win.setScale(0.10);
+            // win.setInteractive();
+            // win.on('pointerdown', () =>{
+            //     this.scene.pause();
+            //     this.scene.launch('WinScene');
+            // });
 
             //Lose scene
-            var death = this.add.image(ancho -300, 70, 'death');
-            play.setOrigin(1, 0);
-            death.setScale(0.10);
-            death.setInteractive();
-            death.on('pointerdown', () =>{
-                this.scene.pause();
-                this.scene.launch('LoseScene');
-            });
+            // var death = this.add.image(ancho -300, 70, 'death');
+            // play.setOrigin(1, 0);
+            // death.setScale(0.10);
+            // death.setInteractive();
+            // death.on('pointerdown', () =>{
+            //     this.scene.pause();
+            //     this.scene.launch('LoseScene');
+            // });
 	}
-
     update(time, delta) {
         this.player.update(time, delta);
         if (this.physics.overlap(this.player, this.enemies) && this.player.invencible == 0)
@@ -83,6 +86,35 @@ export default class PlayScene extends Phaser.Scene {
             this.player.lives -= 1;
             this.player.invencible = 1;
             console.log("Enemigo tocado. Vidas restantes: " + this.player.lives)
+            if (this.player.lives <= 0)
+            {
+                this.scene.pause();
+                this.scene.launch('LoseScene');
+            }
+        }
+        if (this.player.lives == 3) 
+        {
+            this.heart1.setAlpha(1);
+            this.heart2.setAlpha(1);
+            this.heart3.setAlpha(1);
+        }
+        else if (this.player.lives == 2)
+        {
+            this.heart1.setAlpha(1);
+            this.heart2.setAlpha(1);
+            this.heart3.setAlpha(0);
+        }
+        else if (this.player.lives == 1)
+        {
+            this.heart1.setAlpha(1);
+            this.heart2.setAlpha(0);
+            this.heart3.setAlpha(0);
+        }
+        else if (this.player.lives == 0)
+        {
+            this.heart1.setAlpha(0);
+            this.heart2.setAlpha(0);
+            this.heart3.setAlpha(0);
         }
     }
 
