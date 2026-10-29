@@ -12,6 +12,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.physics.add.existing(this);                      // activar fisicas
         this.setCollideWorldBounds(true);                      // colision con bordes
         this.setGravityY(1000);                                // gravedad
+        this.body.setMaxVelocityY(900);                        // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
 
         this.setScale(0.15);                                   // tamaño en pantalla
         this.body.setSize(300, 400);                           // hitbox ajustada
