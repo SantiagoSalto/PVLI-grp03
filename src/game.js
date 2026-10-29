@@ -9,11 +9,13 @@ import LevelSelector from './scenes/LevelSelector.js';
 import LevelInfo from './scenes/LevelInfo.js';
 import PauseScene from './scenes/PauseScene.js';
 import LoseScene from './scenes/LoseScene.js';
+import { SCREEN_WIDTH, SCREEN_HEIGHT } from './Measures.js';
 
-const WIDTH = 800;
-const HEIGHT = 600;
+const WIDTH = SCREEN_WIDTH;
+const HEIGHT = SCREEN_HEIGHT;
 
 document.getElementById('game').style.aspectRatio = `${WIDTH} / ${HEIGHT}`;
+document.getElementById('game').style.maxWidth = `${WIDTH}px`;   //nunca mas grande que su tamaño real
 
 let config = {
     type: Phaser.AUTO,
