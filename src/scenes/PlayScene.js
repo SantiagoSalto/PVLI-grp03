@@ -31,7 +31,7 @@ export default class PlayScene extends Phaser.Scene {
         // this.enemies.add(this.Enemy1);
         // this.enemies.add(this.Enemy2);
 
-        this.physics.add.overlap(this.player, this.enemies);
+        // this.physics.add.overlap(this.player, this.enemies);
 
         // Corazones de vida en la UI
 
@@ -70,7 +70,7 @@ export default class PlayScene extends Phaser.Scene {
             //     this.scene.launch('WinScene');
             // });
 
-            Lose scene
+            //Lose scene
             var death = this.add.image(ancho -300, 70, 'death');
             play.setOrigin(1, 0);
             death.setScale(0.10);
