@@ -35,9 +35,9 @@ export default class PlayScene extends Phaser.Scene {
 
         // Corazones de vida en la UI
 
-        this.heart1 = this.add.image(ancho + 90, 40, 'life');
-        this.heart2 = this.add.image(ancho + 180, 40, 'life');
-        this.heart3 = this.add.image(ancho + 270, 40, 'life');
+        this.heart1 = this.add.image(90, 40, 'life');
+        this.heart2 = this.add.image(180, 40, 'life');
+        this.heart3 = this.add.image(270, 40, 'life');
 
 
         this.heart1.setOrigin(1, 0);
@@ -62,7 +62,7 @@ export default class PlayScene extends Phaser.Scene {
 
 
         //Icono menu de pausa
-        var pausa = this.add.image(ancho -50, 60, 'pausa');
+        var pausa = this.add.image(100, 100, 'pausa');
         pausa.setInteractive();
         pausa.on('pointerdown', () =>{
             this.scene.pause();
@@ -70,7 +70,7 @@ export default class PlayScene extends Phaser.Scene {
         })
 
         //Provisioales para visualización
-            Win scene
+            //Win scene
             var win = this.add.image(ancho -200, 70, 'win');
             play.setOrigin(1, 0);
             win.setScale(0.10);
