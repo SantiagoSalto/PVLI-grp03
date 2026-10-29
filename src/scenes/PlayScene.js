@@ -119,7 +119,7 @@ export default class PlayScene extends Phaser.Scene {
         play.setOrigin(1, 0);
         play.setScale(0.3);
         play.setInteractive();
-
+        play.setScrollFactor(0);
         play.on('pointerdown', () => {
             this.scene.stop();
             this.scene.start('GameOverScene');
@@ -128,6 +128,7 @@ export default class PlayScene extends Phaser.Scene {
         //Icono menu de pausa
         var pausa = this.add.image(100, 100, 'pausa');
         pausa.setInteractive();
+        pausa.setScrollFactor(0);
         pausa.on('pointerdown', () =>{
             this.scene.pause()
             this.scene.launch('PauseScene');
