@@ -11,7 +11,7 @@ create() {
         this.background = this.add.image(ancho/2, alto/2, 'background4');
         this.background.setScale(1.8);
 
-        //boton nivel: 
+        //boton nivel1: 
         var iconLevel = this.add.image(ancho/4, alto/2, 'iconLevel'); 
         iconLevel.setScale(0.5);
         iconLevel.setInteractive();
@@ -19,6 +19,16 @@ create() {
             //Clave para que se ejecuten las 2 escenas "al mismo tiempo"
             this.scene.launch('LevelInfo');
         });
+
+        //boton nivel2:
+        var iconLevel2 = this.add.image(ancho/4+200, alto/2-100, 'iconLevel'); 
+        iconLevel2.setScale(0.5);
+        iconLevel2.setInteractive();
+        iconLevel2.on('pointerdown', () =>{
+            //Clave para que se ejecuten las 2 escenas "al mismo tiempo"
+            this.scene.launch('LevelInfo');
+        });
+
 
 
 
