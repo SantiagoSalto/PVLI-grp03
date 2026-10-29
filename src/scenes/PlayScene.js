@@ -35,9 +35,9 @@ export default class PlayScene extends Phaser.Scene {
 
         // Corazones de vida en la UI
 
-        this.heart1 = this.add.image(90, 40, 'life');
-        this.heart2 = this.add.image(180, 40, 'life');
-        this.heart3 = this.add.image(270, 40, 'life');
+        this.heart1 = this.add.image(ancho + 90, 40, 'life');
+        this.heart2 = this.add.image(ancho + 180, 40, 'life');
+        this.heart3 = this.add.image(ancho + 270, 40, 'life');
 
 
         this.heart1.setOrigin(1, 0);
@@ -50,6 +50,16 @@ export default class PlayScene extends Phaser.Scene {
         this.heart3.setScale(0.015);
 
         //Iconos Interaccionables UI
+        var play = this.add.image(ancho - 10, 10, 'play');
+        play.setOrigin(1, 0);
+        play.setScale(0.3);
+        play.setInteractive();
+
+        play.on('pointerdown', () => {
+            this.scene.stop();
+            this.scene.start('GameOverScene');
+        });
+
 
         //Icono menu de pausa
         var pausa = this.add.image(ancho -50, 60, 'pausa');
@@ -60,25 +70,25 @@ export default class PlayScene extends Phaser.Scene {
         })
 
         //Provisioales para visualización
-            //Win scene
-            // var win = this.add.image(ancho -200, 70, 'win');
-            // play.setOrigin(1, 0);
-            // win.setScale(0.10);
-            // win.setInteractive();
-            // win.on('pointerdown', () =>{
-            //     this.scene.pause();
-            //     this.scene.launch('WinScene');
-            // });
-
-            //Lose scene
-            var death = this.add.image(ancho -300, 70, 'death');
+            Win scene
+            var win = this.add.image(ancho -200, 70, 'win');
             play.setOrigin(1, 0);
-            death.setScale(0.10);
-            death.setInteractive();
-            death.on('pointerdown', () =>{
+            win.setScale(0.10);
+            win.setInteractive();
+            win.on('pointerdown', () =>{
                 this.scene.pause();
-                this.scene.launch('LoseScene');
+                this.scene.launch('WinScene');
             });
+
+            // //Lose scene
+            // var death = this.add.image(ancho -300, 70, 'death');
+            // death.setOrigin(1, 0);
+            // death.setScale(0.10);
+            // death.setInteractive();
+            // death.on('pointerdown', () =>{
+            //     this.scene.pause();
+            //     this.scene.launch('LoseScene');
+            // });
 	}
     update(time, delta) {
         this.player.update(time, delta);
