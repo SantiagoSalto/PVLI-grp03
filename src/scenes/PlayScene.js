@@ -35,7 +35,9 @@ export default class PlayScene extends Phaser.Scene {
 
         // CARGA DEL TILEMAP (Tiled)
         const map = this.make.tilemap({ key: 'level' + this.level });
-        const tileset = map.addTilesetImage('Pipoya_Grass1', 'tilesGrass1');   //nombre en Tiled, clave en Preload
+        let tileset;
+        if (this.level === 1) tileset = map.addTilesetImage('Pipoya_Grass1', 'tilesGrass1');   //nombre en Tiled, clave en Preload
+        else tileset = map.addTilesetImage('Pipoya_Dirt1', 'tilesDirt1');
         const ground = map.createLayer('Ground', tileset, 0, 0);
         ground.setCollisionByProperty({ Collision: true });
 

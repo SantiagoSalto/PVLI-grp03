@@ -17,7 +17,7 @@ create() {
         iconLevel.setInteractive();
         iconLevel.on('pointerdown', () =>{
             //Clave para que se ejecuten las 2 escenas "al mismo tiempo"
-            this.scene.launch('LevelInfo');
+            this.scene.launch('LevelInfo', { level: 1 });
         });
 
         //boton nivel2:
@@ -26,7 +26,7 @@ create() {
         iconLevel2.setInteractive();
         iconLevel2.on('pointerdown', () =>{
             //Clave para que se ejecuten las 2 escenas "al mismo tiempo"
-            this.scene.launch('LevelInfo');
+            this.scene.launch('LevelInfo', { level: 2 });
         });
 
 

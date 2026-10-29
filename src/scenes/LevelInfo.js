@@ -4,6 +4,9 @@ export default class LevelInfo extends Phaser.Scene {
         super({ key: 'LevelInfo'});
     }
 
+    init(data) {
+        this.level = data.level;   //nivel elegido en LevelSelector
+    }
 
     create(){
         const ancho = this.cameras.main.width;
@@ -88,7 +91,7 @@ export default class LevelInfo extends Phaser.Scene {
         play.on('pointerdown', () => {
             this.scene.stop('LevelSelector'); //Paramos escena padre
             this.scene.stop(); //Paramos escena pop-up
-            this.scene.start("PlayScene"); //Iniciamos nivel
+            this.scene.start("PlayScene", { level: this.level }); //Iniciamos nivel
         });
 
         
