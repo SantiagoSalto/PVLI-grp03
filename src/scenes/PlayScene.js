@@ -23,13 +23,13 @@ export default class PlayScene extends Phaser.Scene {
         this.Platform2 = new Platform(this, 300, 450, 33, 6, this.player);
         this.Platform3 = new Platform(this, 550, 329, 33, 6, this.player);
 
-        this.enemies = this.physics.add.group();
+        // this.enemies = this.physics.add.group();
 
-        this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
-        this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
+        // this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
+        // this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
 
-        this.enemies.add(this.Enemy1);
-        this.enemies.add(this.Enemy2);
+        // this.enemies.add(this.Enemy1);
+        // this.enemies.add(this.Enemy2);
 
         this.physics.add.overlap(this.player, this.enemies);
 
