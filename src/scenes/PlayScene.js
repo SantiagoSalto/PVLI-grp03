@@ -94,22 +94,9 @@ export default class PlayScene extends Phaser.Scene {
 
         // Corazones de vida en la UI
 
-        this.heart1 = this.add.image(90, 40, 'life');
-        this.heart2 = this.add.image(180, 40, 'life');
-        this.heart3 = this.add.image(270, 40, 'life');
-
-
-        this.heart1.setOrigin(1, 0);
-        this.heart1.setScale(0.015);
-
-        this.heart2.setOrigin(1, 0);
-        this.heart2.setScale(0.015);
         // Ahora los enemigos se crean desde el mapa de Tiled
         // this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
         // this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
-
-        this.heart3.setOrigin(1, 0);
-        this.heart3.setScale(0.015);
 
         //Iconos Interaccionables UI
         var play = this.add.image(ancho - 10, 10, 'play');
@@ -121,7 +108,20 @@ export default class PlayScene extends Phaser.Scene {
             this.scene.stop();
             this.scene.start('GameOverScene');
         });
+        this.heart1 = this.add.image(ancho - 900, 10, 'life');
+        this.heart1.setOrigin(1, 0);
+        this.heart1.setScale(0.017);
+        this.heart1.setScrollFactor(0);
 
+        this.heart2 = this.add.image(ancho - 800, 10, 'life');
+        this.heart2.setOrigin(1, 0);
+        this.heart2.setScale(0.017);
+        this.heart2.setScrollFactor(0);
+
+        this.heart3 = this.add.image(ancho - 700, 10, 'life');
+        this.heart3.setOrigin(1, 0);
+        this.heart3.setScale(0.017);
+        this.heart3.setScrollFactor(0);
 
         //Icono menu de pausa
         var pausa = this.add.image(100, 100, 'pausa');
