@@ -19,19 +19,7 @@ export default class PlayScene extends Phaser.Scene {
 
         //this.background = this.add.image(ancho / 2, alto / 2, 'background2');
 
-        this.inputManager = new InputManager(this);                      
-
-        // plataforma provisional para probar el movimiento
-        //this.platform = this.add.rectangle(ancho/ 2, alto - 20, ancho, 40, 0x6b4f2a);
-        //this.physics.add.existing(this.platform, true);
-
-        // plataformas provisionales en el aire para probar el salto
-        // this.platform2 = this.add.rectangle(300, 450, 150, 20, 0x6b4f2a);
-        // this.physics.add.existing(this.platform2, true);
-
-        // this.platform3 = this.add.rectangle(550, 330, 150, 20, 0x6b4f2a);
-        // this.physics.add.existing(this.platform3, true);
-
+        this.inputManager = new InputManager(this);
 
         // CARGA DEL TILEMAP (Tiled)
         const map = this.make.tilemap({ key: 'level' + this.level });
@@ -94,27 +82,34 @@ export default class PlayScene extends Phaser.Scene {
         // this.Platform2 = new Platform(this, 300, 450, 33, 6, this.player);
         // this.Platform3 = new Platform(this, 550, 329, 33, 6, this.player);
 
+        // this.enemies = this.physics.add.group();
+
+        // this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
+        // this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
+
+        // this.enemies.add(this.Enemy1);
+        // this.enemies.add(this.Enemy2);
+
+        // this.physics.add.overlap(this.player, this.enemies);
+
+        // Corazones de vida en la UI
+
+        this.heart1 = this.add.image(90, 40, 'life');
+        this.heart2 = this.add.image(180, 40, 'life');
+        this.heart3 = this.add.image(270, 40, 'life');
 
 
-        // this.physics.add.collider(this.player, this.platform);
-        // this.physics.add.collider(this.player, this.platform2);
-        // this.physics.add.collider(this.player, this.platform3);
+        this.heart1.setOrigin(1, 0);
+        this.heart1.setScale(0.015);
 
-        // NOTA de Alejandro: Hay que hacer que la colisión con el jugador se aplique en el mismo constructor si es posible. Por ahora las colisiones se administrarán aquí hasta que
-        // encontremos una solución. 
-
-        // this.physics.add.collider(this.player, this.Platform);
-        // this.physics.add.collider(this.player, this.Platform2);
-        // this.physics.add.collider(this.player, this.Platform3);
-
-
-
-
-
+        this.heart2.setOrigin(1, 0);
+        this.heart2.setScale(0.015);
         // Ahora los enemigos se crean desde el mapa de Tiled
         // this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
         // this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
 
+        this.heart3.setOrigin(1, 0);
+        this.heart3.setScale(0.015);
 
         //Iconos Interaccionables UI
         var play = this.add.image(ancho - 10, 10, 'play');
@@ -127,17 +122,36 @@ export default class PlayScene extends Phaser.Scene {
             this.scene.start('GameOverScene');
         });
 
+
         //Icono menu de pausa
         var pausa = this.add.image(100, 100, 'pausa');
         pausa.setInteractive();
         pausa.setScrollFactor(0);
         pausa.on('pointerdown', () =>{
-            this.scene.pause()
+            this.scene.pause();
             this.scene.launch('PauseScene');
         })
 
         //Provisioales para visualización
             //Win scene
+            var win = this.add.image(ancho -200, 70, 'win');
+            play.setOrigin(1, 0);
+            win.setScale(0.10);
+            win.setInteractive();
+            win.on('pointerdown', () =>{
+                this.scene.pause();
+                this.scene.launch('WinScene');
+            });
+
+            //Lose scene
+            var death = this.add.image(ancho -300, 70, 'death');
+            death.setOrigin(1, 0);
+            death.setScale(0.10);
+            death.setInteractive();
+            death.on('pointerdown', () =>{
+                this.scene.pause();
+                this.scene.launch('LoseScene');
+            });
             // var win = this.add.image(ancho -200, 70, 'win');
             // play.setOrigin(1, 0);
             // win.setScale(0.10);
@@ -166,9 +180,43 @@ export default class PlayScene extends Phaser.Scene {
         //Evitar que se note borrosos los pixeles
         this.cameras.main.setRoundPixels(true);
 	}
-
     update(time, delta) {
         this.player.update(time, delta);
+        if (this.physics.overlap(this.player, this.enemies) && this.player.invencible == 0)
+        {
+            this.player.lives -= 1;
+            this.player.invencible = 1;
+            console.log("Enemigo tocado. Vidas restantes: " + this.player.lives)
+            if (this.player.lives <= 0)
+            {
+                this.scene.pause();
+                this.scene.launch('LoseScene');
+            }
+        }
+        if (this.player.lives == 3) 
+        {
+            this.heart1.setAlpha(1);
+            this.heart2.setAlpha(1);
+            this.heart3.setAlpha(1);
+        }
+        else if (this.player.lives == 2)
+        {
+            this.heart1.setAlpha(1);
+            this.heart2.setAlpha(1);
+            this.heart3.setAlpha(0);
+        }
+        else if (this.player.lives == 1)
+        {
+            this.heart1.setAlpha(1);
+            this.heart2.setAlpha(0);
+            this.heart3.setAlpha(0);
+        }
+        else if (this.player.lives == 0)
+        {
+            this.heart1.setAlpha(0);
+            this.heart2.setAlpha(0);
+            this.heart3.setAlpha(0);
+        }
     }
 
     //Devuelve el valor de una propiedad personalizada de un objeto de Tiled
