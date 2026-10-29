@@ -48,6 +48,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     {
         if (this.invencible == 1)
         {
+            this.setAlpha(0.7);
             this.invincibilityframe += dt;
             if (this.invincibilityframe >= this.invincibilitydur) 
             {
@@ -56,6 +57,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
                 console.log("Invencibilidad desactivada")
             }
         }
+        else this.setAlpha(1);
     }
     update(time, delta) {
         // avanzar maquina de estados
