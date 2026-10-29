@@ -80,15 +80,15 @@ export default class PlayScene extends Phaser.Scene {
                 this.scene.launch('WinScene');
             });
 
-            // //Lose scene
-            // var death = this.add.image(ancho -300, 70, 'death');
-            // death.setOrigin(1, 0);
-            // death.setScale(0.10);
-            // death.setInteractive();
-            // death.on('pointerdown', () =>{
-            //     this.scene.pause();
-            //     this.scene.launch('LoseScene');
-            // });
+            //Lose scene
+            var death = this.add.image(ancho -300, 70, 'death');
+            death.setOrigin(1, 0);
+            death.setScale(0.10);
+            death.setInteractive();
+            death.on('pointerdown', () =>{
+                this.scene.pause();
+                this.scene.launch('LoseScene');
+            });
 	}
     update(time, delta) {
         this.player.update(time, delta);
