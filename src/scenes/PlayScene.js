@@ -133,25 +133,25 @@ export default class PlayScene extends Phaser.Scene {
         })
 
         //Provisioales para visualización
-            //Win scene
-            var win = this.add.image(ancho -200, 70, 'win');
-            play.setOrigin(1, 0);
-            win.setScale(0.10);
-            win.setInteractive();
-            win.on('pointerdown', () =>{
-                this.scene.pause();
-                this.scene.launch('WinScene');
-            });
+            // //Win scene
+            // var win = this.add.image(ancho -200, 70, 'win');
+            // play.setOrigin(1, 0);
+            // win.setScale(0.10);
+            // win.setInteractive();
+            // win.on('pointerdown', () =>{
+            //     this.scene.pause();
+            //     this.scene.launch('WinScene');
+            // });
 
-            //Lose scene
-            var death = this.add.image(ancho -300, 70, 'death');
-            death.setOrigin(1, 0);
-            death.setScale(0.10);
-            death.setInteractive();
-            death.on('pointerdown', () =>{
-                this.scene.pause();
-                this.scene.launch('LoseScene');
-            });
+            // //Lose scene
+            // var death = this.add.image(ancho -300, 70, 'death');
+            // death.setOrigin(1, 0);
+            // death.setScale(0.10);
+            // death.setInteractive();
+            // death.on('pointerdown', () =>{
+            //     this.scene.pause();
+            //     this.scene.launch('LoseScene');
+            // });
             // var win = this.add.image(ancho -200, 70, 'win');
             // play.setOrigin(1, 0);
             // win.setScale(0.10);
