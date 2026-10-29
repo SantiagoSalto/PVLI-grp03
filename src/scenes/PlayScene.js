@@ -77,24 +77,33 @@ export default class PlayScene extends Phaser.Scene {
 
         //Provisioales para visualización
             //Win scene
-            var win = this.add.image(ancho -200, 70, 'win');
-            play.setOrigin(1, 0);
-            win.setScale(0.10);
-            win.setInteractive();
-            win.on('pointerdown', () =>{
-                this.scene.pause();
-                this.scene.launch('WinScene');
-            });
+            // var win = this.add.image(ancho -200, 70, 'win');
+            // play.setOrigin(1, 0);
+            // win.setScale(0.10);
+            // win.setInteractive();
+            // win.on('pointerdown', () =>{
+            //     this.scene.pause();
+            //     this.scene.launch('WinScene');
+            // });
 
-            //Lose scene
-            var death = this.add.image(ancho -300, 70, 'death');
-            play.setOrigin(1, 0);
-            death.setScale(0.10);
-            death.setInteractive();
-            death.on('pointerdown', () =>{
-                this.scene.pause();
-                this.scene.launch('LoseScene');
-            });
+            // //Lose scene
+            // var death = this.add.image(ancho -300, 70, 'death');
+            // play.setOrigin(1, 0);
+            // death.setScale(0.10);
+            // death.setInteractive();
+            // death.on('pointerdown', () =>{
+            //     this.scene.pause();
+            //     this.scene.launch('LoseScene');
+            // });
+
+        //Cámara:     
+        //Metodo propio de camara para que siga un objeto, en este caso al jugador
+        this.cameras.main.startFollow(this.player);
+        //Limites a la camara,  poisiciones, & ancho y alto
+        this.cameras.main.setBounds(0,0,2000,alto/2);         //si quitamos esta linea se ve totalmente distinto el juego 
+
+        //Evitar que se note borrosos los pixeles
+        this.cameras.main.setRoundPixels(true);
 	}
 
     update(time, delta) {
