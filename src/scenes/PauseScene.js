@@ -14,7 +14,7 @@ export default class PauseScene extends Phaser.Scene {
         overlay.setAlpha(0.6); // 60% de opacidad. Oscurece Main Menu
         overlay.setInteractive(); //Bloquea Clicks a botones fuera de la escena
 
-        this.background = this.add.image(ancho/2, alto/2, 'blueSquare');
+        this.background = this.add.image(ancho/2, alto/2, 'greenSquare');
         this.background.setScale(3);
 
         // var star = this.add.image(ancho/2, alto/2, 'star');

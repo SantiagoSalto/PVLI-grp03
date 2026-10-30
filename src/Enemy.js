@@ -1,49 +1,55 @@
 /**
  * Clase que representa un enemigo
- * @extends Phaser.GameObjects.Sprite
  */
 export default class Enemy extends Phaser.GameObjects.Sprite {
 	/**
 	 * Constructor de Enemy
-	 * @param {Scene} scene Escena en la que aparecerá el enemigo
-	 * @param {number} x - coordenada X
-	 * @param {number} y - coordenada Y
-	 * @param {number} speedX - velocidad de movimiento en el eje X
-     * @param {number} speedY - velocidad de movimiento en el eje Y
-     * 
-     * @param {string} rangeX - rango límite del eje X hasta que el enemigo cambie de dirección
-     * @param {string} rangeY - rango límite del eje Y hasta que el enemigo cambie de dirección
+	 * @param {Scene} scene Escena en la que aparecera el enemigo
+	 * 
+	 * @param {number} x - posicion X
+	 * @param {number} y - posicion Y
+	 * 
+	 * @param {number} speedX - velocidad de movimiento X
+	 * @param {number} speedY - velocidad de movimiento Y
 
-
-
-	 * @param {string} imgKey - nombre de la imagen que representa al enemigo
-
+	 *      * 
+     * @param {string} range - rango limite hasta que el enemigo cambie de direccion
 	 */
-	constructor(scene, originX, originY, x, y, speedX, speedY, rangeX, rangeY, imgKey) {
-		super(scene, originX, originY, x, y, speedX, speedY, rangeX, rangeY, imgKey);
-		this.scene.add.existing(this);
-		this.setOrigin(originX, originY);
-		this.scene.physics.add.existing(this);
-				
-		this.body.setVelocity(speedX, speedY)
-		// Escuchamos el evento en el que el sprite alcanza el rango máximo al moverse
-		// Tenemos que guardar el identificador del enemigo en el body
-		this.body.key = imgKey; 
-		// Nos guardamos a nosotros en self para poder acceder desde el evento
-		// que detecta las colisiones con el límite del mundo
-		let self = this;
-		this.body.world.on(function(body, up, down, left, right)
-		{
-			// Comprobamos si somos nosotros los que hemos llegado al final
+	constructor(scene, x, y, speedX, speedY, range) {
 
-			console.log(x+origin, y +origin)
-			if(self.x > 0 && self.x + self.originX > self.x + self.rangeX || self.x < 0 && self.x + self.originX < self.x + self.rangeX){
-				self.speedX = -self.speedX
-			}
-			if(self.y > 0 && self.y + self.originY > self.y + self.rangeY || self.y < 0 && self.y + self.originY < self.y + self.rangeY){
-				self.speedY = -self.speedY;
-			}
-		})
+        super(scene, x, y, 'enemy');
+		this.speedX = speedX;
+		this.speedY = speedY;
+
+		this.originX = x;
+		this.originY = y;
+
+	    this.range = range;
+
+        scene.add.existing(this);                              // agregar sprite
+        scene.physics.add.existing(this);                      // activar fisicas
+
+        this.setScale(0.1);                                   // tamaño en pantalla
+        this.body.setSize(320, 650);                           // hitbox ajustada
+        this.body.setOffset(150, 50);                          // colocar hitbox
+
+
+		//this.body.setVelocity(speedX, speedY);
+		
+    }
+	preUpdate (t, dt) {
+    super.preUpdate(t, dt)
+    // la lógica particular de `FallingMartian`, aquí
+    this.x += this.speedX * dt / 1000; // 2 unidades por segundo
+	if (this.x > this.originX + this.range || this.x < this.originX - this.range)
+	{
+		this.speedX = -this.speedX;
 	}
-	
+	this.y += this.speedY * dt / 1000; // 2 unidades por segundo
+
+	if (this.y > this.originY + this.range || this.y < this.originY - this.range)
+	{
+		this.speedY = -this.speedY;
+	}
+  }
 }

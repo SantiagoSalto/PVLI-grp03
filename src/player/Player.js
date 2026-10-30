@@ -13,6 +13,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.physics.add.existing(this);                      // activar fisicas
         this.setCollideWorldBounds(true);                      // colision con bordes
         this.setGravityY(1000);                                // gravedad
+        this.body.setMaxVelocityY(900);                        // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
 
         this.setScale(0.15);                                   // tamaño en pantalla
         this.body.setSize(300, 400);                           // hitbox ajustada
@@ -26,6 +27,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
         // salto
         this.jumpSpeed = 700;                                  // fuerza del salto (altura fija)
+
+        // sistema de vidas del jugador
+        this.lives = 3;                                        // cantidad de golpes que el jugador aguantará hasta perder en el nivel
+        this.invincibilitydur = 2000;                             // duración del estado de invencibilidad cuando el jugador sufre daño
+        this.invencible = 0;                                   // variable que comprobará si el jugador es invencible
+        this.invincibilityframe = 0;
 
         // input
         this.mouse = scene.inputManager;
@@ -49,7 +56,21 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             .addState('attack', new PlayerAttackState())
             .setState('idle');
     }
-
+    preUpdate(t, dt)
+    {
+        if (this.invencible == 1)
+        {
+            this.setAlpha(0.7);
+            this.invincibilityframe += dt;
+            if (this.invincibilityframe >= this.invincibilitydur) 
+            {
+                this.invencible = 0;
+                this.invincibilityframe = 0;
+                console.log("Invencibilidad desactivada")
+            }
+        }
+        else this.setAlpha(1);
+    }
     update(time, delta) {
         // avanzar maquina de estados
         this.stateMachine.step(time, delta);

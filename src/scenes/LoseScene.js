@@ -12,7 +12,8 @@ constructor() {
         let overlay = this.add.rectangle(ancho / 2, alto / 2, ancho, alto, 0x000000);
         overlay.setAlpha(0.6); // 60% de opacidad. Oscurece Main Menu
         overlay.setInteractive(); //Bloquea Clicks a botones fuera de la escena
-
+        
+        //Bloque Rojo Menu
         this.background = this.add.image(ancho/2, alto/2, 'redSquare');
         this.background.setScale(3);
         
@@ -31,6 +32,7 @@ constructor() {
         resetTexto.setOrigin(0.5);
 
         resume.on('pointerdown', () => {
+            this.scene.stop('PlayScene');
             this.scene.stop();
             this.scene.start('LevelSelector'); 
         });

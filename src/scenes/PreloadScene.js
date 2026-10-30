@@ -14,6 +14,15 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('lose', './assets/Menu/lose.png');
         //Jugador
         this.load.image('squirrel', './assets/Personajes/squirrel.png');
+        //Enemigo
+        this.load.image('enemy', './assets/Personajes/parrot.png');
+        //Plataforma
+        this.load.image('platform1', './assets/Suelos/hierba-1.png');
+        //Tiled
+        this.load.image('tilesGrass1', './assets/Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Grass1_pipo.png');
+        this.load.tilemapTiledJSON('level1', './assets/Niveles_Tiled/nivel1.json');
+        this.load.image('tilesDirt1', './assets/Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Dirt2_pipo.png');
+        this.load.tilemapTiledJSON('level2', './assets/Niveles_Tiled/nivel2.json');
 
         //Iconos
         this.load.image('ajustes', './assets/Menu/gear.png');
@@ -24,10 +33,12 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('button', './assets/Menu/button.png');
         this.load.image('iconLevel', './assets/Menu/iconLevel.png');
         this.load.image('pausa', './assets/Menu/pause.png');
+        this.load.image('life', './assets/Menu/Heart.png');
+
         //Info PreNivel
         this.load.image('blueSquare', './assets/Menu/levelSquare.png');
         this.load.image('star', './assets/Menu/star.png');
-        this.load.image('nostar', '/assets/Menu/star_outline.png');
+        this.load.image('nostar', './assets/Menu/star_outline.png');
         //Win scene
         this.load.image('bluebutton', './assets/Menu/button3.png')
         this.load.image('win', './assets/Menu/win.png');
@@ -37,8 +48,13 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('redbutton', './assets/Menu/button2.png')
         this.load.image('death', './assets/Menu/death.png');
 
+        //Ajustes barras
+        this.load.image('barra', './assets/Menu/barra.png');
+        this.load.image('pinkBar', './assets/Menu/settingsbar.png');
+        this.load.image('blueBar', './assets/Menu/settingsbar2.png')
         //Credits
         this.load.image('border', './assets/Menu/border.png');
+        this.load.image('yellowSquare', './assets/Menu/creditsSquare.png');
 
         //proyectil
         this.load.image('projectile', 'assets/Personajes/projectile.png');

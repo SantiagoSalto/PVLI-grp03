@@ -10,12 +10,15 @@ export default class Platform extends Phaser.GameObjects.Sprite {
 	 * @param {number} y - coordenada Y
 	 * @param {number} width - anchura de la plataforma
      * @param {number} height - altura de la plataforma
+	 * @param {jugador} player - referencia del jugador para crear la colisión de la plataforma con él.
+
 	 */
-	constructor(scene, x, y, width, height, imgKey) {
-		super(scene, x, y, width, height, imgKey);
+	constructor(scene, x, y, width, height, player) {
+		super(scene, x, y, 'platform1');
 		this.scene.add.existing(this);
-		this.setOrigin(x, y);
-		this.scene.physics.add.existing(this);
-    	this.setSize(width, height),
+		this.setScale(width*0.007, height*0.01)
+		this.scene.physics.add.existing(this, true);
+        this.body.setSize(width*4.5, height*4.23);
+		this.scene.physics.add.collider(player, this);
 	}
 }
