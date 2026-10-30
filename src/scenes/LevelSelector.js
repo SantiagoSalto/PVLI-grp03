@@ -9,7 +9,7 @@ create() {
         const alto = this.cameras.main.height;
 
         this.background = this.add.image(ancho/2, alto/2, 'background4');
-        this.background.setScale(1.8);
+        this.background.setScale(1.9);
 
         //boton nivel1: 
         var iconLevel = this.add.image(ancho/4, alto/2, 'iconLevel'); 
