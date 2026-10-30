@@ -7,7 +7,7 @@ body {
 }
 
 .pagina {
-  max-width: 720px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 40px 20px;
 }
@@ -20,12 +20,7 @@ header h1 {
 /* Aquí se colocará el juego de Phaser */
 #game {
   width: 100%;
-  margin-bottom: 30px;
-  background-color: #efe6c4;
-  border: 2px dashed #b5a77a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto 30px;
 }
 
 /* Pestañas */
