@@ -17,7 +17,8 @@ export default class PlayScene extends Phaser.Scene {
         const ancho = this.cameras.main.width;
         const alto = this.cameras.main.height;
 
-        //this.background = this.add.image(ancho / 2, alto / 2, 'background2');
+        this.background = this.add.image(ancho / 2, alto / 2, 'background3');
+        this.background.setScrollFactor(0.05);
 
         this.inputManager = new InputManager(this);
 
