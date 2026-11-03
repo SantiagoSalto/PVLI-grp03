@@ -14,6 +14,7 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
         this.setScale(0.25);
 
         this.setGravityY(1000);
+        this.scene.physics.add.collider(this, this.scene.boxes)
     }
     preUpdate(time, delta) {
     super.preUpdate(time, delta);
@@ -26,9 +27,17 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
         if (vx !== 0 || vy !== 0) {
            this.setRotation(Math.atan2(vy, vx) - Math.PI / 2);
         }
-    }
-}
 
+    }
+
+}
+    update(time,delta)
+    {
+        if (this.physics.collider(this, this.scene.boxes))
+        {
+            this.destroy;
+        }
+    }
     shoot(velocityX, velocityY) {
         this.setVelocity(velocityX, velocityY);
     }

@@ -31,7 +31,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         // sistema de vidas del jugador
         this.lives = 3;                                        // cantidad de golpes que el jugador aguantará hasta perder en el nivel
         this.invincibilitydur = 2000;                             // duración del estado de invencibilidad cuando el jugador sufre daño
-        this.invencible = 0;                                   // variable que comprobará si el jugador es invencible
+        this.invencible = false;                                   // variable que comprobará si el jugador es invencible
         this.invincibilityframe = 0;
 
         // input
@@ -58,13 +58,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
     preUpdate(t, dt)
     {
-        if (this.invencible == 1)
+        if (this.invencible)
         {
             this.setAlpha(0.7);
             this.invincibilityframe += dt;
             if (this.invincibilityframe >= this.invincibilitydur) 
             {
-                this.invencible = 0;
+                this.invencible = false;
                 this.invincibilityframe = 0;
                 console.log("Invencibilidad desactivada")
             }
