@@ -20,5 +20,6 @@ export default class Platform extends Phaser.GameObjects.Sprite {
 		this.scene.physics.add.existing(this, true);
         this.body.setSize(width*4.5, height*4.23);
 		this.scene.physics.add.collider(player, this);
+		this.scene.physics.add.collider(this.scene.boxes, this);
 	}
 }

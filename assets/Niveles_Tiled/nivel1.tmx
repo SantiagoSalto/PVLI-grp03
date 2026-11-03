@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="200" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="17">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="200" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="19">
  <editorsettings>
   <export target="nivel1.json" format="json"/>
  </editorsettings>
@@ -82,7 +82,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="3" name="Characters" visible="0">
+ <objectgroup id="3" name="Characters">
   <object id="8" name="player" x="224" y="800">
    <point/>
   </object>
@@ -119,8 +119,22 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="4" name="Structures" visible="0">
+ <objectgroup id="4" name="Structures">
   <object id="13" name="meta" x="5952" y="768" width="192" height="64"/>
+  <object id="17" name="box" x="621" y="776">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="18" name="box" x="961" y="572">
+   <properties>
+    <property name="height" type="float" value="2"/>
+    <property name="width" type="float" value="2"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
  <layer id="1" name="Ground" width="200" height="30">
   <data encoding="csv">

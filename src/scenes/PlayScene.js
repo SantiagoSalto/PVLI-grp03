@@ -1,6 +1,7 @@
 import Player from '../player/Player.js';
 import Enemy from '../Enemy.js';
 import Platform from '../Platform.js';
+import Box from '../Box.js';
 import InputManager from '../managers/InputManager.js';
 import { toPx } from '../Measures.js';
 
@@ -17,7 +18,8 @@ export default class PlayScene extends Phaser.Scene {
         const ancho = this.cameras.main.width;
         const alto = this.cameras.main.height;
 
-        //this.background = this.add.image(ancho / 2, alto / 2, 'background2');
+        this.background = this.add.image(ancho / 2, alto / 2, 'background3');
+        this.background.setScrollFactor(0.05);
 
         this.inputManager = new InputManager(this);
 
@@ -46,9 +48,29 @@ export default class PlayScene extends Phaser.Scene {
                         this.getProperty(object, 'speedY'),
                         toPx(this.getProperty(object, 'range'))));   //range en bloques
                     break;
+
             }
         });
 
+        // ESTRUCTURAS
+        this.boxes = this.add.group();
+        map.getObjectLayer('Structures').objects.forEach((object) => {
+            switch (object.name) {
+                case 'meta':
+                //En Tiled x,y es la esquina superior izquierda; la zona va centrada
+                let goal = this.add.zone(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
+                this.physics.add.existing(goal, true);
+                this.physics.add.overlap(this.player, goal, () => {
+                    this.scene.pause();
+                    this.scene.launch('WinScene');
+                });
+                break;
+                case 'box':
+                    this.boxes.add(new Box(this, object.x, object.y, this.getProperty(object, 'width'), 
+                    this.getProperty(object, 'height')));
+                    break;
+            }
+        });
         // PLATAFORMAS
         map.getObjectLayer('Platforms').objects.forEach((object) => {
             if (object.name === 'platform') {
@@ -58,21 +80,14 @@ export default class PlayScene extends Phaser.Scene {
             }
         });
 
-        // ESTRUCTURAS 
-        map.getObjectLayer('Structures').objects.forEach((object) => {
-            if (object.name === 'meta') {
-                //En Tiled x,y es la esquina superior izquierda; la zona va centrada
-                let goal = this.add.zone(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
-                this.physics.add.existing(goal, true);
-                this.physics.add.overlap(this.player, goal, () => {
-                    this.scene.pause();
-                    this.scene.launch('WinScene');
-                });
-            }
-        });
+
+
 
         // COLISIONES
         this.physics.add.collider(this.player, ground);
+        this.physics.add.collider(this.player, this.boxes);
+        this.physics.add.collider(this.boxes, ground);
+
 
         // Ahora el jugador y las plataformas se crean desde el mapa de Tiled
         // this.player = new Player(this, 100, alto - 100);
@@ -182,11 +197,10 @@ export default class PlayScene extends Phaser.Scene {
 	}
     update(time, delta) {
         this.player.update(time, delta);
-        if (this.physics.overlap(this.player, this.enemies) && this.player.invencible == 0)
+        if (this.physics.overlap(this.player, this.enemies) && !this.player.invencible)
         {
             this.player.lives -= 1;
-            this.player.invencible = 1;
-            console.log("Enemigo tocado. Vidas restantes: " + this.player.lives)
+            this.player.invencible = true;
             if (this.player.lives <= 0)
             {
                 this.scene.pause();

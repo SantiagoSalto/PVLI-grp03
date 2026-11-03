@@ -18,6 +18,11 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('enemy', './assets/Personajes/parrot.png');
         //Plataforma
         this.load.image('platform1', './assets/Suelos/hierba-1.png');
+
+        //OBJETOS INTERACTUABLES
+
+        //Caja
+        this.load.image('box', './assets/Objetos/Box.png');
         //Tiled
         this.load.image('tilesGrass1', './assets/Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Grass1_pipo.png');
         this.load.tilemapTiledJSON('level1', './assets/Niveles_Tiled/nivel1.json');
@@ -55,10 +60,13 @@ export default class PreloadScene extends Phaser.Scene {
         //Credits
         this.load.image('border', './assets/Menu/border.png');
         this.load.image('yellowSquare', './assets/Menu/creditsSquare.png')
+        
+        this.load.image('projectile', './assets/Personajes/projectile.png')
     }
 
     create() {
         this.scene.stop();          
         this.scene.start('MainMenuScene'); 
+        
     }
 }

@@ -305,7 +305,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -324,10 +324,56 @@
                  "width":192,
                  "x":5952,
                  "y":768
+                }, 
+                {
+                 "height":0,
+                 "id":17,
+                 "name":"box",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"height",
+                         "type":"float",
+                         "value":1
+                        }, 
+                        {
+                         "name":"width",
+                         "type":"float",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":621,
+                 "y":776
+                }, 
+                {
+                 "height":0,
+                 "id":18,
+                 "name":"box",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"height",
+                         "type":"float",
+                         "value":2
+                        }, 
+                        {
+                         "name":"width",
+                         "type":"float",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":961,
+                 "y":572
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -373,10 +419,10 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":17,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.11.2",
+ "tiledversion":"1.11.0",
  "tileheight":32,
  "tilesets":[
         {
