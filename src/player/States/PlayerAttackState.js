@@ -96,7 +96,15 @@ export default class PlayerAttackState extends BaseState {
 
         const direccionX = dx / distancia;
         const direccionY = dy / distancia;
-        const potencia = Math.min(distancia * 5, 600);
+
+        // La fuerza (de 0 a 1) decide la velocidad y el alcance por separado:
+        // la velocidad sube poco, y el alcance (la forma de la curva) sube sobre todo al final del arrastre
+        const fuerza = Math.min(distancia / player.maxDrag, 1);
+        const velocidad = player.minShotSpeed + (player.maxShotSpeed - player.minShotSpeed) * fuerza;
+        const alcance = player.minRange + (player.maxRange - player.minRange) * fuerza * fuerza * fuerza;
+
+        // Gravedad necesaria para que esa velocidad llegue a ese alcance
+        const gravedad = velocidad * velocidad / alcance;
 
         const projectile = new Projectile(
             scene,
@@ -105,8 +113,10 @@ export default class PlayerAttackState extends BaseState {
         );
 
         projectile.shoot(
-            direccionX * potencia,
-            direccionY * potencia
+            direccionX,
+            direccionY,
+            velocidad,
+            gravedad
         );
 
         this.terminarAtaque(player);

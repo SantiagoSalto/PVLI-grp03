@@ -28,6 +28,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         // salto
         this.jumpSpeed = 700;                                  // fuerza del salto (altura fija)
 
+        // ataque
+        this.minShotSpeed = 400;                               // velocidad del proyectil con muy poco arrastre
+        this.maxShotSpeed = 1150;                              // velocidad del proyectil con arrastre maximo
+        this.maxDrag = 500;                                    // pixeles de arrastre para llegar a la fuerza maxima
+        this.minRange = 150;                                   // alcance con muy poco arrastre (parabola cerrada)
+        this.maxRange = 5000;                                  // alcance con arrastre maximo (casi recto)
+
         // sistema de vidas del jugador
         this.lives = 3;                                        // cantidad de golpes que el jugador aguantará hasta perder en el nivel
         this.invincibilitydur = 2000;                             // duración del estado de invencibilidad cuando el jugador sufre daño

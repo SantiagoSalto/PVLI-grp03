@@ -38,8 +38,9 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
             this.destroy;
         }
     }
-    shoot(velocityX, velocityY) {
-        this.setVelocity(velocityX, velocityY);
+    shoot(directionX, directionY, speed, gravity) {
+        this.setGravityY(gravity);                             // cada disparo tiene su propia curva
+        this.setVelocity(directionX * speed, directionY * speed);
     }
        impactar() {
         this.destroy();
