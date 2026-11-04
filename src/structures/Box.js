@@ -37,10 +37,13 @@ export default class Box extends Phaser.Physics.Arcade.Sprite {
 		if (this.body.onFloor()) this.body.velocity.x = this.body.velocity.x * 0.05 * delta;
 		if (this.body.velocity.x < 0.01 && this.body.velocity.x > 0) this.body.velocity.x = 0;
 		if (this.body.velocity.x > -0.01 && this.body.velocity.x < 0) this.body.velocity.x = 0;
-		if (this.body.blocked.left || this.body.blocked.right)
+		if (this.body.blocked.left || this.body.blocked.right) // Esto también es necesario para que el jugador no termine atravesando la caja estando en una pared.
+															   // body.blocked es una booleana que se activa si una fuerza está empujando un objeto pero no se puede
+															   // mover en la dirección de la fuerza porque está siendo bloqueada por algo inamovible.
 		{
-			this.setPushable(false);
+			this.setPushable(false); // Deja de empujar la caja si hay algún bloqueo a la izquierda o la derecha.
 		} 
-		else this.setPushable(true);
+		else this.setPushable(true); // Cuando ya no haga falta evaluar si la caja está bloqueada, vuelve a hacerla
+									 // empujable para cuando el jugador necesite moverla hacia el otro lado.
 	}
 }
