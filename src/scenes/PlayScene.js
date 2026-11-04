@@ -135,6 +135,8 @@ export default class PlayScene extends Phaser.Scene {
             this.scene.stop();
             this.scene.start('GameOverScene');
         });
+
+        // Vidas del jugador en el UI
         this.heart1 = this.add.image(ancho - 900, 10, 'life');
         this.heart1.setOrigin(1, 0);
         this.heart1.setScale(0.017);
@@ -169,37 +171,38 @@ export default class PlayScene extends Phaser.Scene {
 	}
     update(time, delta) {
         this.player.update(time, delta);
+        
         // enemigos y pinchos hacen el mismo daño
         const touchingDanger = this.physics.overlap(this.player, this.enemies) || this.physics.overlap(this.player, this.spikes);
         if (touchingDanger && !this.player.invencible)
         {
-            this.player.lives -= 1;
-            this.player.invencible = true;
-            if (this.player.lives <= 0)
+            this.player.lives -= 1; // Pierde una vida
+            this.player.invencible = true; // El jugador se vuelve invencible temporalmente
+            if (this.player.lives <= 0) // Cuando el jugador se queda sin vidas pierde el nivel
             {
                 this.scene.pause();
                 this.scene.launch('LoseScene');
             }
         }
-        if (this.player.lives == 3) 
+        if (this.player.lives == 3) // 3 vidas
         {
             this.heart1.setAlpha(1);
             this.heart2.setAlpha(1);
             this.heart3.setAlpha(1);
         }
-        else if (this.player.lives == 2)
+        else if (this.player.lives == 2) // 2 vidas
         {
             this.heart1.setAlpha(1);
             this.heart2.setAlpha(1);
             this.heart3.setAlpha(0);
         }
-        else if (this.player.lives == 1)
+        else if (this.player.lives == 1) // 1 vida
         {
             this.heart1.setAlpha(1);
             this.heart2.setAlpha(0);
             this.heart3.setAlpha(0);
         }
-        else if (this.player.lives == 0)
+        else if (this.player.lives == 0) // Sin vidas
         {
             this.heart1.setAlpha(0);
             this.heart2.setAlpha(0);
