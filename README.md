@@ -1,8 +1,14 @@
-# DOCUMENTO DE DISEÑO GDD [PROYECTO BELLOTA]
+# PROYECTO BELLOTA
 
 **Hecho por [KOSA Studio]** compuesto por: Santiago Salto Molodojen, Zhuokai Zhu, Óscar Silva Urbina y Alejandro Menéndez Fierro.
 
 ---
+
+
+El juego "Proyecto Bellota" se trata de un trabajo universitario en la UCM. La principal intención que tuvimos a la hora de crear este proyecto era crear un plataformero que
+se inspira en los que se habían hecho anteriormente, con una combinación de sensación de presión de tiempo (o un contrarreloj para ser exactos) y varios puzzles con distintas
+mecánicas que se juntarían para hacer niveles donde puedes ser rápido mientras que al mismo tiempo trabajas con lo que se te da para atravesar obstáculos normalmente
+imposibles de atravesar sin algo de razonamiento de tu lado.
 
 ## 1. Resumen
 
