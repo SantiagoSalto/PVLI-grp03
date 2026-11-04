@@ -5,10 +5,21 @@
 ---
 
 
-El juego "Proyecto Bellota" se trata de un trabajo universitario en la UCM. La principal intención que tuvimos a la hora de crear este proyecto era crear un plataformero que
-se inspira en los que se habían hecho anteriormente, con una combinación de sensación de presión de tiempo (o un contrarreloj para ser exactos) y varios puzzles con distintas
-mecánicas que se juntarían para hacer niveles donde puedes ser rápido mientras que al mismo tiempo trabajas con lo que se te da para atravesar obstáculos normalmente
-imposibles de atravesar sin algo de razonamiento de tu lado.
+El juego "Proyecto Bellota" se trata de un trabajo universitario hecho en la UCM. La principal intención que tuvimos a la hora de crear este proyecto era crear un plataformero que se inspira en los que se habían hecho anteriormente, con una combinación de sensación de presión de tiempo (o un contrarreloj para ser exactos) y varios puzzles con distintas mecánicas que se juntarían para hacer niveles donde puedes ser rápido mientras que al mismo tiempo trabajas con lo que se te da para atravesar obstáculos difíciles de atravesar sin algo de razonamiento de tu lado.
+
+<p align="center">
+  <img src="Images/README/Nivel1a.png" alt="" width="1500"/>
+</p>
+<p align="center">
+  <img src="Images/README/Nivel1b.png" alt="" width="1500"/>
+</p>
+<p align="center">
+  <img src="Images/README/Nivel1c.png" alt="" width="1500"/>
+</p>
+
+---
+
+# DOCUMENTO De DISEÑO
 
 ## 1. Resumen
 
@@ -27,7 +38,7 @@ En el mundo de (x) los loros piratas de la isla de (x) se han propuesto conquist
 ### 1.4 Cartas usadas
 
 <p align="center">
-  <img src="ImagesGDD/Cartas.png" alt="" width="1500"/>
+  <img src="Images/GDD/Cartas.png" alt="" width="1500"/>
 </p>
 
 - **Fez:** niveles diseñados con plataformas. Bono extra: el juego solo se juega con el ratón. **+2p**
@@ -72,11 +83,11 @@ Avanzar por el nivel, superar los obstáculos, recoger los coleccionables y term
 El personaje se controla con el ratón. Al mover el cursor, se define la dirección en la que se desplazará el personaje. Si se hace clic izquierdo, el personaje avanza en la dirección indicada por el cursor. La velocidad depende de la distancia entre el cursor y el personaje: si está cerca, el personaje se mueve despacio, si está lejos, corre.
 
 <p align="center">
-  <img src="ImagesGDD/Move1.png" alt="" width="500"/>
+  <img src="Images/GDD/Move1.png" alt="" width="500"/>
 </p>
 
 <p align="center">
-  <img src="ImagesGDD/Move2.png" alt="" width="500"/>
+  <img src="Images/GDD/Move2.png" alt="" width="500"/>
 </p>
 
 ### 3.2 Salto
@@ -84,7 +95,7 @@ El personaje se controla con el ratón. Al mover el cursor, se define la direcci
 Para saltar, el sistema detecta si el cursor está colocado sobre el personaje respecto al eje y positivo. Si es así, el personaje saltará en la dirección a la que está apuntando el cursor. Al igual que con el movimiento en el suelo, alejar más el ratón del personaje hará que este salte más alto. Una vez en el aire aunque se deje de pulsar el “click” del ratón, el personaje mantendrá la dirección de movimiento por inercia. Aun así es posible modificar la dirección una vez en el aire (movimiento horizontal).
 
 <p align="center">
-  <img src="ImagesGDD/Jump.png" alt="" width="500"/>
+  <img src="Images/GDD/Jump.png" alt="" width="500"/>
 </p>
 
 ### 3.3 Ataque
@@ -94,11 +105,11 @@ Para atacar, se utiliza el clic derecho. Al pulsarlo el personaje entra en estad
 El proyectil que se lanza en el ataque se mueve en forma de parábola. Este proyectil se usará para derrotar a enemigos, disparar a objetivos que activan mecanismos, o romper bloques frágiles que hay por el nivel. El ataque también puede empujar cajas irrompibles cuando impacta en ellas.
 
 <p align="center">
-  <img src="ImagesGDD/Attack1.png" alt="" width="400"/>
+  <img src="Images/GDD/Attack1.png" alt="" width="400"/>
 </p>
 
 <p align="center">
-  <img src="ImagesGDD/Attack2.png" alt="" width="500"/>
+  <img src="Images/GDD/Attack2.png" alt="" width="500"/>
 </p>
 
 ### 3.4 Recolección de símbolos
@@ -116,7 +127,7 @@ A lo largo del nivel se encontrarán enemigos que servirán como obstáculo. Est
 - **Enemigo tira-proyectiles (OPCIONAL):** es un enemigo que lanza ataques a larga distancia, como referencia de los Hermanos Martillo de Mario Bros. Se ha diseñado para meter más jugabilidad al juego si el diseño de niveles es muy repetitivo.
 
 <p align="center">
-  <img src="ImagesGDD/Enemy.png" alt="" width="500"/>
+  <img src="Images/GDD/Enemy.png" alt="" width="500"/>
 </p>
 
 ### 3.6 Tiempo límite y puntuación
@@ -141,7 +152,7 @@ Estos serán los objetos que se introducirán a partir de este punto:
 - **Bloque frágil:** se puede romper usando los proyectiles de ataque.
 
 <p align="center">
-  <img src="ImagesGDD/Obstacle.png" alt="" width="500"/>
+  <img src="Images/GDD/Obstacle.png" alt="" width="500"/>
 </p>
 
 ### 3.8 Controles
@@ -154,7 +165,7 @@ Solo se usarán el clic izquierdo y derecho del ratón, en combinación con el m
 - **Mantener pulsado:** se detecta el input de movimiento de forma constante, y por lo tanto la ardilla seguirá continua e inmediatamente la dirección y posición del cursor a medida que el jugador va arrastrando el ratón.
 
 <p align="center">
-  <img src="ImagesGDD/Controles2.png" alt="" width="600"/>
+  <img src="Images/GDD/Controles2.png" alt="" width="600"/>
 </p>
 
 **Clic derecho:** se entra en el estado de ataque, donde la ardilla podrá lanzar proyectiles. Si está en tierra, se quedará quieta; si está en el aire, conservará la inercia del movimiento hasta quedarse sin ella. Podemos ver 2 tipos de comportamiento:
@@ -163,7 +174,7 @@ Solo se usarán el clic izquierdo y derecho del ratón, en combinación con el m
 - **Un clic:** al estar diseñado de forma que se haga un pre-aim a la hora de efectuar un ataque, en este caso, aunque no se pueda efectuar el primer paso de forma eficaz, se seguirá lanzando un proyectil, pero saldrá con una trayectoria totalmente errónea.
 
 <p align="center">
-  <img src="ImagesGDD/Controles1.png" alt="" width="600"/>
+  <img src="Images/GDD/Controles1.png" alt="" width="600"/>
 </p>
 
 ---
@@ -177,14 +188,14 @@ Se presenta un camino sin salida, donde habrá una serie de dianas, moviéndose 
 Habrá un instante donde con el pre-aim de la ardilla podrás acertar a todas las dianas a la vez, con un solo disparo. Aquí se presenta la dualidad de ser paciente y tirar todas de una, o ser ágil con el disparo y acertar disparando singularmente a cada una de ellas.
 
 <p align="center">
-  <img src="ImagesGDD/Puzzle1.png" alt="" width="1000"/>
+  <img src="Images/GDD/Puzzle1.png" alt="" width="1000"/>
 </p>
 
 **Entorno interactuable:**
 Se presenta de nuevo un camino, aparentemente sin salida. Mediante el uso del lenguaje visual, se presentará a la ardilla una pista de elementos de entorno con los que puede interactuar con su disparo para abrirse camino, tendrán que ser disparados una o varias veces dependiendo del elemento.
 
 <p align="center">
-  <img src="ImagesGDD/Puzzle2.png" alt="" width="1000"/>
+  <img src="Images/GDD/Puzzle2.png" alt="" width="1000"/>
 </p>
 
 ### 4.2 Mundos
@@ -202,13 +213,13 @@ Se presenta de nuevo un camino, aparentemente sin salida. Mediante el uso del le
 Los menús del juego son: el menú principal, el menú de selección de niveles, el menú de pausa durante un nivel, los ajustes fuera de un nivel y los créditos.
 
 <p align="center">
-  <img src="ImagesGDD/MainMenu.png" alt="" width="500"/>
+  <img src="Images/GDD/MainMenu.png" alt="" width="500"/>
 </p>
 
 **Pantalla de menú principal**
 
 <p align="center">
-  <img src="ImagesGDD/Ajustes.png" alt="" width="500"/>
+  <img src="Images/GDD/Ajustes.png" alt="" width="500"/>
 </p>
 
 **Pantalla de ajustes** (una ventana emergente que se superpone a la pantalla de menú principal)
@@ -216,7 +227,7 @@ Los menús del juego son: el menú principal, el menú de selección de niveles,
 Notas extra: cuanta mayor sensibilidad en los ajustes (entre los valores 1 y 5), menos distancia/altura del cursor se necesitará para hacer que la ardilla corra/salte respectivamente. Cada barra de los ajustes, a la izquierda del deslizador, tendrá su mitad de color verde mientras que el resto se verá de negro.
 
 <p align="center">
-  <img src="ImagesGDD/Creditos.png" alt="" width="500"/>
+  <img src="Images/GDD/Creditos.png" alt="" width="500"/>
 </p>
 
 **Pantalla de créditos** (todavía no definitiva)
@@ -224,7 +235,7 @@ Notas extra: cuanta mayor sensibilidad en los ajustes (entre los valores 1 y 5),
 Tendrá 2 líneas de texto destinadas a nombrar el estudio y a los autores. Aunque principalmente se centrará en dar crédito a todos los assets utilizados (ya sean nuestros o utilizados), siendo estos divididos en las secciones de Sonido, Música y Visuales/Arte.
 
 <p align="center">
-  <img src="ImagesGDD/MenuPausa.png" alt="" width="500"/>
+  <img src="Images/GDD/MenuPausa.png" alt="" width="500"/>
 </p>
 
 **Pantalla de pausa en un nivel**
@@ -242,7 +253,7 @@ Se presenta una ventana emergente en medio de la pantalla. Cuando sale, hace que
 ### 5.2 Niveles
 
 <p align="center">
-  <img src="ImagesGDD/Seleccion.png" alt="" width="500"/>
+  <img src="Images/GDD/Seleccion.png" alt="" width="500"/>
 </p>
 
 A la hora de seleccionar el nivel a jugar, como el mapa de niveles es más grande que la propia cámara, haremos que si acercas el ratón al extremo de la pantalla, la cámara se mueva hacia ese lado pasados unos pocos instantes si no alejando la pantalla de ese extremo.
@@ -256,7 +267,7 @@ Los niveles deberán vencerse secuencialmente del primero al último y no se pue
 La UI del juego durante el gameplay principal del juego es:
 
 <p align="center">
-  <img src="ImagesGDD/Gameplay.png" alt="" width="500"/>
+  <img src="Images/GDD/Gameplay.png" alt="" width="500"/>
 </p>
 
 La pantalla del juego se verá completa, y se apreciarán en la esquina superior izquierda las vidas (corazones) de la ardilla, el progreso en la colección de las piezas del símbolo del nivel (si existe, que en caso de que no simplemente no estará presente en la interfaz), en la esquina superior derecha estará el botón de pausa, y en la esquina inferior izquierda se verá un recordatorio para los controles del juego (posiblemente se puedan quitar en los ajustes del juego).
@@ -280,10 +291,10 @@ Buscamos simplicidad de formas, como en Mario Bros. Pero una paleta de color má
 <table>
   <tr>
     <td align="center">
-      <img src="ImagesGDD/Mario.png" alt="" width="400"/>
+      <img src="Images/GDD/Mario.png" alt="" width="400"/>
     </td>
     <td align="center">
-      <img src="ImagesGDD/RayMan.png" alt="" width="400"/>
+      <img src="Images/GDD/RayMan.png" alt="" width="400"/>
     </td>
   </tr>
 </table>
@@ -297,7 +308,7 @@ Buscamos simplicidad de formas, como en Mario Bros. Pero una paleta de color má
 Implementaremos una máquina de estados para gestionar los estados de la ardilla. Esta se compondrá de los siguientes estados:
 
 <p align="center">
-  <img src="ImagesGDD/StateMachine.png" alt="" width="500"/>
+  <img src="Images/GDD/StateMachine.png" alt="" width="500"/>
 </p>
 
 *El valor 0 indica false, mientras que el valor 1 indica true.*
@@ -313,3 +324,24 @@ Aplicaremos el patrón de componentes para los elementos del juego que comparten
 - **PopTropica:** en el movimiento con el ratón.
 - **Raft Wars:** para el ataque del jugador.
 - **Cut the Rope 2:** diseño de UI de selección de niveles.
+
+---
+
+# Assets del juego
+
+Por el momento, todos los assets que hemos usado por el momento son algo simples y provisionales porque nos hemos centrado más en hacer el juego jugable. Intentaremos organizarnos para
+ir trabajando en el arte y lo que nos queda del proyecto. Lo que tenemos pensado para el futuro es que se vieran un poco como Super Mario Bros, pero también con algo de detalle como en Rayman Legends. Por ahora, sin embargo, hemos optado por coger assets que encajaban más con Super Mario Bros, pero sin demasiados detalles y como ya he dicho antes, con una buena parte de simplicidad.
+
+## Fuentes de los assets
+
+- Ardilla (jugador): Pinterest.com (?): Licencia libre
+- Bellota (proyectil de ataque): Pngtree.com (?):
+- Loro (enemigo): Vecteezy.com:
+- Plataforma flotante de hierba: Pixabay (?):
+- Botón de juego y "salida": Pinterest.com (?): Licencia Libre
+- Estrella de puntuación: Kenney.nl (?)
+- Ventanas de UI: Kenney.nl (?)
+- Escenario del nivel/créditos: itch.io
+- Escenario de selección de nivel: Pinterest.com (?)
+- Corazón de vidas: Clipartpng.com: Licencia Propietaria (?)
+- Caja de madera: Opengameart.org: Licencia Libre

@@ -30,9 +30,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
         // sistema de vidas del jugador
         this.lives = 3;                                        // cantidad de golpes que el jugador aguantará hasta perder en el nivel
-        this.invincibilitydur = 2000;                             // duración del estado de invencibilidad cuando el jugador sufre daño
-        this.invencible = false;                                   // variable que comprobará si el jugador es invencible
-        this.invincibilityframe = 0;
+        this.invincibilitydur = 2000;                          // duración del estado de invencibilidad cuando el jugador sufre daño
+        this.invencible = false;                               // variable que comprobará si el jugador es invencible
+        this.invincibilityframe = 0;                           // cronómetro que dice cuanto tiempo se ha pasado siendo invencible (usado más abajo) 
 
         // input
         this.mouse = scene.inputManager;
@@ -42,7 +42,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.input.mouse.disableContextMenu();
 
         scene.input.on('pointerdown', (pointer) => {
-            if (pointer.button === 2) {
+            if (pointer.button === 2 && this.isGrounded()) {
                 this.attackPressed = true;
             }
         });
@@ -58,15 +58,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
     preUpdate(t, dt)
     {
-        if (this.invencible)
+        if (this.invencible) // Control de la invencibilidad del jugador
         {
-            this.setAlpha(0.7);
+            this.setAlpha(0.7); // Hace al jugador transpartente para indicar que no puede ser dañado
             this.invincibilityframe += dt;
-            if (this.invincibilityframe >= this.invincibilitydur) 
+            if (this.invincibilityframe >= this.invincibilitydur) // Después de pasar el tiempo de invencibilidad con
+                                                                  // el cronómetro del jugador (invincibilityframe) es cuando
+                                                                  // se quita la invencibilidad
             {
                 this.invencible = false;
                 this.invincibilityframe = 0;
-                console.log("Invencibilidad desactivada")
             }
         }
         else this.setAlpha(1);
@@ -94,13 +95,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     wantsToAttack() {
-        if (!this.attackPressed) return false;
-
-        this.attackPressed = false;
-        return true;
+        if (this.attackPressed) {
+            this.attackPressed = false;
+            return true;
+        }
+        return false;
     }
 
     isGrounded() {
-        return this.body.onFloor();
+        return this.body.onFloor() || this.body.touching.down;
     }
 }

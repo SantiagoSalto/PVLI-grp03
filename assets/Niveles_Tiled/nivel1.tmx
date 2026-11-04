@@ -121,14 +121,14 @@
  </objectgroup>
  <objectgroup id="4" name="Structures">
   <object id="13" name="meta" x="5952" y="768" width="192" height="64"/>
-  <object id="17" name="box" x="621" y="776">
+  <object id="17" name="box" x="2217" y="514">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
   </object>
-  <object id="18" name="box" x="961" y="572">
+  <object id="18" name="box" x="3569" y="738">
    <properties>
     <property name="height" type="float" value="2"/>
     <property name="width" type="float" value="2"/>
