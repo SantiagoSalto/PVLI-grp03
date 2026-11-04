@@ -370,6 +370,29 @@
                  "width":0,
                  "x":961,
                  "y":572
+                }, 
+                {
+                 "height":0,
+                 "id":19,
+                 "name":"destructible",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"height",
+                         "type":"float",
+                         "value":2
+                        }, 
+                        {
+                         "name":"width",
+                         "type":"float",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":416,
+                 "y":736
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -419,7 +442,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":19,
+ "nextobjectid":20,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

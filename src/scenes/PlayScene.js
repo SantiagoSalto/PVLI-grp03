@@ -1,7 +1,8 @@
 import Player from '../player/Player.js';
 import Enemy from '../Enemy.js';
 import Platform from '../Platform.js';
-import Box from '../Box.js';
+import Box from '../structures/Box.js';
+import DestructibleBlock from '../structures/DestructibleBlock.js';
 import InputManager from '../managers/InputManager.js';
 import { toPx } from '../Measures.js';
 
@@ -56,6 +57,7 @@ export default class PlayScene extends Phaser.Scene {
 
         // ESTRUCTURAS
         this.boxes = this.add.group();
+        this.destructibles = this.add.group();
         map.getObjectLayer('Structures').objects.forEach((object) => {
             switch (object.name) {
                 case 'meta':
@@ -70,6 +72,11 @@ export default class PlayScene extends Phaser.Scene {
                 case 'box':
                     this.boxes.add(new Box(this, object.x, object.y, this.getProperty(object, 'width'), 
                     this.getProperty(object, 'height')));
+                    break;
+                case 'destructible':
+                    this.destructibles.add(new DestructibleBlock(this, object.x, object.y,
+                        toPx(this.getProperty(object, 'width')),      //width y height en bloques
+                        toPx(this.getProperty(object, 'height'))));
                     break;
             }
         });
@@ -96,6 +103,14 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.add.collider(this.projectiles, ground, (projectile) => projectile.impact());
         this.physics.add.collider(this.projectiles, this.platforms, (projectile) => projectile.impact());
         this.physics.add.collider(this.projectiles, this.boxes, (projectile) => projectile.impact());
+
+        // bloques destructibles: paran al jugador y a las cajas, y se rompen con un disparo
+        this.physics.add.collider(this.player, this.destructibles);
+        this.physics.add.collider(this.boxes, this.destructibles);
+        this.physics.add.collider(this.projectiles, this.destructibles, (projectile, block) => {
+            projectile.impact();
+            block.destroy();
+        });
 
         // el proyectil derrota al enemigo de un golpe (overlap para no empujarlo)
         this.physics.add.overlap(this.projectiles, this.enemies, (projectile, enemy) => {
