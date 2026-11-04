@@ -72,11 +72,12 @@ export default class PlayScene extends Phaser.Scene {
             }
         });
         // PLATAFORMAS
+        this.platforms = this.add.group();
         map.getObjectLayer('Platforms').objects.forEach((object) => {
             if (object.name === 'platform') {
-                new Platform(this, object.x, object.y,
+                this.platforms.add(new Platform(this, object.x, object.y,
                     this.getProperty(object, 'width'),
-                    this.getProperty(object, 'height'), this.player);
+                    this.getProperty(object, 'height'), this.player));
             }
         });
 
@@ -87,6 +88,18 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.add.collider(this.player, ground);
         this.physics.add.collider(this.player, this.boxes);
         this.physics.add.collider(this.boxes, ground);
+
+        // el proyectil desaparece al chocar
+        this.projectiles = this.add.group();
+        this.physics.add.collider(this.projectiles, ground, (projectile) => projectile.impact());
+        this.physics.add.collider(this.projectiles, this.platforms, (projectile) => projectile.impact());
+        this.physics.add.collider(this.projectiles, this.boxes, (projectile) => projectile.impact());
+
+        // el proyectil derrota al enemigo de un golpe (overlap para no empujarlo)
+        this.physics.add.overlap(this.projectiles, this.enemies, (projectile, enemy) => {
+            projectile.impact();
+            enemy.destroy();
+        });
 
 
         // Ahora el jugador y las plataformas se crean desde el mapa de Tiled

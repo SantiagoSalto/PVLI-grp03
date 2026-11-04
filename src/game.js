@@ -33,7 +33,8 @@ let config = {
     physics: { 
         default: 'arcade', 
         arcade: { 
-            gravity: { y: 0 }, 
+            gravity: { y: 0 },
+            tileBias: 32,                                      // con el valor por defecto (16) el proyectil rapido atraviesa los tiles
             debug: true 
         } 
     }
