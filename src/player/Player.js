@@ -36,16 +36,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
         // input
         this.mouse = scene.inputManager;
-        // Ataque
-        this.attackPressed = false;
 
         scene.input.mouse.disableContextMenu();
-
-        scene.input.on('pointerdown', (pointer) => {
-            if (pointer.button === 2) {
-                this.attackPressed = true;
-            }
-        });
 
         // estados
         this.stateMachine = new StateMachine(this);
@@ -93,11 +85,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         return this.walkSpeed;
     }
 
+    // mantener el clic derecho para apuntar
     wantsToAttack() {
-        if (!this.attackPressed) return false;
-
-        this.attackPressed = false;
-        return true;
+        return this.mouse.isRightDown();
     }
 
     isGrounded() {

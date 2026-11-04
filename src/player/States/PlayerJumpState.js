@@ -10,14 +10,20 @@ export default class PlayerJumpState extends BaseState {
         // velocidad horizontal fija durante todo el salto (segun la distancia al cursor al saltar)
         this.speedX = player.getSpeed(player.mouse.getX() - player.x);
 
-        // la altura del salto siempre es la misma
-        player.setVelocityY(-player.jumpSpeed);
+        // la altura del salto siempre es la misma (solo desde el suelo: al volver de attack en el aire no hay impulso)
+        if (player.isGrounded()) player.setVelocityY(-player.jumpSpeed);
 
         // saltar hacia el lado del cursor
         this.moveTowardsCursor(player);
     }
 
     execute(player) {
+
+        // si se mantiene el clic derecho ir a attack
+        if (player.wantsToAttack()) {
+            player.stateMachine.setState('attack');
+            return;
+        }
 
         // si toca el suelo (bajando) volver a move o idle
         if (player.isGrounded() && player.body.velocity.y >= 0) {

@@ -4,6 +4,12 @@ export default class PlayerMoveState extends BaseState {
 
     execute(player) {
 
+        // si se mantiene el clic derecho ir a attack
+        if (player.wantsToAttack()) {
+            player.stateMachine.setState('attack');
+            return;
+        }
+
         // si el cursor esta por encima ir a jump
         if (player.wantsToJump()) {
             player.stateMachine.setState('jump');

@@ -14,46 +14,30 @@ export default class PlayerAttackState extends BaseState {
             player.setVelocity(0, 0);
         }
 
-        const pointer = player.scene.input.activePointer;
-
-        this.apuntando = true;
+        // Coordenadas de pantalla: el arrastre no depende de la camara
+        const pointer = player.mouse.pointer;
 
         this.posicionInicial = {
-            x: pointer.worldX,
-            y: pointer.worldY
+            x: pointer.x,
+            y: pointer.y
         };
 
         this.posicionActual = {
-            x: pointer.worldX,
-            y: pointer.worldY
+            x: pointer.x,
+            y: pointer.y
         };
 
         // Crear la línea de apuntado
         this.linea = player.scene.add.graphics();
         this.linea.setDepth(100);
-
-        // Actualizar la posición del cursor
-        this.pointerMove = (pointer) => {
-            if (!this.apuntando) return;
-
-            this.posicionActual = {
-                x: pointer.worldX,
-                y: pointer.worldY
-            };
-        };
-
-        // Disparar al soltar el botón derecho
-        this.pointerUp = (pointer) => {
-            if (!this.apuntando || pointer.button !== 2) return;
-
-            this.disparar(player);
-        };
-
-        player.scene.input.on('pointermove', this.pointerMove);
-        player.scene.input.on('pointerup', this.pointerUp);
     }
 
     execute(player, time, delta) {
+        // Al aterrizar deja de conservar la velocidad del salto
+        if (player.isGrounded()) {
+            this.wasAirborne = false;
+        }
+
         // En el suelo, permanecer quieto.
         // En el aire, mantener velocidad horizontal y
         // dejar que la gravedad gestione la velocidad vertical.
@@ -63,7 +47,20 @@ export default class PlayerAttackState extends BaseState {
             player.setVelocity(0, 0);
         }
 
-        if (!this.apuntando) return;
+        // Al soltar dispara con la ultima posicion apuntada
+        // (se comprueba cada frame, asi funciona aunque se suelte fuera del juego)
+        if (!player.mouse.isRightDown()) {
+            this.disparar(player);
+            return;
+        }
+
+        // Actualizar la posición del cursor
+        const pointer = player.mouse.pointer;
+
+        this.posicionActual = {
+            x: pointer.x,
+            y: pointer.y
+        };
 
         const dx = this.posicionInicial.x - this.posicionActual.x;
         const dy = this.posicionInicial.y - this.posicionActual.y;
@@ -80,17 +77,19 @@ export default class PlayerAttackState extends BaseState {
     }
 
     disparar(player) {
-        if (!this.apuntando) return;
-
-        this.apuntando = false;
-
         const scene = player.scene;
 
         const dx = this.posicionInicial.x - this.posicionActual.x;
         const dy = this.posicionInicial.y - this.posicionActual.y;
         const distancia = Math.sqrt(dx * dx + dy * dy);
 
+        // Sin arrastre: lanzamiento fallido, sale sin fuerza delante del player y cae
         if (distancia < 10) {
+            let lado = 1;
+            if (player.flipX) lado = -1;
+
+            new Projectile(scene, player.x + lado * 30, player.y);
+
             this.terminarAtaque(player);
             return;
         }
@@ -114,11 +113,6 @@ export default class PlayerAttackState extends BaseState {
     }
 
     terminarAtaque(player) {
-        this.apuntando = false;
-
-        // Limpiar antes de cambiar de estado
-        this.limpiarEventos(player);
-
         if (!player.isGrounded()) {
             player.stateMachine.setState('jump');
         } else {
@@ -128,25 +122,9 @@ export default class PlayerAttackState extends BaseState {
         }
     }
 
-    limpiarEventos(player) {
-        if (this.pointerMove) {
-            player.scene.input.off('pointermove', this.pointerMove);
-            this.pointerMove = null;
-        }
-
-        if (this.pointerUp) {
-            player.scene.input.off('pointerup', this.pointerUp);
-            this.pointerUp = null;
-        }
-
-        if (this.linea) {
-            this.linea.destroy();
-            this.linea = null;
-        }
-    }
-
     exit(player) {
-        // Limpiar recursos, sin cambiar de estado aquí
-        this.limpiarEventos(player);
+        // Borrar la línea de apuntado
+        this.linea.destroy();
+        this.linea = null;
     }
 }
