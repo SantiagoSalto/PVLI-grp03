@@ -12,6 +12,9 @@ export default class PlayerAttackState extends BaseState {
 
         if (!this.wasAirborne) {
             player.setVelocity(0, 0);
+        } else {
+            // Bullet time: apuntando en el aire todo el juego va lento
+            player.scene.setGameSpeed(player.bulletTimeSpeed);
         }
 
         // Coordenadas de pantalla: el arrastre no depende de la camara
@@ -33,9 +36,10 @@ export default class PlayerAttackState extends BaseState {
     }
 
     execute(player, time, delta) {
-        // Al aterrizar deja de conservar la velocidad del salto
-        if (player.isGrounded()) {
+        // Al aterrizar deja de conservar la velocidad del salto y acaba el bullet time
+        if (this.wasAirborne && player.isGrounded()) {
             this.wasAirborne = false;
+            player.scene.setGameSpeed(1);
         }
 
         // En el suelo, permanecer quieto.
@@ -159,6 +163,9 @@ export default class PlayerAttackState extends BaseState {
     }
 
     exit(player) {
+        // Volver a la velocidad normal
+        player.scene.setGameSpeed(1);
+
         // Borrar la línea de apuntado
         this.aimLine.destroy();
         this.aimLine = null;

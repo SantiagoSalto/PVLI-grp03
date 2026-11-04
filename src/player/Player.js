@@ -34,6 +34,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.maxDrag = 500;                                    // pixeles de arrastre para llegar a la fuerza maxima
         this.minRange = 150;                                   // alcance con muy poco arrastre (parabola cerrada)
         this.maxRange = 5000;                                  // alcance con arrastre maximo (casi recto)
+        this.bulletTimeSpeed = 0.1;                            // velocidad del juego al apuntar en el aire (1 = normal)
 
         // sistema de vidas del jugador
         this.lives = 3;                                        // cantidad de golpes que el jugador aguantará hasta perder en el nivel
@@ -58,7 +59,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         if (this.invencible)
         {
             this.setAlpha(0.7);
-            this.invincibilityframe += dt;
+            this.invincibilityframe += dt * this.scene.gameSpeed;
             if (this.invincibilityframe >= this.invincibilitydur) 
             {
                 this.invencible = false;
@@ -96,6 +97,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     isGrounded() {
-        return this.body.onFloor();
+        // touching.down cuenta tambien las cajas (onFloor solo cuenta objetos inmoviles)
+        return this.body.onFloor() || this.body.touching.down;
     }
 }

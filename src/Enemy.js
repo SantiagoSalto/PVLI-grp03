@@ -39,6 +39,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     }
 	preUpdate (t, dt) {
     super.preUpdate(t, dt)
+    dt = dt * this.scene.gameSpeed; // bullet time: mas lento si el juego va lento
     // la lógica particular de `FallingMartian`, aquí
     this.x += this.speedX * dt / 1000; // 2 unidades por segundo
 	if (this.x > this.originX + this.range || this.x < this.originX - this.range)

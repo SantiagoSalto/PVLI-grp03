@@ -18,6 +18,8 @@ export default class PlayScene extends Phaser.Scene {
         const ancho = this.cameras.main.width;
         const alto = this.cameras.main.height;
 
+        this.setGameSpeed(1);                                  // velocidad normal al empezar
+
         this.background = this.add.image(ancho / 2, alto / 2, 'background3');
         this.background.setScrollFactor(0.05);
 
@@ -244,6 +246,14 @@ export default class PlayScene extends Phaser.Scene {
             this.heart2.setAlpha(0);
             this.heart3.setAlpha(0);
         }
+    }
+
+    // Velocidad de todo el juego (1 = normal, 0.1 = diez veces mas lento) para el bullet time
+    // se mantienen 60 pasos de fisica por segundo, cada uno mas pequeño, para que no vaya a tirones
+    setGameSpeed(speed) {
+        this.gameSpeed = speed;
+        this.physics.world.setFPS(60 / speed);
+        this.physics.world.timeScale = 1 / speed;
     }
 
     //Devuelve el valor de una propiedad personalizada de un objeto de Tiled
