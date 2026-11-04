@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="200" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="20">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="200" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="21">
  <editorsettings>
   <export target="nivel1.json" format="json"/>
  </editorsettings>
@@ -138,6 +138,13 @@
   <object id="19" name="destructible" x="416" y="736">
    <properties>
     <property name="height" type="float" value="2"/>
+    <property name="width" type="float" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="20" name="spike" x="320" y="843">
+   <properties>
+    <property name="height" type="float" value="1.3"/>
     <property name="width" type="float" value="2"/>
    </properties>
    <point/>

@@ -3,6 +3,7 @@ import Enemy from '../Enemy.js';
 import Platform from '../Platform.js';
 import Box from '../structures/Box.js';
 import DestructibleBlock from '../structures/DestructibleBlock.js';
+import Spike from '../structures/Spike.js';
 import InputManager from '../managers/InputManager.js';
 import { toPx } from '../Measures.js';
 
@@ -58,6 +59,7 @@ export default class PlayScene extends Phaser.Scene {
         // ESTRUCTURAS
         this.boxes = this.add.group();
         this.destructibles = this.add.group();
+        this.spikes = this.add.group();
         map.getObjectLayer('Structures').objects.forEach((object) => {
             switch (object.name) {
                 case 'meta':
@@ -75,6 +77,11 @@ export default class PlayScene extends Phaser.Scene {
                     break;
                 case 'destructible':
                     this.destructibles.add(new DestructibleBlock(this, object.x, object.y,
+                        toPx(this.getProperty(object, 'width')),      //width y height en bloques
+                        toPx(this.getProperty(object, 'height'))));
+                    break;
+                case 'spike':
+                    this.spikes.add(new Spike(this, object.x, object.y,
                         toPx(this.getProperty(object, 'width')),      //width y height en bloques
                         toPx(this.getProperty(object, 'height'))));
                     break;
@@ -118,31 +125,6 @@ export default class PlayScene extends Phaser.Scene {
             enemy.destroy();
         });
 
-
-        // Ahora el jugador y las plataformas se crean desde el mapa de Tiled
-        // this.player = new Player(this, 100, alto - 100);
-
-        // Plataformas con su propio constructor para componer el nivel de prueba.
-        // this.Platform = new Platform(this, 300, 580, 250, 10, this.player);
-        // this.Platform2 = new Platform(this, 300, 450, 33, 6, this.player);
-        // this.Platform3 = new Platform(this, 550, 329, 33, 6, this.player);
-
-        // this.enemies = this.physics.add.group();
-
-        // this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
-        // this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
-
-        // this.enemies.add(this.Enemy1);
-        // this.enemies.add(this.Enemy2);
-
-        // this.physics.add.overlap(this.player, this.enemies);
-
-        // Corazones de vida en la UI
-
-        // Ahora los enemigos se crean desde el mapa de Tiled
-        // this.Enemy1 = new Enemy(this, 550, 500, 75, 0, 100);
-        // this.Enemy2 = new Enemy(this, 400, 200, 0, 50, 50);
-
         //Iconos Interaccionables UI
         var play = this.add.image(ancho - 10, 10, 'play');
         play.setOrigin(1, 0);
@@ -176,47 +158,7 @@ export default class PlayScene extends Phaser.Scene {
             this.scene.pause();
             this.scene.launch('PauseScene');
         })
-
-        //Provisioales para visualización
-            // //Win scene
-            // var win = this.add.image(ancho -200, 70, 'win');
-            // play.setOrigin(1, 0);
-            // win.setScale(0.10);
-            // win.setInteractive();
-            // win.on('pointerdown', () =>{
-            //     this.scene.pause();
-            //     this.scene.launch('WinScene');
-            // });
-
-            // //Lose scene
-            // var death = this.add.image(ancho -300, 70, 'death');
-            // death.setOrigin(1, 0);
-            // death.setScale(0.10);
-            // death.setInteractive();
-            // death.on('pointerdown', () =>{
-            //     this.scene.pause();
-            //     this.scene.launch('LoseScene');
-            // });
-            // var win = this.add.image(ancho -200, 70, 'win');
-            // play.setOrigin(1, 0);
-            // win.setScale(0.10);
-            // win.setInteractive();
-            // win.on('pointerdown', () =>{
-            //     this.scene.pause();
-            //     this.scene.launch('WinScene');
-            // });
-
-            // //Lose scene
-            // var death = this.add.image(ancho -300, 70, 'death');
-            // play.setOrigin(1, 0);
-            // death.setScale(0.10);
-            // death.setInteractive();
-            // death.on('pointerdown', () =>{
-            //     this.scene.pause();
-            //     this.scene.launch('LoseScene');
-            // });
-
-        //Cámara:     
+  
         //Metodo propio de camara para que siga un objeto, en este caso al jugador
         this.cameras.main.startFollow(this.player);
         //Limites a la camara,  poisiciones, & ancho y alto
@@ -227,7 +169,9 @@ export default class PlayScene extends Phaser.Scene {
 	}
     update(time, delta) {
         this.player.update(time, delta);
-        if (this.physics.overlap(this.player, this.enemies) && !this.player.invencible)
+        // enemigos y pinchos hacen el mismo daño
+        const touchingDanger = this.physics.overlap(this.player, this.enemies) || this.physics.overlap(this.player, this.spikes);
+        if (touchingDanger && !this.player.invencible)
         {
             this.player.lives -= 1;
             this.player.invencible = true;

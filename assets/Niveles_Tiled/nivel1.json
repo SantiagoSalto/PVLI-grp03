@@ -393,6 +393,29 @@
                  "width":0,
                  "x":416,
                  "y":736
+                }, 
+                {
+                 "height":0,
+                 "id":20,
+                 "name":"spike",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"height",
+                         "type":"float",
+                         "value":1.3
+                        }, 
+                        {
+                         "name":"width",
+                         "type":"float",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":320,
+                 "y":843
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -442,7 +465,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.0",
