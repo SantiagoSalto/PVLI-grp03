@@ -1,6 +1,7 @@
 
 import BaseState from '../../stateMachine/BaseState.js';
 import Projectile from '../Projectile.js';
+import { SCALE } from '../../Measures.js';
 
 export default class PlayerAttackState extends BaseState {
 
@@ -120,8 +121,8 @@ export default class PlayerAttackState extends BaseState {
             directionY: directionY,
             speed: speed,
             gravity: gravity,
-            startX: player.x + directionX * 30,
-            startY: player.y + directionY * 30
+            startX: player.x + directionX * 30 * SCALE,
+            startY: player.y + directionY * 30 * SCALE
         };
     }
 
@@ -134,7 +135,7 @@ export default class PlayerAttackState extends BaseState {
             let side = 1;
             if (player.flipX) side = -1;
 
-            new Projectile(scene, player.x + side * 30, player.y);
+            new Projectile(scene, player.x + side * 30 * SCALE, player.y);
 
             this.endAttack(player);
             return;

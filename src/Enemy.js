@@ -1,3 +1,5 @@
+import { SCALE } from './Measures.js';
+
 /**
  * Clase que representa un enemigo
  */
@@ -29,7 +31,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
 
-        this.setScale(0.1);                                   // tamaño en pantalla
+        this.setScale(0.1 * SCALE);                                   // tamaño en pantalla
         this.body.setSize(320, 650);                           // hitbox ajustada
         this.body.setOffset(150, 50);                          // colocar hitbox
 

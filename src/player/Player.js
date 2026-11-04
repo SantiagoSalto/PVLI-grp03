@@ -3,6 +3,7 @@ import PlayerIdleState from './States/PlayerIdleState.js';
 import PlayerMoveState from './States/PlayerMoveState.js';
 import PlayerJumpState from './States/PlayerJumpState.js';
 import PlayerAttackState from './States/PlayerAttackState.js';
+import { SCALE } from '../Measures.js';
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
@@ -14,29 +15,29 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.setCollideWorldBounds(true);                      // colision con bordes
 
         //Cambios suavizado eje Y
-        this.setGravityY(1050);                                  // gravedad
-        this.body.setMaxVelocityY(900); //900                   // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
-        this.body.setDragY(20)                                  //Añade ligera resistencia al aire vertical
+        this.setGravityY(1050 * SCALE);                                  // gravedad
+        this.body.setMaxVelocityY(900 * SCALE); //900                   // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
+        this.body.setDragY(20 * SCALE)                                  //Añade ligera resistencia al aire vertical
 
-        this.setScale(0.15);                                   // tamaño en pantalla
+        this.setScale(0.15 * SCALE);                                   // tamaño en pantalla
         this.body.setSize(300, 400);                           // hitbox ajustada
         this.body.setOffset(130, 70);                          // colocar hitbox
 
         // movimiento
-        this.walkSpeed = 120;                                  // velocidad andando
-        this.runSpeed = 380;                                   // velocidad corriendo
-        this.runDistance = 200;                                // distancia al cursor a partir de la que corre
-        this.stopDistance = 5;                                 // distancia al cursor para pararse
+        this.walkSpeed = 120 * SCALE;                                  // velocidad andando
+        this.runSpeed = 380 * SCALE;                                   // velocidad corriendo
+        this.runDistance = 200 * SCALE;                                // distancia al cursor a partir de la que corre
+        this.stopDistance = 5 * SCALE;                                 // distancia al cursor para pararse
 
         // salto
-        this.jumpSpeed = 700;                                  // fuerza del salto (altura fija)
+        this.jumpSpeed = 700 * SCALE;                                  // fuerza del salto (altura fija)
 
         // ataque
-        this.minShotSpeed = 400;                               // velocidad del proyectil con muy poco arrastre
-        this.maxShotSpeed = 1150;                              // velocidad del proyectil con arrastre maximo
+        this.minShotSpeed = 400 * SCALE;                               // velocidad del proyectil con muy poco arrastre
+        this.maxShotSpeed = 1150 * SCALE;                              // velocidad del proyectil con arrastre maximo
         this.maxDrag = 500;                                    // pixeles de arrastre para llegar a la fuerza maxima
-        this.minRange = 150;                                   // alcance con muy poco arrastre (parabola cerrada)
-        this.maxRange = 5000;                                  // alcance con arrastre maximo (casi recto)
+        this.minRange = 150 * SCALE;                                   // alcance con muy poco arrastre (parabola cerrada)
+        this.maxRange = 5000 * SCALE;                                  // alcance con arrastre maximo (casi recto)
         this.bulletTimeSpeed = 0.1;                            // velocidad del juego al apuntar en el aire (1 = normal)
 
         // sistema de vidas del jugador
@@ -62,13 +63,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         //Hang time = Flotando unos instantes cuando llega a punto maximo de salto
         if (!this.isGrounded()) {
             // Si la velocidad vertical es cercana a 0 (está en la cúspide del salto)
-            if (Math.abs(this.body.velocity.y) < 20) {
-                this.body.setGravityY(500); // Reducimos la gravedad a la mitad para que flote
+            if (Math.abs(this.body.velocity.y) < 20 * SCALE) {
+                this.body.setGravityY(500 * SCALE); // Reducimos la gravedad a la mitad para que flote
             } else {
-                this.body.setGravityY(1050); // Gravedad normal en caída o subida fuerte
+                this.body.setGravityY(1050 * SCALE); // Gravedad normal en caída o subida fuerte
             }
         } else {
-            this.body.setGravityY(1050);
+            this.body.setGravityY(1050 * SCALE);
         }
 
         if (this.invencible) // Control de la invencibilidad del jugador

@@ -1,8 +1,11 @@
 // Sistema de medidas del juego: 1 bloque = 1 tile de Tiled
 // Todas las medidas del mundo se pueden pensar en bloques 
 
-// Tamaño de un bloque en pixeles (debe coincidir con el tamaño de tile en Tiled)
-export const BLOCK = 32;
+// Escala de todo el mundo del juego (tiles, personajes, velocidades...): 1 = tamaño de Tiled
+export const SCALE = 1.5;
+
+// Tamaño de un bloque en pixeles (32 es el tamaño de tile en Tiled)
+export const BLOCK = 32 * SCALE;
 
 // Tamaño de la pantalla 16:9
 export const SCREEN_WIDTH = 1024;

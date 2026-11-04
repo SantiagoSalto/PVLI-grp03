@@ -9,7 +9,7 @@ import LevelSelector from './scenes/LevelSelector.js';
 import LevelInfo from './scenes/LevelInfo.js';
 import PauseScene from './scenes/PauseScene.js';
 import LoseScene from './scenes/LoseScene.js';
-import { SCREEN_WIDTH, SCREEN_HEIGHT } from './Measures.js';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, BLOCK } from './Measures.js';
 
 const WIDTH = SCREEN_WIDTH;
 const HEIGHT = SCREEN_HEIGHT;
@@ -34,7 +34,7 @@ let config = {
         default: 'arcade', 
         arcade: { 
             gravity: { y: 0 },
-            tileBias: 32,                                      // con el valor por defecto (16) el proyectil rapido atraviesa los tiles
+            tileBias: BLOCK,                                      // con el valor por defecto (16) el proyectil rapido atraviesa los tiles
             debug: true 
         } 
     }

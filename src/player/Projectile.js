@@ -1,3 +1,5 @@
+import { SCALE } from '../Measures.js';
+
 export default class Projectile extends Phaser.Physics.Arcade.Sprite {
 
     constructor(scene, x, y) {
@@ -11,10 +13,10 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
 
         this.body.setAllowGravity(true);
         this.setCollideWorldBounds(false);
-        this.setScale(0.25);
+        this.setScale(0.25 * SCALE);
         this.body.setSize(140, 140);                           // hitbox ajustada (la imagen tiene mucho margen transparente)
 
-        this.setGravityY(1000);
+        this.setGravityY(1000 * SCALE);
 
         this.despawnDistance = 200;                            // distancia fuera de la camara a la que se destruye
 

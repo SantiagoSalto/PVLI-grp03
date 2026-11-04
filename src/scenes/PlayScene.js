@@ -5,7 +5,7 @@ import Box from '../structures/Box.js';
 import DestructibleBlock from '../structures/DestructibleBlock.js';
 import Spike from '../structures/Spike.js';
 import InputManager from '../managers/InputManager.js';
-import { toPx } from '../Measures.js';
+import { toPx, SCALE } from '../Measures.js';
 
 export default class PlayScene extends Phaser.Scene {
 	constructor() {
@@ -34,9 +34,18 @@ export default class PlayScene extends Phaser.Scene {
         else tileset = map.addTilesetImage('Pipoya_Dirt1', 'tilesDirt1');
         const ground = map.createLayer('Ground', tileset, 0, 0);
         ground.setCollisionByProperty({ Collision: true });
+        ground.setScale(SCALE);
+
+        // Agrandar tambien las posiciones y tamaños de los objetos de Tiled
+        map.objects.forEach((layer) => layer.objects.forEach((object) => {
+            object.x *= SCALE;
+            object.y *= SCALE;
+            object.width *= SCALE;
+            object.height *= SCALE;
+        }));
 
         //Mundo de fisicas del tamaño del mapa (si no el jugador choca a los 1024 px)
-        this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+        this.physics.world.setBounds(0, 0, map.widthInPixels * SCALE, map.heightInPixels * SCALE);
 
 
         // PERSONAJES
@@ -48,8 +57,8 @@ export default class PlayScene extends Phaser.Scene {
                     break;
                 case 'enemy':
                     this.enemies.add(new Enemy(this, object.x, object.y,
-                        this.getProperty(object, 'speedX'),
-                        this.getProperty(object, 'speedY'),
+                        this.getProperty(object, 'speedX') * SCALE,
+                        this.getProperty(object, 'speedY') * SCALE,
                         toPx(this.getProperty(object, 'range'))));   //range en bloques
                     break;
 
@@ -72,8 +81,8 @@ export default class PlayScene extends Phaser.Scene {
                 });
                 break;
                 case 'box':
-                    this.boxes.add(new Box(this, object.x, object.y, this.getProperty(object, 'width'), 
-                    this.getProperty(object, 'height')));
+                    this.boxes.add(new Box(this, object.x, object.y, this.getProperty(object, 'width') * SCALE, 
+                    this.getProperty(object, 'height') * SCALE));
                     break;
                 case 'destructible':
                     this.destructibles.add(new DestructibleBlock(this, object.x, object.y,
@@ -92,8 +101,8 @@ export default class PlayScene extends Phaser.Scene {
         map.getObjectLayer('Platforms').objects.forEach((object) => {
             if (object.name === 'platform') {
                 this.platforms.add(new Platform(this, object.x, object.y,
-                    this.getProperty(object, 'width'),
-                    this.getProperty(object, 'height'), this.player));
+                    this.getProperty(object, 'width') * SCALE,
+                    this.getProperty(object, 'height') * SCALE, this.player));
             }
         });
 
@@ -164,7 +173,7 @@ export default class PlayScene extends Phaser.Scene {
         //Metodo propio de camara para que siga un objeto, en este caso al jugador
         this.cameras.main.startFollow(this.player);
         //Limites a la camara,  poisiciones, & ancho y alto
-        this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);         //si quitamos esta linea se ve totalmente distinto el juego 
+        this.cameras.main.setBounds(0, 0, map.widthInPixels * SCALE, map.heightInPixels * SCALE);         //si quitamos esta linea se ve totalmente distinto el juego 
 
         //Evitar que se note borrosos los pixeles
         this.cameras.main.setRoundPixels(true);
