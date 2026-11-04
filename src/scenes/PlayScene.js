@@ -19,6 +19,7 @@ export default class PlayScene extends Phaser.Scene {
 	create() {
         const ancho = this.cameras.main.width;
         const alto = this.cameras.main.height;
+        this.physics.world.OVERLAP_BIAS = 14;
 
         this.setGameSpeed(1);                                  // velocidad normal al empezar
 

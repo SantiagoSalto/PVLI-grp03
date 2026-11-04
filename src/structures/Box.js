@@ -25,7 +25,6 @@ export default class Box extends Phaser.Physics.Arcade.Sprite {
         this.setGravityY(1000);                                // gravedad
         this.body.setMaxVelocityY(900);                        // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
         this.body.setMaxVelocityX(50);                        
-
 		
         this.setScale(width/10, height/10);                     	// tamaño en pantalla
         this.body.setSize(width*447 /width, height*447 /height);	// hitbox ajustada
@@ -38,5 +37,10 @@ export default class Box extends Phaser.Physics.Arcade.Sprite {
 		if (this.body.onFloor()) this.body.velocity.x = this.body.velocity.x * 0.05 * delta;
 		if (this.body.velocity.x < 0.01 && this.body.velocity.x > 0) this.body.velocity.x = 0;
 		if (this.body.velocity.x > -0.01 && this.body.velocity.x < 0) this.body.velocity.x = 0;
+		if (this.body.blocked.left || this.body.blocked.right)
+		{
+			this.setPushable(false);
+		} 
+		else this.setPushable(true);
 	}
 }
