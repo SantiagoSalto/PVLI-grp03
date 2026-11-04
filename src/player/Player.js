@@ -12,8 +12,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
         this.setCollideWorldBounds(true);                      // colision con bordes
-        this.setGravityY(1000);                                // gravedad
-        this.body.setMaxVelocityY(900);                        // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
+
+        //Cambios suavizado eje Y
+        this.setGravityY(1050);                                  // gravedad
+        this.body.setMaxVelocityY(900); //900                   // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
+        this.body.setDragY(20)                                  //Añade ligera resistencia al aire vertical
 
         this.setScale(0.15);                                   // tamaño en pantalla
         this.body.setSize(300, 400);                           // hitbox ajustada
@@ -58,6 +61,18 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
     preUpdate(t, dt)
     {
+        //Hang time = Flotando unos instantes cuando llega a punto maximo de salto
+        if (!this.isGrounded()) {
+            // Si la velocidad vertical es cercana a 0 (está en la cúspide del salto)
+            if (Math.abs(this.body.velocity.y) < 20) {
+                this.body.setGravityY(500); // Reducimos la gravedad a la mitad para que flote
+            } else {
+                this.body.setGravityY(1050); // Gravedad normal en caída o subida fuerte
+            }
+        } else {
+            this.body.setGravityY(1050);
+        }
+
         if (this.invencible) // Control de la invencibilidad del jugador
         {
             this.setAlpha(0.7); // Hace al jugador transpartente para indicar que no puede ser dañado
