@@ -2,7 +2,7 @@
 // Todas las medidas del mundo se pueden pensar en bloques 
 
 // Escala de todo el mundo del juego (tiles, personajes, velocidades...): 1 = tamaño de Tiled
-export const SCALE = 1.5;
+export const SCALE = 1.25;
 
 // Tamaño de un bloque en pixeles (32 es el tamaño de tile en Tiled)
 export const BLOCK = 32 * SCALE;
