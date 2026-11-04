@@ -17,19 +17,19 @@ export default class PlayerAttackState extends BaseState {
         // Coordenadas de pantalla: el arrastre no depende de la camara
         const pointer = player.mouse.pointer;
 
-        this.posicionInicial = {
+        this.startPosition = {
             x: pointer.x,
             y: pointer.y
         };
 
-        this.posicionActual = {
+        this.currentPosition = {
             x: pointer.x,
             y: pointer.y
         };
 
         // Crear la línea de apuntado
-        this.linea = player.scene.add.graphics();
-        this.linea.setDepth(100);
+        this.aimLine = player.scene.add.graphics();
+        this.aimLine.setDepth(100);
     }
 
     execute(player, time, delta) {
@@ -50,79 +50,105 @@ export default class PlayerAttackState extends BaseState {
         // Al soltar dispara con la ultima posicion apuntada
         // (se comprueba cada frame, asi funciona aunque se suelte fuera del juego)
         if (!player.mouse.isRightDown()) {
-            this.disparar(player);
+            this.shoot(player);
             return;
         }
 
         // Actualizar la posición del cursor
         const pointer = player.mouse.pointer;
 
-        this.posicionActual = {
+        this.currentPosition = {
             x: pointer.x,
             y: pointer.y
         };
 
-        const dx = this.posicionInicial.x - this.posicionActual.x;
-        const dy = this.posicionInicial.y - this.posicionActual.y;
-
-        this.linea.clear();
-        this.linea.lineStyle(3, 0xffffff, 0.8);
-        this.linea.beginPath();
-        this.linea.moveTo(player.x, player.y);
-        this.linea.lineTo(
-            player.x + dx,
-            player.y + dy
-        );
-        this.linea.strokePath();
+        this.drawParabola(player);
     }
 
-    disparar(player) {
-        const scene = player.scene;
+    // Puntos de la parabola: misma formula que sigue el proyectil
+    drawParabola(player) {
+        this.aimLine.clear();
 
-        const dx = this.posicionInicial.x - this.posicionActual.x;
-        const dy = this.posicionInicial.y - this.posicionActual.y;
-        const distancia = Math.sqrt(dx * dx + dy * dy);
+        const shot = this.getShot(player);
 
-        // Sin arrastre: lanzamiento fallido, sale sin fuerza delante del player y cae
-        if (distancia < 10) {
-            let lado = 1;
-            if (player.flipX) lado = -1;
+        // Sin arrastre no hay curva: el proyectil solo caera
+        if (!shot) return;
 
-            new Projectile(scene, player.x + lado * 30, player.y);
+        // mirar hacia donde apunta
+        player.setFlipX(shot.directionX < 0);
 
-            this.terminarAtaque(player);
-            return;
+        const speedX = shot.directionX * shot.speed;
+        const speedY = shot.directionY * shot.speed;
+
+        this.aimLine.fillStyle(0xffffff, 0.8);
+
+        for (let i = 1; i <= 30; i++) {
+            const t = i * 0.05;
+            const x = shot.startX + speedX * t;
+            const y = shot.startY + speedY * t + 0.5 * shot.gravity * t * t;
+
+            this.aimLine.fillCircle(x, y, 3);
         }
+    }
 
-        const direccionX = dx / distancia;
-        const direccionY = dy / distancia;
+    // Datos del disparo segun el arrastre (null si no hay arrastre suficiente)
+    getShot(player) {
+        const dx = this.startPosition.x - this.currentPosition.x;
+        const dy = this.startPosition.y - this.currentPosition.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 10) return null;
+
+        const directionX = dx / distance;
+        const directionY = dy / distance;
 
         // La fuerza (de 0 a 1) decide la velocidad y el alcance por separado:
         // la velocidad sube poco, y el alcance (la forma de la curva) sube sobre todo al final del arrastre
-        const fuerza = Math.min(distancia / player.maxDrag, 1);
-        const velocidad = player.minShotSpeed + (player.maxShotSpeed - player.minShotSpeed) * fuerza;
-        const alcance = player.minRange + (player.maxRange - player.minRange) * fuerza * fuerza * fuerza;
+        const force = Math.min(distance / player.maxDrag, 1);
+        const speed = player.minShotSpeed + (player.maxShotSpeed - player.minShotSpeed) * force;
+        const range = player.minRange + (player.maxRange - player.minRange) * force * force * force;
 
         // Gravedad necesaria para que esa velocidad llegue a ese alcance
-        const gravedad = velocidad * velocidad / alcance;
+        const gravity = speed * speed / range;
 
-        const projectile = new Projectile(
-            scene,
-            player.x + direccionX * 30,
-            player.y + direccionY * 30
-        );
-
-        projectile.shoot(
-            direccionX,
-            direccionY,
-            velocidad,
-            gravedad
-        );
-
-        this.terminarAtaque(player);
+        return {
+            directionX: directionX,
+            directionY: directionY,
+            speed: speed,
+            gravity: gravity,
+            startX: player.x + directionX * 30,
+            startY: player.y + directionY * 30
+        };
     }
 
-    terminarAtaque(player) {
+    shoot(player) {
+        const scene = player.scene;
+        const shot = this.getShot(player);
+
+        // Sin arrastre: lanzamiento fallido, sale sin fuerza delante del player y cae
+        if (!shot) {
+            let side = 1;
+            if (player.flipX) side = -1;
+
+            new Projectile(scene, player.x + side * 30, player.y);
+
+            this.endAttack(player);
+            return;
+        }
+
+        const projectile = new Projectile(scene, shot.startX, shot.startY);
+
+        projectile.shoot(
+            shot.directionX,
+            shot.directionY,
+            shot.speed,
+            shot.gravity
+        );
+
+        this.endAttack(player);
+    }
+
+    endAttack(player) {
         if (!player.isGrounded()) {
             player.stateMachine.setState('jump');
         } else {
@@ -134,7 +160,7 @@ export default class PlayerAttackState extends BaseState {
 
     exit(player) {
         // Borrar la línea de apuntado
-        this.linea.destroy();
-        this.linea = null;
+        this.aimLine.destroy();
+        this.aimLine = null;
     }
 }
