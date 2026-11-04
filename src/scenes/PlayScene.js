@@ -90,6 +90,17 @@ export default class PlayScene extends Phaser.Scene {
                         toPx(this.getProperty(object, 'width')),      //width y height en bloques
                         toPx(this.getProperty(object, 'height'))));
                     break;
+                case 'hint':
+                    //Texto de ayuda de los niveles tutoriales
+                    this.add.text(object.x, object.y, this.getProperty(object, 'text'), {
+                        fontFamily: 'Georgia, serif',
+                        fontSize: 20 * SCALE,
+                        color: '#ffffff',
+                        stroke: '#3a3326',
+                        strokeThickness: 4,
+                        align: 'center'
+                    }).setOrigin(0.5);
+                    break;
                 case 'spike':
                     this.spikes.add(new Spike(this, object.x, object.y,
                         toPx(this.getProperty(object, 'width')),      //width y height en bloques
