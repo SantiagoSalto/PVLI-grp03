@@ -37,8 +37,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         // input
         this.mouse = scene.inputManager;
 
-        scene.input.mouse.disableContextMenu();
-
         // estados
         this.stateMachine = new StateMachine(this);
         this.stateMachine

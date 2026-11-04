@@ -40,3 +40,6 @@ let config = {
 };
 
 new Phaser.Game(config);
+
+// sin menu del navegador con clic derecho: al apuntar se puede soltar fuera del juego
+document.addEventListener('contextmenu', (e) => e.preventDefault());
