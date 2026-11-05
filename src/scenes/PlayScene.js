@@ -116,6 +116,14 @@ export default class PlayScene extends Phaser.Scene {
                     this.getProperty(object, 'width') * SCALE,
                     this.getProperty(object, 'height') * SCALE, this.player));
             }
+            if (object.name === 'movingPlatform') {
+                this.platforms.add(new Platform(this, object.x, object.y,
+                    this.getProperty(object, 'width') * SCALE,
+                    this.getProperty(object, 'height') * SCALE, this.player,
+                    this.getProperty(object, 'speedX') * SCALE,
+                    this.getProperty(object, 'speedY') * SCALE,
+                    toPx(this.getProperty(object, 'range'))));   //range en bloques
+            }
         });
 
 
