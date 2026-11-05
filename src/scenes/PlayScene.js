@@ -128,15 +128,6 @@ export default class PlayScene extends Phaser.Scene {
                     break;
             }
         });
-        //Si el nivel tiene piezas, el portal esta cerrado y muestra arriba la letra por completar
-        if (this.pieces.getLength() > 0) {
-            const strokes = this.pieces.getChildren().map((piece) => piece.texture.key);
-            const size = toPx(2);
-            this.portalSymbol = new PortalSymbol(this, this.portal.x, this.portal.getTopCenter().y - size / 2 - 10, size, strokes);
-            this.portal.setTint(0x555555);
-            this.portalOpen = false;
-        }
-
         // PLATAFORMAS
         this.platforms = this.add.group();
         map.getObjectLayer('Platforms').objects.forEach((object) => {
@@ -230,6 +221,17 @@ export default class PlayScene extends Phaser.Scene {
         this.heart3.setScale(0.017);
         this.heart3.setScrollFactor(0);
 
+        //Si el nivel tiene piezas, el portal esta cerrado y la letra por completar sale sobre el portal y junto a las vidas
+        if (this.pieces.getLength() > 0) {
+            const strokes = this.pieces.getChildren().map((piece) => piece.texture.key);
+            const size = toPx(2);
+            this.portalSymbol = new PortalSymbol(this, this.portal.x, this.portal.getTopCenter().y - size / 2 - 10, size, strokes);
+            this.uiSymbol = new PortalSymbol(this, ancho - 650, 50, size, strokes);
+            this.uiSymbol.fixToScreen();
+            this.portal.setTint(0x555555);
+            this.portalOpen = false;
+        }
+
         //Icono menu de pausa
         var pausa = this.add.image(100, 100, 'pausa');
         pausa.setInteractive();
@@ -308,10 +310,12 @@ export default class PlayScene extends Phaser.Scene {
     //Rellena el trazo en la letra del portal; con la letra completa el portal se abre
     collectPiece(piece) {
         this.portalSymbol.fill(piece.texture.key);
+        this.uiSymbol.fill(piece.texture.key);
         piece.destroy();
         if (this.pieces.getLength() > 0) return;
 
         this.portalSymbol.complete();
+        this.uiSymbol.complete();
         this.portal.clearTint();
         this.portalOpen = true;
     }
