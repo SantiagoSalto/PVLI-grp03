@@ -52,7 +52,7 @@ En el mundo de (x) los loros Piratas de la isla de (x) se han propuesto conquist
   <img src="Images/GDD/CartaInframundo.jpg" alt="" width="150"/>
 </p>
 
-- **Inframundo:** Robada con la carta del loro pirata. Esta carta la usaremos para diseñar el último nivel del juego, y también usaremos la mecánica de "El Suelo es Lava" junto a varios obstáculos peligrosos. **+2p**
+- **Inframundo:** Robada con la carta del loro pirata. Esta carta la usaremos para diseñar el último mundo del juego, y también usaremos la mecánica de "El Suelo es Lava" junto a varios obstáculos peligrosos. **+2p**
 
 **Puntos totales: 12p + 2p**
 
@@ -111,12 +111,10 @@ Para atacar, se utiliza el clic derecho. Al pulsarlo el personaje entra en estad
 El proyectil que se lanza en el ataque se mueve en forma de parábola. Este proyectil se usará para derrotar a enemigos, disparar a objetivos que activan mecanismos, o romper bloques frágiles que hay por el nivel. El ataque también puede empujar cajas irrompibles cuando impacta en ellas.
 
 <p align="center">
-  <img src="Images/GDD/Attack1.png" alt="" width="400"/>
+  <img src="Images/GDD/AtaqueArdilla.jpg" alt="" width="400"/>
 </p>
 
-<p align="center">
-  <img src="Images/GDD/Attack2.png" alt="" width="500"/>
-</p>
+***Si presionas el click derecho del ratón, soltarlo lanzará un ataque en esa dirección con una fuerza proporcional a la distancia del ratón desde el punto de origen desde que se entró en el estado de ataque.***
 
 ### 3.4 Recolección de símbolos
 
@@ -187,31 +185,32 @@ Además, en cada nivel tienes estrellas que puedes conseguir superando el nivel 
   <img src="Images/GDD/ResultadosDemo.jpg" alt="" width="500"/>
 </p>
 
+***AVISO: (Esto es un simulador que he hecho con la ayuda del programa de desarrollo Scratch, y los gráficos/objetos usados aquí no representarán el acabado final de esta ventana)***
+
 ***Una representación de lo que saldrá  cuando completes el nivel (la pantalla todavía se oscurecerá como en la versión actual y la ventana tendría un tamaño muy parecido), con las estrellas teniendo un requisito de puntuación mínima encima suya para conseguirla. Abajo estará la puntuación total junto a todos los parámetros de puntuación que dan/quitan puntuación. Si al jugador le da tiempo a pasar el nivel antes del tiempo objetivo, se sustituirá la penalización por el bonus de puntuación por tiempo ahorrado.***
 
 
 ### 3.7 Niveles
-
-Los primeros niveles del juego (unos 4 o 5) se van a utilizar para introducir al jugador a las mecánicas del juego:
 
 Los primeros niveles del juego (unos 4 o 5) se van a utilizar para introducir al jugador a las mecánicas del juego.
 - El **primer nivel** introducirá al jugador al movimiento del personaje. 
 - El **segundo nivel** introducirá el ataque de la ardilla añadiendo unos bloques frágiles que bloquean el camino y al final unas dianas a las que hay que disparar para invocar una plataforma que lleve al final del nivel.
 - El **tercer nivel** le enseñará al jugador los enemigos más sencillos (los que se mueven verticalmente y horizontalmente sin atacar) y varias camas de pinchos que pueden hacer daño a la ardilla.
 - El **cuarto nivel** introduce brevemente las cajas irrompibles que se pueden empujar con el jugador y su proyectil de ataque.
-- El **quinto (?) nivel** en adelante presentará la mecánica de símbolos que hay que recoger para poder salir del nivel actual, además de ir introduciendo progresivamente los objetos y mecánicas para los puzzles que hay que completar para seguir adelante en el juego.
-
+- El **quinto nivel** introduce la mecánica de símbolos que hay que recoger para poder salir del nivel actual
+- El **sexto nivel** en adelante irá introduciendo progresivamente los objetos y mecánicas para los puzzles que hay que completar para seguir adelante en el juego.
 
 Estos serán los objetos/obstáculos que se introducirán durante el tutorial y más adelante en el juego:
 
 - **Plataformas que se mueven:** son como cualquier plataforma por la que la ardilla puede caminar, con la diferencia de que se moverán de una dirección a la siguiente lentamente. Podemos hacer que se muevan horizontalmente, verticalmente y hasta diagonalmente según la necesidad en el nivel.
+
 - **Cajas frágiles e irrompibles:** el jugador las puede mover empujando desde un lado o usando el proyectil de ataque del personaje. Las cajas tendrán tamaños distintos. También habrá cajas frágiles de color azul aclarado que no pueden empujarse y se romperán tras tocar un ataque del jugador.
 
 <p align="center">
   <img src="Images/GDD/EmpujeCaja.jpg" alt="" width="500"/>
 </p>
 
-***La ardilla empujando una caja irrompible moviéndose hacia la derecha. También puedes mover la caja ligeramente con el ataque del jugador si es indestructible.***
+***La ardilla empujando una caja irrompible moviéndose hacia la derecha. También puedes mover la caja ligeramente con el ataque del jugador si es indestructible. Esto destruirá el proyectil cuando toque la caja, sin embargo.***
 
 - **Pinchos/bloques dañinos:** tocarlos daña al jugador y le quita una vida.
 
@@ -225,23 +224,28 @@ Estos serán los objetos/obstáculos que se introducirán durante el tutorial y 
 
 Solo se usarán el clic izquierdo y derecho del ratón, en combinación con el movimiento del ratón, que será apoyado/indicado con la aparición de un icono de cursor en la pantalla.
 
-**Clic izquierdo:** nada más hacer clic izquierdo se entra en estado de movimiento, donde podemos ver 2 tipos de comportamiento:
+**Click izquierdo:** nada más hacer clic izquierdo se entra en estado de movimiento, donde podemos ver 2 tipos de comportamiento:
 
-- **Un clic:** la ardilla se mueve a la posición del cursor. Detectará si tiene que correr o saltar dependiendo de la posición del cursor respecto a la ardilla.
+- **Un click:** la ardilla se mueve a la posición del cursor. Detectará si tiene que correr o saltar dependiendo de la posición del cursor respecto a la ardilla.
 - **Mantener pulsado:** se detecta el input de movimiento de forma constante, y por lo tanto la ardilla seguirá continua e inmediatamente la dirección y posición del cursor a medida que el jugador va arrastrando el ratón.
 
 <p align="center">
   <img src="Images/GDD/Controles2.png" alt="" width="600"/>
 </p>
 
-**Clic derecho:** se entra en el estado de ataque, donde la ardilla podrá lanzar proyectiles. Si está en tierra, se quedará quieta; si está en el aire, conservará la inercia del movimiento hasta quedarse sin ella. Podemos ver 2 tipos de comportamiento:
+***Foto explicativa movimiento con click izquierdo***
+
+**Click derecho:** se entra en el estado de ataque, donde la ardilla podrá lanzar proyectiles. Si está en tierra, se quedará quieta; si está en el aire, conservará la inercia del movimiento hasta quedarse sin ella. Podemos ver 2 tipos de comportamiento:
 
 - **Mantener pulsado:** aparecerá una predicción de trayectoria y fuerza del proyectil, que el jugador podrá ir ajustando mediante el movimiento del ratón. Una vez soltado el botón, se efectuará el disparo.
-- **Un clic:** al estar diseñado de forma que se haga un pre-aim a la hora de efectuar un ataque, en este caso, aunque no se pueda efectuar el primer paso de forma eficaz, se seguirá lanzando un proyectil, pero saldrá con una trayectoria totalmente errónea.
+- **Un click:** al estar diseñado de forma que se haga un pre-aim a la hora de efectuar un ataque, en este caso, aunque no se pueda efectuar el primer paso de forma eficaz, se seguirá lanzando un proyectil, pero saldrá con una trayectoria totalmente errónea.
 
 <p align="center">
   <img src="Images/GDD/Controles1.png" alt="" width="600"/>
 </p>
+
+***Foto explicativa ataque con click derecho***
+
 
 ---
 
@@ -264,13 +268,18 @@ Se presenta de nuevo un camino, aparentemente sin salida. Mediante el uso del le
   <img src="Images/GDD/Puzzle2.png" alt="" width="1000"/>
 </p>
 
-<p align="center">
-  <img src="Images/GDD/InGame1.jpg" alt="" width="1000"/>
-</p>
+**Progreso In game:**
 
-<p align="center">
-  <img src="Images/GDD/InGame2.jpg" alt="" width="1000"/>
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="Images/GDD/InGame1.jpg" alt="" width="400"/>
+    </td>
+    <td align="center">
+      <img src="Images/GDD/InGame2.jpg" alt="" width="400"/>
+    </td>
+  </tr>
+</table>
 
 ### 4.2 Mundos
 
