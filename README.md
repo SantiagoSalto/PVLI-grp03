@@ -327,10 +327,16 @@ Los menús del juego son: el menú principal, el menú de selección de niveles,
 Tendrá 2 líneas de texto destinadas a nombrar el estudio y a los autores. Aunque principalmente se centrará en dar crédito a todos los assets utilizados (ya sean nuestros o utilizados), siendo estos divididos en las secciones de Sonido, Música y Visuales/Arte.
 
 
-**Pantalla de pausa en un nivel**
+#### **Pantalla de pausa en un nivel**
 
 <p align="center">
   <img src="Images/GDD/MenuPausa.png" alt="" width="500"/>
+</p>
+
+**Vista In Game:**
+
+<p align="center">
+  <img src="Images/GDD/MenuPausaInGame.jpg" alt="" width="500"/>
 </p>
 
 Se presenta una ventana emergente en medio de la pantalla. Cuando sale, hace que la escena del nivel quede de fondo, con una tonalidad algo opaca. Tenemos los botones:
@@ -427,18 +433,36 @@ ir trabajando en el arte y lo que nos queda del proyecto. Lo que tenemos pensado
 
 ## Fuentes de los assets
 
-- Ardilla (jugador): Pinterest.com (?): Licencia Libre
+- Fuentes para la UI del menú principal, ajustes, pausa, puntuación y créditos: Kenney.nl. Licencia Libre.
+https://kenney.nl/assets/ui-pack
+https://kenney.nl/assets/game-icons
+https://kenney.nl/assets/fantasy-ui-borders
+
+- Fuentes para la superficie de los niveles: PIPOYA FREE RPG TILESET 32x32 Pixel
+https://pipoya.itch.io/pipoya-rpg-tileset-32x32
+
+- Ardilla (jugador): Vexels.com: Licencia Propietaria
+
 - Bellota (proyectil de ataque): Pngtree.com: Licencia Propietaria
+
 - Loro (enemigo): Vecteezy.com: Licencia Propietaria
-- Portal de la meta: itch.io : Licencia Libre
-- Pinchos normales: Vecteezy.com (?): Licencia Propietaria
+
+- Botón de juego: Pinterest.com: Licencia Libre
+
+- Portal de la meta: itch.io: Licencia Libre
+
+- Pinchos normales: Vecteezy.com : Licencia Propietaria
+
 - Flecha de cursor: Flaticon.es: Licencia Propietaria
+
 - Diana flotante: Pngtree.com: Licencia Propietaria
-- Plataforma flotante de hierba: Pixabay (?):
-- Botón de juego y "salida": Pinterest.com (?): Licencia Libre
-- Estrella de puntuación: Kenney.nl (?): Licencia Libre
-- Ventanas de UI: Kenney.nl (?): Licencia Libre
+
+- Plataforma flotante de hierba: Pixabay: Licencia Libre
+
 - Escenario del nivel/créditos: itch.io : Licencia Libre
-- Escenario de selección de nivel: Pinterest.com (?)
-- Corazón de vidas: Clipartpng.com: Licencia Propietaria (?)
+
+- Escenario de selección de nivel: Pinterest.com: Licencia Libre
+
+- Corazón de vidas: Clipartpng.com: Licencia Propietaria
+
 - Caja de madera: Opengameart.org: Licencia Libre
