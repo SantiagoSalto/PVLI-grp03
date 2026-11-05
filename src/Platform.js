@@ -65,6 +65,18 @@ export default class Platform extends Phaser.GameObjects.Sprite {
 		if (this.body.touching.up && player.body.velocity.y > -player.jumpSpeed / 2) player.body.velocity.y = this.speedY;
 	}
 
+	// Oculta la plataforma: no se ve ni choca con nada hasta que se acierten sus dianas
+	hide() {
+		this.setVisible(false);
+		this.body.enable = false;
+	}
+
+	// Hace aparecer la plataforma
+	show() {
+		this.setVisible(true);
+		this.body.enable = true;
+	}
+
 	// El jugador solo choca si baja respecto a la plataforma y sus pies vienen de encima de ella
 	canLand(player) {
 		const margin = 14;                                     // ayuda: sube aunque se quede un poco corto

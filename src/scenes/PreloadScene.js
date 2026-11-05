@@ -29,6 +29,8 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('portal', './assets/Objetos/portal.png');
         //Flecha del cursor
         this.load.image('arrow', './assets/Objetos/arrow.png');
+        //Diana
+        this.load.image('target', './assets/Objetos/target.png');
         //Tiled
         this.load.image('tilesGrass1', './assets/Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Grass1_pipo.png');
         this.load.tilemapTiledJSON('level1', './assets/Niveles_Tiled/nivel1.json');

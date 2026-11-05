@@ -4,6 +4,7 @@ import Platform from '../Platform.js';
 import Box from '../structures/Box.js';
 import DestructibleBlock from '../structures/DestructibleBlock.js';
 import Spike from '../structures/Spike.js';
+import Target from '../structures/Target.js';
 import InputManager from '../managers/InputManager.js';
 import ArrowCursor from '../managers/ArrowCursor.js';
 import { toPx, SCALE } from '../Measures.js';
@@ -71,6 +72,7 @@ export default class PlayScene extends Phaser.Scene {
         this.boxes = this.add.group();
         this.destructibles = this.add.group();
         this.spikes = this.add.group();
+        this.targets = this.add.group();
         map.getObjectLayer('Structures').objects.forEach((object) => {
             switch (object.name) {
                 case 'meta':
@@ -91,6 +93,13 @@ export default class PlayScene extends Phaser.Scene {
                     this.destructibles.add(new DestructibleBlock(this, object.x, object.y,
                         toPx(this.getProperty(object, 'width')),      //width y height en bloques
                         toPx(this.getProperty(object, 'height'))));
+                    break;
+                case 'target':
+                    this.targets.add(new Target(this, object.x, object.y,
+                        toPx(this.getProperty(object, 'size')),       //size y range en bloques
+                        this.getProperty(object, 'speedY') * SCALE,
+                        toPx(this.getProperty(object, 'range')),
+                        this.getProperty(object, 'group')));
                     break;
                 case 'hint':
                     //Texto de ayuda de los niveles tutoriales
@@ -126,6 +135,18 @@ export default class PlayScene extends Phaser.Scene {
                     this.getProperty(object, 'speedY') * SCALE,
                     toPx(this.getProperty(object, 'range'))));   //range en bloques
             }
+            //Plataforma oculta hasta acertar todas las dianas de su grupo (quieta si speedX y speedY son 0)
+            if (object.name === 'targetPlatform') {
+                const platform = new Platform(this, object.x, object.y,
+                    this.getProperty(object, 'width') * SCALE,
+                    this.getProperty(object, 'height') * SCALE, this.player,
+                    this.getProperty(object, 'speedX') * SCALE,
+                    this.getProperty(object, 'speedY') * SCALE,
+                    toPx(this.getProperty(object, 'range')));
+                platform.targetGroup = this.getProperty(object, 'group');
+                platform.hide();
+                this.platforms.add(platform);
+            }
         });
 
 
@@ -148,6 +169,13 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.add.overlap(this.projectiles, this.destructibles, (projectile, block) => {
             projectile.impact();
             block.destroy();
+        });
+
+        // el proyectil atraviesa las dianas: con un solo disparo se pueden acertar varias
+        this.physics.add.overlap(this.projectiles, this.targets, (projectile, target) => {
+            const group = target.group;
+            target.destroy();
+            this.checkTargets(group);
         });
 
         // el proyectil derrota al enemigo de un golpe (overlap para no empujarlo)
@@ -255,6 +283,16 @@ export default class PlayScene extends Phaser.Scene {
         this.gameSpeed = speed;
         this.physics.world.setFPS(60 / speed);
         this.physics.world.timeScale = 1 / speed;
+    }
+
+    //Si ya no quedan dianas del grupo aparece su plataforma
+    checkTargets(group) {
+        const remaining = this.targets.getChildren().some((target) => target.group === group);
+        if (remaining) return;
+
+        this.platforms.getChildren().forEach((platform) => {
+            if (platform.targetGroup === group) platform.show();
+        });
     }
 
     //Devuelve el valor de una propiedad personalizada de un objeto de Tiled
