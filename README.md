@@ -435,10 +435,13 @@ ir trabajando en el arte y lo que nos queda del proyecto. Lo que tenemos pensado
 
 - Fuentes para la UI del menú principal, ajustes, pausa, puntuación y créditos: Kenney.nl. Licencia Libre.
 https://kenney.nl/assets/ui-pack
+
 https://kenney.nl/assets/game-icons
+
 https://kenney.nl/assets/fantasy-ui-borders
 
 - Fuentes para la superficie de los niveles: PIPOYA FREE RPG TILESET 32x32 Pixel
+
 https://pipoya.itch.io/pipoya-rpg-tileset-32x32
 
 - Ardilla (jugador): Vexels.com: Licencia Propietaria
