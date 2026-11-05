@@ -59,6 +59,10 @@ export default class Platform extends Phaser.GameObjects.Sprite {
 		if (this.y < this.originY - this.range) this.speedY = Math.abs(this.speedY);
 
 		this.body.setVelocity(this.speedX, this.speedY);
+
+		// El jugador que va encima baja con ella en vez de despegarse (si acaba de saltar no se le toca)
+		const player = this.scene.player;
+		if (this.body.touching.up && player.body.velocity.y > -player.jumpSpeed / 2) player.body.velocity.y = this.speedY;
 	}
 
 	// El jugador solo choca si baja respecto a la plataforma y sus pies vienen de encima de ella

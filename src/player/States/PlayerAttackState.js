@@ -12,7 +12,7 @@ export default class PlayerAttackState extends BaseState {
         this.velocityX = player.body.velocity.x;
 
         if (!this.wasAirborne) {
-            player.setVelocity(0, 0);
+            player.setVelocityX(0);
         } else {
             // Bullet time: apuntando en el aire todo el juego va lento
             player.scene.setGameSpeed(player.bulletTimeSpeed);
@@ -49,7 +49,7 @@ export default class PlayerAttackState extends BaseState {
         if (this.wasAirborne) {
             player.setVelocityX(this.velocityX);
         } else {
-            player.setVelocity(0, 0);
+            player.setVelocityX(0);
         }
 
         // Al soltar dispara con la ultima posicion apuntada

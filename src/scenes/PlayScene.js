@@ -143,7 +143,7 @@ export default class PlayScene extends Phaser.Scene {
         // bloques destructibles: paran al jugador y a las cajas, y se rompen con un disparo
         this.physics.add.collider(this.player, this.destructibles);
         this.physics.add.collider(this.boxes, this.destructibles);
-        this.physics.add.collider(this.projectiles, this.destructibles, (projectile, block) => {
+        this.physics.add.overlap(this.projectiles, this.destructibles, (projectile, block) => {
             projectile.impact();
             block.destroy();
         });

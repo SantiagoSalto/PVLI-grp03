@@ -26,7 +26,8 @@ export default class PlayerJumpState extends BaseState {
         }
 
         // si toca el suelo (bajando) volver a move o idle
-        if (player.isGrounded() && player.body.velocity.y >= 0) {
+        // no vale velocity.y >= 0: sobre una plataforma que sube la velocidad es negativa
+        if (player.isGrounded() && player.body.velocity.y > -player.jumpSpeed / 2) {
             if (player.wantsToMove()) player.stateMachine.setState('move');
             else player.stateMachine.setState('idle');
             return;
