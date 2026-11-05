@@ -8,11 +8,12 @@ export default class MainMenuScene extends Phaser.Scene {
         const alto = this.cameras.main.height;
 
         this.background = this.add.image(ancho/ 2, alto / 2, 'background1');
+        this.background.setScale(1.3);
         var play = this.add.image(ancho/ 2, alto/ 1.25, 'play');
 
         var credits = this.add.image(100, 500, 'credits');
         credits.setScale(0.15);
-        var ajustes = this.add.image(700, 500, 'ajustes');
+        var ajustes = this.add.image(ancho/2 + ancho/2.5, 500, 'ajustes');
 
         play.setInteractive();
         play.on('pointerdown', () => {

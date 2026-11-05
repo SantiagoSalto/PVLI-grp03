@@ -19,6 +19,26 @@ export default class PreloadScene extends Phaser.Scene {
         //Plataforma
         this.load.image('platform1', './assets/Suelos/hierba-1.png');
 
+        //OBJETOS INTERACTUABLES
+
+        //Caja
+        this.load.image('box', './assets/Objetos/Box.png');
+        //Pincho
+        this.load.image('trap', './assets/Objetos/trap.png');
+        //Meta
+        this.load.image('portal', './assets/Objetos/portal.png');
+        //Flecha del cursor
+        this.load.image('arrow', './assets/Objetos/arrow.png');
+        //Diana
+        this.load.image('target', './assets/Objetos/target.png');
+        //Tiled
+        this.load.image('tilesGrass1', './assets/Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Grass1_pipo.png');
+        this.load.tilemapTiledJSON('level1', './assets/Niveles_Tiled/nivel1.json');
+        this.load.image('tilesDirt1', './assets/Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Dirt2_pipo.png');
+        this.load.tilemapTiledJSON('level2', './assets/Niveles_Tiled/nivel2.json');
+        this.load.tilemapTiledJSON('level3', './assets/Niveles_Tiled/nivel3.json');
+        this.load.tilemapTiledJSON('level4', './assets/Niveles_Tiled/nivel4.json');
+
         //Iconos
         this.load.image('ajustes', './assets/Menu/gear.png');
         this.load.image('greenSquare', './assets/Menu/ajustesSquare.png');
@@ -28,6 +48,8 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('button', './assets/Menu/button.png');
         this.load.image('iconLevel', './assets/Menu/iconLevel.png');
         this.load.image('pausa', './assets/Menu/pause.png');
+        this.load.image('life', './assets/Menu/Heart.png');
+
         //Info PreNivel
         this.load.image('blueSquare', './assets/Menu/levelSquare.png');
         this.load.image('star', './assets/Menu/star.png');
@@ -48,10 +70,13 @@ export default class PreloadScene extends Phaser.Scene {
         //Credits
         this.load.image('border', './assets/Menu/border.png');
         this.load.image('yellowSquare', './assets/Menu/creditsSquare.png')
+        
+        this.load.image('projectile', './assets/Personajes/projectile.png')
     }
 
     create() {
         this.scene.stop();          
         this.scene.start('MainMenuScene'); 
+        
     }
 }

@@ -2,6 +2,8 @@ import StateMachine from '../stateMachine/StateMachine.js';
 import PlayerIdleState from './States/PlayerIdleState.js';
 import PlayerMoveState from './States/PlayerMoveState.js';
 import PlayerJumpState from './States/PlayerJumpState.js';
+import PlayerAttackState from './States/PlayerAttackState.js';
+import { SCALE } from '../Measures.js';
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
@@ -11,20 +13,38 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
         this.setCollideWorldBounds(true);                      // colision con bordes
-        this.setGravityY(1000);                                // gravedad
 
-        this.setScale(0.15);                                   // tamaño en pantalla
+        //Cambios suavizado eje Y
+        this.setGravityY(1050 * SCALE);                                  // gravedad
+        this.body.setMaxVelocityY(900 * SCALE); //900                   // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
+        this.body.setDragY(20 * SCALE)                                  //Añade ligera resistencia al aire vertical
+
+        this.setScale(0.15 * SCALE);                                   // tamaño en pantalla
         this.body.setSize(300, 400);                           // hitbox ajustada
         this.body.setOffset(130, 70);                          // colocar hitbox
 
         // movimiento
-        this.walkSpeed = 120;                                  // velocidad andando
-        this.runSpeed = 380;                                   // velocidad corriendo
-        this.runDistance = 200;                                // distancia al cursor a partir de la que corre
-        this.stopDistance = 5;                                 // distancia al cursor para pararse
+        this.walkSpeed = 120 * SCALE;                                  // velocidad andando
+        this.runSpeed = 380 * SCALE;                                   // velocidad corriendo
+        this.runDistance = 200 * SCALE;                                // distancia al cursor a partir de la que corre
+        this.stopDistance = 5 * SCALE;                                 // distancia al cursor para pararse
 
         // salto
-        this.jumpSpeed = 700;                                  // fuerza del salto (altura fija)
+        this.jumpSpeed = 700 * SCALE;                                  // fuerza del salto (altura fija)
+
+        // ataque
+        this.minShotSpeed = 400 * SCALE;                               // velocidad del proyectil con muy poco arrastre
+        this.maxShotSpeed = 1150 * SCALE;                              // velocidad del proyectil con arrastre maximo
+        this.maxDrag = 500;                                    // pixeles de arrastre para llegar a la fuerza maxima
+        this.minRange = 150 * SCALE;                                   // alcance con muy poco arrastre (parabola cerrada)
+        this.maxRange = 5000 * SCALE;                                  // alcance con arrastre maximo (casi recto)
+        this.bulletTimeSpeed = 0.1;                            // velocidad del juego al apuntar en el aire (1 = normal)
+
+        // sistema de vidas del jugador
+        this.lives = 3;                                        // cantidad de golpes que el jugador aguantará hasta perder en el nivel
+        this.invincibilitydur = 2000;                          // duración del estado de invencibilidad cuando el jugador sufre daño
+        this.invencible = false;                               // variable que comprobará si el jugador es invencible
+        this.invincibilityframe = 0;                           // cronómetro que dice cuanto tiempo se ha pasado siendo invencible (usado más abajo) 
 
         // input
         this.mouse = scene.inputManager;
@@ -35,9 +55,35 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             .addState('idle', new PlayerIdleState())
             .addState('move', new PlayerMoveState())
             .addState('jump', new PlayerJumpState())
+            .addState('attack', new PlayerAttackState())
             .setState('idle');
     }
+    preUpdate(t, dt)
+    {
+        //Hang time = Flotando unos instantes cuando llega a punto maximo de salto
+        if (!this.isGrounded()) {
+            // Si la velocidad vertical es cercana a 0 (está en la cúspide del salto)
+            if (Math.abs(this.body.velocity.y) < 20 * SCALE) {
+                this.body.setGravityY(500 * SCALE); // Reducimos la gravedad a la mitad para que flote
+            } else {
+                this.body.setGravityY(1050 * SCALE); // Gravedad normal en caída o subida fuerte
+            }
+        } else {
+            this.body.setGravityY(1050 * SCALE);
+        }
 
+        if (this.invencible) // Control de la invencibilidad del jugador
+        {
+            this.setAlpha(0.7);
+            this.invincibilityframe += dt * this.scene.gameSpeed;
+            if (this.invincibilityframe >= this.invincibilitydur) 
+            {
+                this.invencible = false;
+                this.invincibilityframe = 0;
+            }
+        }
+        else this.setAlpha(1);
+    }
     update(time, delta) {
         // avanzar maquina de estados
         this.stateMachine.step(time, delta);
@@ -60,7 +106,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         return this.walkSpeed;
     }
 
+    // mantener el clic derecho para apuntar
+    wantsToAttack() {
+        return this.mouse.isRightDown();
+    }
+
     isGrounded() {
-        return this.body.onFloor();
+        // touching.down cuenta tambien las cajas (onFloor solo cuenta objetos inmoviles)
+        return this.body.onFloor() || this.body.touching.down;
     }
 }

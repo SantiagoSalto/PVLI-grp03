@@ -9,11 +9,13 @@ import LevelSelector from './scenes/LevelSelector.js';
 import LevelInfo from './scenes/LevelInfo.js';
 import PauseScene from './scenes/PauseScene.js';
 import LoseScene from './scenes/LoseScene.js';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, BLOCK } from './Measures.js';
 
-const WIDTH = 800;
-const HEIGHT = 600;
+const WIDTH = SCREEN_WIDTH;
+const HEIGHT = SCREEN_HEIGHT;
 
 document.getElementById('game').style.aspectRatio = `${WIDTH} / ${HEIGHT}`;
+document.getElementById('game').style.maxWidth = `${WIDTH}px`;   //nunca mas grande que su tamaño real
 
 let config = {
     type: Phaser.AUTO,
@@ -31,10 +33,14 @@ let config = {
     physics: { 
         default: 'arcade', 
         arcade: { 
-            gravity: { y: 0 }, 
+            gravity: { y: 0 },
+            tileBias: BLOCK,                                      // con el valor por defecto (16) el proyectil rapido atraviesa los tiles
             debug: true 
         } 
     }
 };
 
 new Phaser.Game(config);
+
+// sin menu del navegador con clic derecho: al apuntar se puede soltar fuera del juego
+document.addEventListener('contextmenu', (e) => e.preventDefault());

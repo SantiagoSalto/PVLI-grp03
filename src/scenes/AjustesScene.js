@@ -28,6 +28,8 @@ create() {
         const sfxY = alto/3;
         const musicY = alto/3 + 100;
         const sensY = alto/3 + 200;
+        const margenX = this.background.x + this.background.displayWidth/2;
+
 
         let sfxTexto = this.add.text(margenIzquierdo, sfxY, "SFX:", estiloTitulos);
         let musicaTexto = this.add.text(margenIzquierdo, musicY, "MUSICA:", estiloTitulos);
@@ -87,6 +89,7 @@ create() {
             const totalAncho = gameObject.getData('anchoBarra');
             const texto = gameObject.getData('textoValor');
 
+
             // Restringimos el movimiento horizontal para que no se salga de la barra
             if (dragX < limites) dragX = limites;
             if (dragX > maximo) dragX = maximo;
@@ -104,7 +107,7 @@ create() {
         });
 
         //----------BOTON EXIT-------------
-        var exit = this.add.image(580, 120, 'exit_button');
+        var exit = this.add.image(margenX, 120, 'exit_button');
         exit.setScale(1.5);
         exit.setInteractive();
 

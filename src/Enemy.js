@@ -1,3 +1,5 @@
+import { SCALE } from './Measures.js';
+
 /**
  * Clase que representa un enemigo
  */
@@ -29,7 +31,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
 
-        this.setScale(0.1);                                   // tamaño en pantalla
+        this.setScale(0.1 * SCALE);                                   // tamaño en pantalla
         this.body.setSize(320, 650);                           // hitbox ajustada
         this.body.setOffset(150, 50);                          // colocar hitbox
 
@@ -39,17 +41,18 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     }
 	preUpdate (t, dt) {
     super.preUpdate(t, dt)
+    dt = dt * this.scene.gameSpeed; // bullet time: mas lento si el juego va lento
     // la lógica particular de `FallingMartian`, aquí
     this.x += this.speedX * dt / 1000; // 2 unidades por segundo
 	if (this.x > this.originX + this.range || this.x < this.originX - this.range)
 	{
-		this.speedX = -this.speedX;
+		this.speedX = -this.speedX; // Este enemigo da la vuelta en el eje X si supera el rango límite de movimiento
 	}
 	this.y += this.speedY * dt / 1000; // 2 unidades por segundo
 
 	if (this.y > this.originY + this.range || this.y < this.originY - this.range)
 	{
-		this.speedY = -this.speedY;
+		this.speedY = -this.speedY; // Este enemigo da la vuelta en el eje Y si supera el rango límite de movimiento
 	}
   }
 }

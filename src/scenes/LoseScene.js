@@ -32,6 +32,7 @@ constructor() {
         resetTexto.setOrigin(0.5);
 
         resume.on('pointerdown', () => {
+            this.scene.stop('PlayScene');
             this.scene.stop();
             this.scene.start('LevelSelector'); 
         });

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="100" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="37">
+ <tileset firstgid="1" name="Pipoya_Dirt1" tilewidth="32" tileheight="32" tilecount="5" columns="1">
+  <image source="../Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Dirt2_pipo.png" width="32" height="160"/>
+  <tile id="0">
+   <properties>
+    <property name="Collision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Collision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="Collision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Collision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="Collision" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <objectgroup id="2" name="Structures">
+  <object id="1" name="hint" x="384" y="640">
+   <properties>
+    <property name="text">Salta los pinchos
+o perderás una de tus 3 vidas</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="2" name="spike" x="592" y="848">
+   <properties>
+    <property name="width" type="float" value="1"/>
+    <property name="height" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="3" name="spike" x="624" y="848">
+   <properties>
+    <property name="width" type="float" value="1"/>
+    <property name="height" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="4" name="spike" x="656" y="848">
+   <properties>
+    <property name="width" type="float" value="1"/>
+    <property name="height" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="5" name="hint" x="896" y="640">
+   <properties>
+    <property name="text">Dispara a este loro
+o salta por encima</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="6" name="hint" x="1376" y="640">
+   <properties>
+    <property name="text">Pasa cuando este loro suba
+o dispárale</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="7" name="hint" x="1888" y="640">
+   <properties>
+    <property name="text">Elige bien cuándo saltar
+para pasar los pinchos y el loro</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="8" name="spike" x="2000" y="848">
+   <properties>
+    <property name="width" type="float" value="1"/>
+    <property name="height" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="9" name="spike" x="2032" y="848">
+   <properties>
+    <property name="width" type="float" value="1"/>
+    <property name="height" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="10" name="spike" x="2064" y="848">
+   <properties>
+    <property name="width" type="float" value="1"/>
+    <property name="height" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="11" name="spike" x="2096" y="848">
+   <properties>
+    <property name="width" type="float" value="1"/>
+    <property name="height" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="12" name="spike" x="2128" y="848">
+   <properties>
+    <property name="width" type="float" value="1"/>
+    <property name="height" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="13" name="meta" x="3024" y="448" width="80" height="128"/>
+  <object id="18" name="hint" x="2512" y="592">
+   <properties>
+    <property name="text">Acierta las dianas y cruza
+sin caer a los pinchos</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" name="spike" x="2576" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="20" name="spike" x="2608" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="21" name="spike" x="2640" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="22" name="spike" x="2672" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="23" name="spike" x="2704" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="24" name="spike" x="2736" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="25" name="spike" x="2768" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="26" name="spike" x="2800" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="27" name="spike" x="2832" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="28" name="spike" x="2864" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="29" name="spike" x="2896" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="30" name="spike" x="2928" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="31" name="spike" x="2960" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="32" name="spike" x="2992" y="848">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="33" name="target" x="2704" y="688">
+   <properties>
+    <property name="group" type="float" value="1"/>
+    <property name="range" type="float" value="2"/>
+    <property name="size" type="float" value="1"/>
+    <property name="speedY" type="float" value="60"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="34" name="target" x="2800" y="656">
+   <properties>
+    <property name="group" type="float" value="1"/>
+    <property name="range" type="float" value="2"/>
+    <property name="size" type="float" value="1"/>
+    <property name="speedY" type="float" value="80"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="35" name="target" x="2896" y="688">
+   <properties>
+    <property name="group" type="float" value="1"/>
+    <property name="range" type="float" value="2"/>
+    <property name="size" type="float" value="1"/>
+    <property name="speedY" type="float" value="60"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="Characters">
+  <object id="14" name="player" x="192" y="832">
+   <point/>
+  </object>
+  <object id="15" name="enemy" x="1088" y="816">
+   <properties>
+    <property name="range" type="float" value="4"/>
+    <property name="speedX" type="float" value="80"/>
+    <property name="speedY" type="float" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="16" name="enemy" x="1632" y="736">
+   <properties>
+    <property name="range" type="float" value="2.5"/>
+    <property name="speedX" type="float" value="0"/>
+    <property name="speedY" type="float" value="70"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="17" name="enemy" x="2048" y="732">
+   <properties>
+    <property name="range" type="float" value="2.5"/>
+    <property name="speedX" type="float" value="80"/>
+    <property name="speedY" type="float" value="0"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="Platforms">
+  <object id="36" name="targetPlatform" x="2800" y="682">
+   <properties>
+    <property name="group" type="float" value="1"/>
+    <property name="height" type="float" value="6"/>
+    <property name="range" type="float" value="4"/>
+    <property name="speedX" type="float" value="60"/>
+    <property name="speedY" type="float" value="0"/>
+    <property name="width" type="float" value="33"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <layer id="1" name="Ground" width="100" height="30">
+  <data encoding="csv">
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+</data>
+ </layer>
+</map>
