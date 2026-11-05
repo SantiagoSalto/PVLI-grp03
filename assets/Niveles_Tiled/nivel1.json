@@ -107,7 +107,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Pon el cursor a la altura de la ardilla\ny mant\u00e9n pulsado el clic izquierdo\npara moverte"
+                         "value":"Mant\u00e9n el clic izquierdo a la altura\nde la ardilla y echar\u00e1 a andar"
                         }],
                  "rotation":0,
                  "type":"",
@@ -125,7 +125,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Cursor cerca: anda\nCursor lejos: corre"
+                         "value":"Si el cursor est\u00e1 cerca anda\ny si est\u00e1 lejos corre"
                         }],
                  "rotation":0,
                  "type":"",
@@ -143,7 +143,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Pon el cursor por encima de la ardilla\ny haz clic o mant\u00e9n pulsado para saltar"
+                         "value":"Haz clic por encima de la ardilla\npara que salte"
                         }],
                  "rotation":0,
                  "type":"",
@@ -161,7 +161,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Salta por encima del hueco"
+                         "value":"\u00a1Salta por encima del hueco!"
                         }],
                  "rotation":0,
                  "type":"",
@@ -179,7 +179,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Para saltar lejos,\npon el cursor lejos y arriba"
+                         "value":"Para saltar m\u00e1s lejos\nhaz clic lejos y arriba"
                         }],
                  "rotation":0,
                  "type":"",
@@ -197,7 +197,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Usa las plataformas\npara subir"
+                         "value":"Sube por las plataformas"
                         }],
                  "rotation":0,
                  "type":"",
@@ -215,7 +215,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"\u00a1Llega a la meta!"
+                         "value":"\u00a1Entra en el portal!"
                         }],
                  "rotation":0,
                  "type":"",

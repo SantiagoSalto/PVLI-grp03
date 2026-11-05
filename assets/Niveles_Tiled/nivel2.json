@@ -16,7 +16,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Mant\u00e9n pulsado el clic derecho,\narrastra hacia atr\u00e1s y suelta para disparar"
+                         "value":"Mant\u00e9n el clic derecho, tira hacia atr\u00e1s\ncomo un tirachinas y suelta para disparar"
                         }],
                  "rotation":0,
                  "type":"",
@@ -57,7 +57,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Arrastra m\u00e1s para disparar m\u00e1s lejos"
+                         "value":"Cuanto m\u00e1s tires, m\u00e1s lejos llega"
                         }],
                  "rotation":0,
                  "type":"",
@@ -98,7 +98,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Sube a la plataforma\ny dispara desde arriba"
+                         "value":"Sube a la plataforma\ny rompe el bloque desde arriba"
                         }],
                  "rotation":0,
                  "type":"",
@@ -139,7 +139,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Salta y apunta en el aire:\nel tiempo va m\u00e1s lento"
+                         "value":"Salta y apunta en el aire\npara frenar el tiempo"
                         }],
                  "rotation":0,
                  "type":"",

@@ -31,8 +31,8 @@
  <objectgroup id="2" name="Structures">
   <object id="1" name="hint" x="416" y="640">
    <properties>
-    <property name="text">Mantén pulsado el clic derecho,
-arrastra hacia atrás y suelta para disparar</property>
+    <property name="text">Mantén el clic derecho, tira hacia atrás
+como un tirachinas y suelta para disparar</property>
    </properties>
    <point/>
   </object>
@@ -45,7 +45,7 @@ arrastra hacia atrás y suelta para disparar</property>
   </object>
   <object id="3" name="hint" x="1024" y="640">
    <properties>
-    <property name="text">Arrastra más para disparar más lejos</property>
+    <property name="text">Cuanto más tires, más lejos llega</property>
    </properties>
    <point/>
   </object>
@@ -59,7 +59,7 @@ arrastra hacia atrás y suelta para disparar</property>
   <object id="5" name="hint" x="1600" y="672">
    <properties>
     <property name="text">Sube a la plataforma
-y dispara desde arriba</property>
+y rompe el bloque desde arriba</property>
    </properties>
    <point/>
   </object>
@@ -72,8 +72,8 @@ y dispara desde arriba</property>
   </object>
   <object id="7" name="hint" x="2304" y="640">
    <properties>
-    <property name="text">Salta y apunta en el aire:
-el tiempo va más lento</property>
+    <property name="text">Salta y apunta en el aire
+para frenar el tiempo</property>
    </properties>
    <point/>
   </object>

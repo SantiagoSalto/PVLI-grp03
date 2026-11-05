@@ -29,6 +29,15 @@ create() {
             this.scene.launch('LevelInfo', { level: 2 });
         });
 
+        //boton nivel3:
+        var iconLevel3 = this.add.image(ancho/4+400, alto/2, 'iconLevel');
+        iconLevel3.setScale(0.5);
+        iconLevel3.setInteractive();
+        iconLevel3.on('pointerdown', () =>{
+            //Clave para que se ejecuten las 2 escenas "al mismo tiempo"
+            this.scene.launch('LevelInfo', { level: 3 });
+        });
+
 
 
 
