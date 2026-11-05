@@ -261,6 +261,14 @@ Se presenta de nuevo un camino, aparentemente sin salida. Mediante el uso del le
   <img src="Images/GDD/Puzzle2.png" alt="" width="1000"/>
 </p>
 
+<p align="center">
+  <img src="Images/GDD/InGame1.jpg" alt="" width="1000"/>
+</p>
+
+<p align="center">
+  <img src="Images/GDD/InGame2.jpg" alt="" width="1000"/>
+</p>
+
 ### 4.2 Mundos
 
 - **Mundo Fantasía:** Tutorial.
@@ -275,33 +283,55 @@ Se presenta de nuevo un camino, aparentemente sin salida. Mediante el uso del le
 
 Los menús del juego son: el menú principal, el menú de selección de niveles, el menú de pausa durante un nivel, los ajustes fuera de un nivel y los créditos.
 
+
+#### **Pantalla de menú principal:**
+
 <p align="center">
   <img src="Images/GDD/MainMenu.png" alt="" width="500"/>
 </p>
 
-**Pantalla de menú principal**
+**Vista In Game:**
+
+<p align="center">
+  <img src="Images/GDD/MainMenuInGame.jpg" alt="" width="500"/>
+</p>
+
+
+#### **Pantalla de ajustes** (una ventana emergente que se superpone a la pantalla de menú principal)
 
 <p align="center">
   <img src="Images/GDD/Ajustes.png" alt="" width="500"/>
 </p>
 
-**Pantalla de ajustes** (una ventana emergente que se superpone a la pantalla de menú principal)
+**Vista In Game:**
 
-Notas extra: cuanta mayor sensibilidad en los ajustes (entre los valores 1 y 5), menos distancia/altura del cursor se necesitará para hacer que la ardilla corra/salte respectivamente. Cada barra de los ajustes, a la izquierda del deslizador, tendrá su mitad de color verde mientras que el resto se verá de negro.
+<p align="center">
+  <img src="Images/GDD/AjustesInGame.jpg" alt="" width="500"/>
+</p>
+
+**Notas extra:** cuanta mayor sensibilidad en los ajustes (entre los valores 1 y 5), menos distancia/altura del cursor se necesitará para hacer que la ardilla corra/salte respectivamente. Cada barra de los ajustes, a la izquierda del deslizador, tendrá su mitad de color verde mientras que el resto se verá de negro.
+
+
+#### **Pantalla de créditos**
 
 <p align="center">
   <img src="Images/GDD/Creditos.png" alt="" width="500"/>
 </p>
 
-**Pantalla de créditos** (todavía no definitiva)
+**Vista In Game:**
+
+<p align="center">
+  <img src="Images/GDD/CreditosInGame.jpg" alt="" width="500"/>
+</p>
 
 Tendrá 2 líneas de texto destinadas a nombrar el estudio y a los autores. Aunque principalmente se centrará en dar crédito a todos los assets utilizados (ya sean nuestros o utilizados), siendo estos divididos en las secciones de Sonido, Música y Visuales/Arte.
+
+
+**Pantalla de pausa en un nivel**
 
 <p align="center">
   <img src="Images/GDD/MenuPausa.png" alt="" width="500"/>
 </p>
-
-**Pantalla de pausa en un nivel**
 
 Se presenta una ventana emergente en medio de la pantalla. Cuando sale, hace que la escena del nivel quede de fondo, con una tonalidad algo opaca. Tenemos los botones:
 
