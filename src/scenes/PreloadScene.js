@@ -37,6 +37,7 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('tilesDirt1', './assets/Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Dirt2_pipo.png');
         this.load.tilemapTiledJSON('level2', './assets/Niveles_Tiled/nivel2.json');
         this.load.tilemapTiledJSON('level3', './assets/Niveles_Tiled/nivel3.json');
+        this.load.tilemapTiledJSON('level4', './assets/Niveles_Tiled/nivel4.json');
 
         //Iconos
         this.load.image('ajustes', './assets/Menu/gear.png');
