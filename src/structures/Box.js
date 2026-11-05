@@ -32,15 +32,10 @@ export default class Box extends Phaser.Physics.Arcade.Sprite {
         this.scene.physics.add.collider(this, this.scene.boxes);	// Colisión entre cajas
 
     }
-    preUpdate(time,delta) // Así se hace la fricción de la caja sobre el suelo.
+    preUpdate(time,delta)
     {
-		if (this.body.blocked.left || this.body.blocked.right) // Esto es necesario para que el jugador no termine atravesando la caja estando en una pared.
-															   // body.blocked es una booleana que se activa si una fuerza está empujando un objeto pero no se puede
-															   // mover en la dirección de la fuerza porque está siendo bloqueada por algo inamovible.
-		{
-			this.setPushable(false); // Deja de empujar la caja si hay algún bloqueo a la izquierda o la derecha.
-		} 
-		else this.setPushable(true); // Cuando ya no haga falta evaluar si la caja está bloqueada, vuelve a hacerla
-									 // empujable para cuando el jugador necesite moverla hacia el otro lado.
+		// Al chocar deja de poder empujarse, y sigue asi mientras el jugador la toque
+		if (this.body.blocked.left || this.body.blocked.right) this.setPushable(false);
+		else if (!this.body.touching.left && !this.body.touching.right) this.setPushable(true);
 	}
 }
