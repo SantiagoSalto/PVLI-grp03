@@ -49,12 +49,12 @@ En el mundo de (x) los loros Piratas de la isla de (x) se han propuesto conquist
 - **Ardilla invencible:** aparecerá una ardilla como protagonista jugable del juego. Bono extra: hacer referencia a películas de Disney anteriores de 2006, utilizaremos la película Mulán para que se encaje con la carta Japón, y aparecerá el dragón Mushu. **+2p**
 
 <p align="center">
-  <img src="Images/GDD/CartaInframundo.jpg" alt="" width="50"/>
+  <img src="Images/GDD/CartaInframundo.jpg" alt="" width="150"/>
 </p>
 
 - **Inframundo:** Robada con la carta del loro pirata. Esta carta la usaremos para diseñar el último nivel del juego, y también usaremos la mecánica de "El Suelo es Lava" junto a varios obstáculos peligrosos. **+2p**
 
-**Puntos totales: 12p + ?p**
+**Puntos totales: 12p + 2p**
 
 ---
 
