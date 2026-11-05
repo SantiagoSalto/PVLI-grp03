@@ -17,6 +17,9 @@ El juego "Proyecto Bellota" se trata de un trabajo universitario hecho en la UCM
   <img src="Images/README/Nivel1c.png" alt="" width="1500"/>
 </p>
 
+### REDES SOCIALES USADAS PARA EL JUEGO
+https://x.com/kosa_estudios
+
 ---
 
 # DOCUMENTO DE DISEÑO
