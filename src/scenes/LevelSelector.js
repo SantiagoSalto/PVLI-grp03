@@ -12,7 +12,7 @@ create() {
         this.background.setScale(1.9);
 
         //boton nivel1: 
-        var iconLevel = this.add.image(ancho/4, alto/2, 'iconLevel'); 
+        var iconLevel = this.add.image(ancho/2-372, alto/2-80, 'iconLevel'); 
         iconLevel.setScale(0.5);
         iconLevel.setInteractive();
         iconLevel.on('pointerdown', () =>{
@@ -21,7 +21,7 @@ create() {
         });
 
         //boton nivel2:
-        var iconLevel2 = this.add.image(ancho/4+200, alto/2-100, 'iconLevel'); 
+        var iconLevel2 = this.add.image(ancho/2-186, alto/2+80, 'iconLevel'); 
         iconLevel2.setScale(0.5);
         iconLevel2.setInteractive();
         iconLevel2.on('pointerdown', () =>{
@@ -30,7 +30,7 @@ create() {
         });
 
         //boton nivel3:
-        var iconLevel3 = this.add.image(ancho/4+400, alto/2, 'iconLevel');
+        var iconLevel3 = this.add.image(ancho/2, alto/2-80, 'iconLevel');
         iconLevel3.setScale(0.5);
         iconLevel3.setInteractive();
         iconLevel3.on('pointerdown', () =>{
@@ -39,7 +39,7 @@ create() {
         });
 
         //boton nivel4:
-        var iconLevel4 = this.add.image(ancho/4+600, alto/2-100, 'iconLevel');
+        var iconLevel4 = this.add.image(ancho/2+186, alto/2+80, 'iconLevel');
         iconLevel4.setScale(0.5);
         iconLevel4.setInteractive();
         iconLevel4.on('pointerdown', () =>{
@@ -47,8 +47,8 @@ create() {
             this.scene.launch('LevelInfo', { level: 4 });
         });
 
-        //boton nivel5 (posicion provisional):
-        var iconLevel5 = this.add.image(ancho/4+200, alto/2+100, 'iconLevel');
+        //boton nivel5:
+        var iconLevel5 = this.add.image(ancho/2+372, alto/2-80, 'iconLevel');
         iconLevel5.setScale(0.5);
         iconLevel5.setInteractive();
         iconLevel5.on('pointerdown', () =>{
