@@ -203,7 +203,11 @@ export default class PlayScene extends Phaser.Scene {
         this.player.update(time, delta);
         
         // enemigos y pinchos hacen el mismo daño
+        // Al tocar un enemigo o pincho en el aire, overlap hace creer al jugador que esta en el suelo y podria volver a saltar
+        // Por eso guardamos touching.down antes de comprobarlo y lo dejamos como estaba despues
+        const touchingDown = this.player.body.touching.down;
         const touchingDanger = this.physics.overlap(this.player, this.enemies) || this.physics.overlap(this.player, this.spikes);
+        this.player.body.touching.down = touchingDown;
         if (touchingDanger && !this.player.invencible)
         {
             this.player.lives -= 1; // Pierde una vida
