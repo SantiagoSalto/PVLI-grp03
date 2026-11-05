@@ -5,6 +5,7 @@ import Box from '../structures/Box.js';
 import DestructibleBlock from '../structures/DestructibleBlock.js';
 import Spike from '../structures/Spike.js';
 import InputManager from '../managers/InputManager.js';
+import ArrowCursor from '../managers/ArrowCursor.js';
 import { toPx, SCALE } from '../Measures.js';
 
 export default class PlayScene extends Phaser.Scene {
@@ -198,9 +199,13 @@ export default class PlayScene extends Phaser.Scene {
 
         //Evitar que se note borrosos los pixeles
         this.cameras.main.setRoundPixels(true);
+
+        //Flecha que hace de puntero del raton
+        this.arrowCursor = new ArrowCursor(this, this.player);
 	}
     update(time, delta) {
         this.player.update(time, delta);
+        this.arrowCursor.update();
         
         // enemigos y pinchos hacen el mismo daño
         // Al tocar un enemigo o pincho en el aire, overlap hace creer al jugador que esta en el suelo y podria volver a saltar
