@@ -138,7 +138,10 @@ A lo largo del nivel se encontrarán enemigos que servirán como obstáculo. Est
 
 ### 3.6 Tiempo límite y puntuación
 
-Los niveles plantean al jugador el reto de explorar el escenario y encontrar una serie de símbolos perdidos para poder superarlos. Cada uno de estos niveles cuenta con un tiempo límite: cuanto más tiempo le sobre al jugador al completarlo, más puntos extra obtendrá. Por el contrario, si no consigue superar el nivel dentro del tiempo establecido, recibirá una penalización. Los enemigos derrotados también darán algo de puntuación. El daño que sufre el jugador a lo largo del nivel reduce ligeramente la puntuación que se puede conseguir al final del nivel.
+ Cada uno de los niveles cuenta con un tiempo objetivo que puede superar para conseguir puntos adicionales. Cuanto más tiempo le sobre al jugador al completarlo, más puntos extra obtendrá. Por el contrario, si no consigue superar el nivel dentro del tiempo establecido, recibirá una penalización que se volverá más fuerte progresivamente cuanto más tiempo pase en el nivel. Los enemigos derrotados también darán algo de puntuación. El daño que sufre el jugador a lo largo del nivel reduce ligeramente la puntuación que se puede conseguir al final del nivel. 
+
+Además, en cada nivel tienes estrellas que puedes conseguir superando el nivel con un requisito mínimo de puntuación. Las estrellas máximas que puedes conseguir en cada nivel son 3.
+
 
 ### 3.6.1 Formas de conseguir puntos en los niveles:
 
