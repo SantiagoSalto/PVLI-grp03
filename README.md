@@ -205,7 +205,7 @@ Estos serán los objetos/obstáculos que se introducirán durante el tutorial y 
 - **Cajas frágiles e irrompibles:** el jugador las puede mover empujando desde un lado o usando el proyectil de ataque del personaje. Las cajas tendrán tamaños distintos. También habrá cajas frágiles de color azul aclarado que no pueden empujarse y se romperán tras tocar un ataque del jugador.
 
 <p align="center">
-  <img src="Images/GDD/EmpujeCaja.png" alt="" width="500"/>
+  <img src="Images/GDD/EmpujeCaja.jpg" alt="" width="500"/>
 </p>
 
 ***La ardilla empujando una caja irrompible moviéndose hacia la derecha. También puedes mover la caja ligeramente con el ataque del jugador si es indestructible.***
