@@ -36,14 +36,14 @@ y también sirven para subir</property>
    </properties>
    <point/>
   </object>
-  <object id="2" name="box" x="368" y="764">
+  <object id="2" name="box" x="448" y="768">
    <properties>
     <property name="height" type="float" value="1.5"/>
     <property name="width" type="float" value="1.5"/>
    </properties>
    <point/>
   </object>
-  <object id="3" name="destructible" x="368" y="832">
+  <object id="3" name="destructible" x="448" y="836">
    <properties>
     <property name="height" type="float" value="2"/>
     <property name="width" type="float" value="1"/>
