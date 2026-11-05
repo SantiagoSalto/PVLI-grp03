@@ -171,9 +171,10 @@ export default class PlayScene extends Phaser.Scene {
             block.destroy();
         });
 
-        // el proyectil atraviesa las dianas: con un solo disparo se pueden acertar varias
+        // el proyectil desaparece al acertar una diana: cada disparo solo vale para una
         this.physics.add.overlap(this.projectiles, this.targets, (projectile, target) => {
             const group = target.group;
+            projectile.impact();
             target.destroy();
             this.checkTargets(group);
         });
