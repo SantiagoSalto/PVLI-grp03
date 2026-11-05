@@ -33,7 +33,7 @@ Plataformas, Niveles y puzzles.
 
 ### 1.3 Setting
 
-En el mundo de (x) los loros piratas de la isla de (x) se han propuesto conquistar el resto de islas. Para ello están recolectando los (símbolos) de poder de cada isla. De esa manera podrán debilitarlas lo suficiente para conquistar todo el archipiélago. Para detener esta catástrofe, (nombre), nuestro protagonista, embarca con la misión de recuperar la mayor cantidad de símbolos antes de que caigan en manos de los loros y reunir suficiente poder para poder derrotarlos.
+En el mundo de (x) los loros Piratas de la isla de (x) se han propuesto conquistar el resto de islas. Para ello están recolectando los (símbolos) de poder de cada isla. de esa manera podrán debilitarlos lo suficiente para conquistar todo el archipiélago. Para detener esta catástrofe, (nombre) , nuestro protagonista, embarca con la misión de recuperar la mayor cantidad de símbolos antes de que caigan en manos de los Loros y reunir suficiente poder para poder derrotarlos.
 
 ### 1.4 Cartas usadas
 
@@ -47,6 +47,12 @@ En el mundo de (x) los loros piratas de la isla de (x) se han propuesto conquist
 - **Mundo de fantasía:** niveles diseñados con elementos de un mundo de fantasía. Bono extra: utilizar dos cartas de personajes no humanos. **+2p**
 - **Loro pirata:** aparecerán loros piratas como enemigos. Bono extra: si todos los personajes del juego son no humanos, se podrá robar una carta de otro grupo y su punto. **+1p +?p**
 - **Ardilla invencible:** aparecerá una ardilla como protagonista jugable del juego. Bono extra: hacer referencia a películas de Disney anteriores de 2006, utilizaremos la película Mulán para que se encaje con la carta Japón, y aparecerá el dragón Mushu. **+2p**
+
+<p align="center">
+  <img src="Images/GDD/CartaInframundo.jpg" alt="" width="1500"/>
+</p>
+
+- **Inframundo:** Robada con la carta del loro pirata. Esta carta la usaremos para diseñar el último nivel del juego, y también usaremos la mecánica de "El Suelo es Lava" junto a varios obstáculos peligrosos. **+2p**
 
 **Puntos totales: 12p + ?p**
 
@@ -134,22 +140,79 @@ A lo largo del nivel se encontrarán enemigos que servirán como obstáculo. Est
 
 Los niveles plantean al jugador el reto de explorar el escenario y encontrar una serie de símbolos perdidos para poder superarlos. Cada uno de estos niveles cuenta con un tiempo límite: cuanto más tiempo le sobre al jugador al completarlo, más puntos extra obtendrá. Por el contrario, si no consigue superar el nivel dentro del tiempo establecido, recibirá una penalización. Los enemigos derrotados también darán algo de puntuación. El daño que sufre el jugador a lo largo del nivel reduce ligeramente la puntuación que se puede conseguir al final del nivel.
 
+### 3.6.1 Formas de conseguir puntos en los niveles:
+
+1. **Completando el nivel sin requisitos:** Cuando el jugador complete el nivel con éxito, ganará una puntuación base para tener la posibilidad de conseguir al menos la primera estrella y (quizás) la segunda estrella siempre y cuando haya pasado un tiempo no muy prolongado en el nivel.
+
+2. **Completando el nivel a tiempo:** Si el tiempo que pasas en el nivel es menor que el objetivo establecido, conseguirá una puntuación extra según lo rápido que lo ha vencido, con una potencia y un multiplicador (con un número constante cuyo valor desconocemos por ahora) para que se ajuste fácilmente a los otros parámetros de puntuación del nivel.
+<p align="center">
+  <img src="Images/GDD/PuntosTiempo.jpg" alt="" width="500"/>
+</p>
+
+***Fórmula de puntuación por el tiempo tardado (sólo disponible cuando el tiempo objetivo del nivel > tiempo en el nivel)***
+
+3. **Derrotando enemigos a lo largo del nivel:** Para que los enemigos hagan algo más que solo ser obstáculos por los niveles, haremos que te puntúen algo de puntuación según los que has derrotado del nivel. Por ejemplo, si derrotas a 8 enemigos en un nivel donde habían 12, ganarás la misma puntuación en ese nivel que en uno donde derrotas a 4 de 6. También estará un multiplicador de valor constante (tampoco lo hemos decidido todavía, pero seguramente sea distinto que el del tiempo ahorrado en el nivel)
+
+<p align="center">
+  <img src="Images/GDD/PuntosEnemigos.jpg" alt="" width="500"/>
+</p>
+
+***Fórmula de puntuación por los enemigos derrotados***
+
+4. **Vencer enemigos con proyectiles tirados con slow motion:** Aprovechando que tenemos la mecánica de aura, podemos hacer que eliminar enemigos con ataques de slow motion (o con el modo aura activo) te de un bonus pequeño de puntuación aparte del que ganas por derrotar a los enemigos.
+
+## 3.6.2 Cómo puedes perder puntos en el nivel:
+
+1. **Tardando demasiado tiempo en completar el nivel:** Si terminas tardando más tiempo que el que ponía en el objetivo, no sólo se anulará el bonus de puntos por tiempo ahorrado, sino que recibirás una penalización que reduciría toda la puntuación que consigues de los otros parámetros que te dan puntuación, aumentando su fuerza cuanto más tardes en completarlo después de superar el objetivo.
+
+
+<p align="center">
+  <img src="Images/GDD/PuntosPenalizar.jpg" alt="" width="500"/>
+</p>
+
+***Fórmula de puntuación por los enemigos derrotados***
+
+2. **Sufriendo daño por el nivel:** Si recibes cualquier fuente de daño durante el nivel, se guardará si consigues completar el nivel para castigarte ligeramente por haber recibido daño. Por ahora, nuestro plan es que te quite una cantidad plana de puntuación por cada vida que pierda el jugador.
+
+<p align="center">
+  <img src="Images/GDD/NivelGanado.jpg" alt="" width="500"/>
+</p>
+
+***La ventana que aparece cuando se completa el nivel***
+
+<p align="center">
+  <img src="Images/GDD/ResultadosDemo.jpg" alt="" width="500"/>
+</p>
+
+***Una representación de lo que saldrá  cuando completes el nivel (la pantalla todavía se oscurecerá como en la versión actual y la ventana tendría un tamaño muy parecido), con las estrellas teniendo un requisito de puntuación mínima encima suya para conseguirla. Abajo estará la puntuación total junto a todos los parámetros de puntuación que dan/quitan puntuación. Si al jugador le da tiempo a pasar el nivel antes del tiempo objetivo, se sustituirá la penalización por el bonus de puntuación por tiempo ahorrado.***
+
+
 ### 3.7 Niveles
 
 Los primeros niveles del juego (unos 4 o 5) se van a utilizar para introducir al jugador a las mecánicas del juego:
 
-1. **Nivel 1:** introduce el movimiento del personaje.
-2. **Nivel 2:** introduce el ataque de la ardilla, añadiendo unas dianas a las que disparar.
-3. **Nivel 3:** enseña al jugador los enemigos más sencillos (los que se mueven vertical y horizontalmente sin atacar) y algún obstáculo que puede hacer daño a la ardilla.
-4. **Nivel 4 en adelante:** presenta la mecánica de símbolos que hay que recoger para poder salir del nivel actual, además de ir introduciendo progresivamente los objetos y mecánicas para los puzzles que hay que completar para seguir adelante en el juego.
+Los primeros niveles del juego (unos 4 o 5) se van a utilizar para introducir al jugador a las mecánicas del juego.
+- El **primer nivel** introducirá al jugador al movimiento del personaje. 
+- El **segundo nivel** introducirá el ataque de la ardilla añadiendo unos bloques frágiles que bloquean el camino y al final unas dianas a las que hay que disparar para invocar una plataforma que lleve al final del nivel.
+- El **tercer nivel** le enseñará al jugador los enemigos más sencillos (los que se mueven verticalmente y horizontalmente sin atacar) y varias camas de pinchos que pueden hacer daño a la ardilla.
+- El **cuarto nivel** introduce brevemente las cajas irrompibles que se pueden empujar con el jugador y su proyectil de ataque.
+- El **quinto (?) nivel** en adelante presentará la mecánica de símbolos que hay que recoger para poder salir del nivel actual, además de ir introduciendo progresivamente los objetos y mecánicas para los puzzles que hay que completar para seguir adelante en el juego.
 
-Estos serán los objetos que se introducirán a partir de este punto:
 
-- **Plataformas que se mueven:** son como cualquier plataforma por la que la ardilla puede caminar, con la diferencia de que se moverán de una dirección a la siguiente lentamente. Pueden moverse horizontal, vertical e incluso diagonalmente según la necesidad del nivel.
-- **Cajas/objetos afectados por gravedad:** el jugador los puede mover empujando desde un lado o usando el proyectil de ataque del personaje.
+Estos serán los objetos/obstáculos que se introducirán durante el tutorial y más adelante en el juego:
+
+- **Plataformas que se mueven:** son como cualquier plataforma por la que la ardilla puede caminar, con la diferencia de que se moverán de una dirección a la siguiente lentamente. Podemos hacer que se muevan horizontalmente, verticalmente y hasta diagonalmente según la necesidad en el nivel.
+- **Cajas frágiles e irrompibles:** el jugador las puede mover empujando desde un lado o usando el proyectil de ataque del personaje. Las cajas tendrán tamaños distintos. También habrá cajas frágiles de color azul aclarado que no pueden empujarse y se romperán tras tocar un ataque del jugador.
+
+<p align="center">
+  <img src="Images/GDD/EmpujeCaja.png" alt="" width="500"/>
+</p>
+
+***La ardilla empujando una caja irrompible moviéndose hacia la derecha. También puedes mover la caja ligeramente con el ataque del jugador si es indestructible.***
+
 - **Pinchos/bloques dañinos:** tocarlos daña al jugador y le quita una vida.
-  - **Pinchos más letales:** son más grandes, llamativos y quitan toda la vida. Están para darle más vida al ambiente, como alternativa a los huecos sin fondo, y también para dar más juego a los peligros que se le puedan presentar al jugador.
-- **Bloque frágil:** se puede romper usando los proyectiles de ataque.
+
+- **Pinchos más letales:** son más grandes, llamativos y quitan toda la vida. Están para darle más vida al ambiente, como alternativa a los huecos sin fondo, y también para dar más juego a los peligros que se le puedan presentar al jugador.
 
 <p align="center">
   <img src="Images/GDD/Obstacle.png" alt="" width="500"/>
@@ -335,12 +398,12 @@ ir trabajando en el arte y lo que nos queda del proyecto. Lo que tenemos pensado
 ## Fuentes de los assets
 
 - Ardilla (jugador): Pinterest.com (?): Licencia Libre
-- Bellota (proyectil de ataque): Pngtree.com (?):
-- Loro (enemigo): Vecteezy.com:
+- Bellota (proyectil de ataque): Pngtree.com: Licencia Propietaria
+- Loro (enemigo): Vecteezy.com: Licencia Propietaria
 - Portal de la meta: itch.io : Licencia Libre
 - Pinchos normales: Vecteezy.com (?): Licencia Propietaria
 - Flecha de cursor: Flaticon.es: Licencia Propietaria
-- 
+- Diana flotante: Pngtree.com: Licencia Propietaria
 - Plataforma flotante de hierba: Pixabay (?):
 - Botón de juego y "salida": Pinterest.com (?): Licencia Libre
 - Estrella de puntuación: Kenney.nl (?): Licencia Libre
