@@ -88,15 +88,15 @@
          "name":"Structures",
          "objects":[
                 {
-                 "height":64,
+                 "height":128,
                  "id":4,
                  "name":"meta",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":192,
-                 "x":3520,
-                 "y":800
+                 "width":80,
+                 "x":3536,
+                 "y":736
                 }, 
                 {
                  "height":0,

@@ -76,6 +76,7 @@ export default class PlayScene extends Phaser.Scene {
                 //En Tiled x,y es la esquina superior izquierda; la zona va centrada
                 let goal = this.add.zone(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
                 this.physics.add.existing(goal, true);
+                this.add.image(goal.x, goal.y, 'portal').setDisplaySize(object.width, object.height);
                 this.physics.add.overlap(this.player, goal, () => {
                     this.scene.pause();
                     this.scene.launch('WinScene');
