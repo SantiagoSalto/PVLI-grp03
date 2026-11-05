@@ -120,8 +120,6 @@ El proyectil que se lanza en el ataque se mueve en forma de parábola. Este proy
 
 Cuando avanzas lo suficiente por el juego, se introduce una mecánica de recolección de piezas de una letra asiática (kanji) que hay que encontrar para poder salir del nivel. Las piezas se encontrarán por caminos alternativos del nivel fácilmente visibles y en medio de algunos puzzles.
 
-Al conseguir todas las piezas el jugador recibe un potenciador de velocidad que le servirá para llegar más cómodamente a la salida del nivel. Para simbolizar el aura en el juego, se mostrará un efecto alrededor de la ardilla indicando que ha conseguido aura tras formar todos los símbolos del nivel.
-
 ### 3.5 Enemigos
 
 A lo largo del nivel se encontrarán enemigos que servirán como obstáculo. Estos se pueden eliminar atacándolos o simplemente se pueden esquivar para seguir avanzando. No es necesario matarlos para completar el nivel.
@@ -180,6 +178,8 @@ Además, en cada nivel tienes estrellas que puedes conseguir superando el nivel 
 </p>
 
 ***La ventana que aparece cuando se completa el nivel***
+
+
 
 <p align="center">
   <img src="Images/GDD/ResultadosDemo.jpg" alt="" width="500"/>
