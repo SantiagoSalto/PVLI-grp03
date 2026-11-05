@@ -47,6 +47,15 @@ create() {
             this.scene.launch('LevelInfo', { level: 4 });
         });
 
+        //boton nivel5 (posicion provisional):
+        var iconLevel5 = this.add.image(ancho/4+200, alto/2+100, 'iconLevel');
+        iconLevel5.setScale(0.5);
+        iconLevel5.setInteractive();
+        iconLevel5.on('pointerdown', () =>{
+            //Clave para que se ejecuten las 2 escenas "al mismo tiempo"
+            this.scene.launch('LevelInfo', { level: 5 });
+        });
+
 
 
 

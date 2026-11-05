@@ -5,6 +5,8 @@ import Box from '../structures/Box.js';
 import DestructibleBlock from '../structures/DestructibleBlock.js';
 import Spike from '../structures/Spike.js';
 import Target from '../structures/Target.js';
+import Piece from '../structures/Piece.js';
+import PortalSymbol from '../structures/PortalSymbol.js';
 import InputManager from '../managers/InputManager.js';
 import ArrowCursor from '../managers/ArrowCursor.js';
 import { toPx, SCALE } from '../Measures.js';
@@ -73,17 +75,19 @@ export default class PlayScene extends Phaser.Scene {
         this.destructibles = this.add.group();
         this.spikes = this.add.group();
         this.targets = this.add.group();
+        this.pieces = this.add.group();
+        this.portalOpen = true;                                //solo se cierra si el nivel tiene piezas
         map.getObjectLayer('Structures').objects.forEach((object) => {
             switch (object.name) {
                 case 'meta':
                 //En Tiled x,y es la esquina superior izquierda; la zona va centrada
                 let goal = this.add.zone(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
                 this.physics.add.existing(goal, true);
-                this.add.image(goal.x, goal.y, 'portal').setDisplaySize(object.width, object.height);
+                this.portal = this.add.image(goal.x, goal.y, 'portal').setDisplaySize(object.width, object.height);
                 this.physics.add.overlap(this.player, goal, () => {
                     this.scene.pause();
                     this.scene.launch('WinScene');
-                });
+                }, () => this.portalOpen);
                 break;
                 case 'box':
                     this.boxes.add(new Box(this, object.x, object.y, this.getProperty(object, 'width') * SCALE, 
@@ -100,6 +104,11 @@ export default class PlayScene extends Phaser.Scene {
                         this.getProperty(object, 'speedY') * SCALE,
                         toPx(this.getProperty(object, 'range')),
                         this.getProperty(object, 'group')));
+                    break;
+                case 'piece':
+                    this.pieces.add(new Piece(this, object.x, object.y,
+                        toPx(this.getProperty(object, 'size')),       //size en bloques
+                        this.getProperty(object, 'stroke')));         //imagen del trazo
                     break;
                 case 'hint':
                     //Texto de ayuda de los niveles tutoriales
@@ -119,6 +128,15 @@ export default class PlayScene extends Phaser.Scene {
                     break;
             }
         });
+        //Si el nivel tiene piezas, el portal esta cerrado y muestra arriba la letra por completar
+        if (this.pieces.getLength() > 0) {
+            const strokes = this.pieces.getChildren().map((piece) => piece.texture.key);
+            const size = toPx(2);
+            this.portalSymbol = new PortalSymbol(this, this.portal.x, this.portal.getTopCenter().y - size / 2 - 10, size, strokes);
+            this.portal.setTint(0x555555);
+            this.portalOpen = false;
+        }
+
         // PLATAFORMAS
         this.platforms = this.add.group();
         map.getObjectLayer('Platforms').objects.forEach((object) => {
@@ -241,6 +259,7 @@ export default class PlayScene extends Phaser.Scene {
         // Por eso guardamos touching.down antes de comprobarlo y lo dejamos como estaba despues
         const touchingDown = this.player.body.touching.down;
         const touchingDanger = this.physics.overlap(this.player, this.enemies) || this.physics.overlap(this.player, this.spikes);
+        this.physics.overlap(this.player, this.pieces, (player, piece) => this.collectPiece(piece));
         this.player.body.touching.down = touchingDown;
         if (touchingDanger && !this.player.invencible)
         {
@@ -284,6 +303,17 @@ export default class PlayScene extends Phaser.Scene {
         this.gameSpeed = speed;
         this.physics.world.setFPS(60 / speed);
         this.physics.world.timeScale = 1 / speed;
+    }
+
+    //Rellena el trazo en la letra del portal; con la letra completa el portal se abre
+    collectPiece(piece) {
+        this.portalSymbol.fill(piece.texture.key);
+        piece.destroy();
+        if (this.pieces.getLength() > 0) return;
+
+        this.portalSymbol.complete();
+        this.portal.clearTint();
+        this.portalOpen = true;
     }
 
     //Si ya no quedan dianas del grupo aparece su plataforma
