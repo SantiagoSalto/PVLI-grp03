@@ -53,6 +53,7 @@ export default class Platform extends Phaser.GameObjects.Sprite {
 			this.speedY = -this.speedY;
 		}
 
+		// Cambio de dirección de movimiento cuando supera el rango límite.
 		if (this.x > this.originX + this.range) this.speedX = -Math.abs(this.speedX);
 		if (this.x < this.originX - this.range) this.speedX = Math.abs(this.speedX);
 		if (this.y > this.originY + this.range) this.speedY = -Math.abs(this.speedY);

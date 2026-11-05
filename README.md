@@ -19,7 +19,7 @@ El juego "Proyecto Bellota" se trata de un trabajo universitario hecho en la UCM
 
 ---
 
-# DOCUMENTO De DISEÑO
+# DOCUMENTO DE DISEÑO
 
 ## 1. Resumen
 
@@ -334,14 +334,18 @@ ir trabajando en el arte y lo que nos queda del proyecto. Lo que tenemos pensado
 
 ## Fuentes de los assets
 
-- Ardilla (jugador): Pinterest.com (?): Licencia libre
+- Ardilla (jugador): Pinterest.com (?): Licencia Libre
 - Bellota (proyectil de ataque): Pngtree.com (?):
 - Loro (enemigo): Vecteezy.com:
+- Portal de la meta: itch.io : Licencia Libre
+- Pinchos normales: Vecteezy.com (?): Licencia Propietaria
+- Flecha de cursor: Flaticon.es: Licencia Propietaria
+- 
 - Plataforma flotante de hierba: Pixabay (?):
 - Botón de juego y "salida": Pinterest.com (?): Licencia Libre
-- Estrella de puntuación: Kenney.nl (?)
-- Ventanas de UI: Kenney.nl (?)
-- Escenario del nivel/créditos: itch.io
+- Estrella de puntuación: Kenney.nl (?): Licencia Libre
+- Ventanas de UI: Kenney.nl (?): Licencia Libre
+- Escenario del nivel/créditos: itch.io : Licencia Libre
 - Escenario de selección de nivel: Pinterest.com (?)
 - Corazón de vidas: Clipartpng.com: Licencia Propietaria (?)
 - Caja de madera: Opengameart.org: Licencia Libre

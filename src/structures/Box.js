@@ -13,7 +13,6 @@ export default class Box extends Phaser.Physics.Arcade.Sprite {
 	 * @param {number} height - altura de la caja
 
 	 *      * 
-     * @param {string} destructible - comprueba si la caja tiene propiedad para romperse o no (aún no se utiliza)
 	 */
 	constructor(scene, x, y, width, height) {
 
@@ -21,6 +20,7 @@ export default class Box extends Phaser.Physics.Arcade.Sprite {
 
 		scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
+		this.body.setDragX(150); 							   // Así se hace la fricción de la caja sobre el suelo.
 
         this.setGravityY(1000);                                // gravedad
         this.body.setMaxVelocityY(900);                        // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
@@ -34,10 +34,7 @@ export default class Box extends Phaser.Physics.Arcade.Sprite {
     }
     preUpdate(time,delta) // Así se hace la fricción de la caja sobre el suelo.
     {
-		if (this.body.onFloor()) this.body.velocity.x = this.body.velocity.x * 0.05 * delta;
-		if (this.body.velocity.x < 0.01 && this.body.velocity.x > 0) this.body.velocity.x = 0;
-		if (this.body.velocity.x > -0.01 && this.body.velocity.x < 0) this.body.velocity.x = 0;
-		if (this.body.blocked.left || this.body.blocked.right) // Esto también es necesario para que el jugador no termine atravesando la caja estando en una pared.
+		if (this.body.blocked.left || this.body.blocked.right) // Esto es necesario para que el jugador no termine atravesando la caja estando en una pared.
 															   // body.blocked es una booleana que se activa si una fuerza está empujando un objeto pero no se puede
 															   // mover en la dirección de la fuerza porque está siendo bloqueada por algo inamovible.
 		{

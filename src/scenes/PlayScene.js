@@ -21,7 +21,7 @@ export default class PlayScene extends Phaser.Scene {
 	create() {
         const ancho = this.cameras.main.width;
         const alto = this.cameras.main.height;
-        this.physics.world.OVERLAP_BIAS = 14; // Esto ayudará a evaluar la colisión del jugador y la caja sin que las dos se atraviesen.
+        this.physics.world.OVERLAP_BIAS = 16; // Esto ayudará a evaluar la colisión del jugador y la caja sin que las dos se atraviesen.
 
         this.setGameSpeed(1);                                  // velocidad normal al empezar
 
