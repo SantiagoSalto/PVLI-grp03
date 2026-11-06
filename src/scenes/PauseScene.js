@@ -60,5 +60,26 @@ export default class PauseScene extends Phaser.Scene {
             this.scene.stop();
             this.scene.start('PlayScene'); 
         });
+
+        //boton level selector:
+         var reset = this.add.image(ancho/2, alto/2 +100, 'button');
+        reset.setScale(0.5);
+        reset.setInteractive();
+
+
+        //texto
+        var resetTexto = this.add.text(ancho/2, alto/2 +100, 'Exit the Level', {
+            fontFamily: 'Arial',
+            fontSize: '24px',
+            color: '#000000ff',
+            fontStyle: 'bold'
+        });
+        resetTexto.setOrigin(0.5);
+
+        reset.on('pointerdown', () => {
+            this.scene.stop('PlayScene');
+            this.scene.stop();
+            this.scene.start('LevelSelector'); 
+        });
     }
 };
