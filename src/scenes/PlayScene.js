@@ -53,6 +53,18 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, map.widthInPixels * SCALE, map.heightInPixels * SCALE);
 
 
+        // Cronómetro del nivel
+        this.timeonlevel = 0;
+
+        this.timeonlevelText = this.add.text(ancho - 600, ancho - 1000, 'Tiempo: segundos', { // Uso un texto para indicar el tiempo en el nivel.
+            fontFamily: 'Arial',
+            fontSize: '32px',
+            fill: '#ffffff'
+        });
+        this.timeonlevelText.setScrollFactor(0); // El texto se queda quieto en la pantalla
+        this.timeonlevelText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 4, true, true); // Añado una sombra para que el
+                                                                                  // texto siempre sea legible.
+
         // PERSONAJES
         this.enemies = this.add.group();
         map.getObjectLayer('Characters').objects.forEach((object) => {
@@ -255,7 +267,14 @@ export default class PlayScene extends Phaser.Scene {
     update(time, delta) {
         this.player.update(time, delta);
         this.arrowCursor.update();
-        
+
+        this.timeonlevel += delta / 1000 * this.gameSpeed; // El tiempo del nivel se actualiza cada instante de update, dividido entre 1000 para
+                                                           // que se exprese el tiempo en segundos y no en milisegundos.
+                                                           // También haré que la velocidad del juego afecte al cronómetro
+        this.timeonlevelText.setText("Tiempo: " + this.timeevaluate(this.timeonlevel)); 
+    
+
+
         // enemigos y pinchos hacen el mismo daño
         // Al tocar un enemigo o pincho en el aire, overlap hace creer al jugador que esta en el suelo y podria volver a saltar
         // Por eso guardamos touching.down antes de comprobarlo y lo dejamos como estaba despues
@@ -334,6 +353,17 @@ export default class PlayScene extends Phaser.Scene {
     getProperty(object, name) {
         const property = object.properties.find(p => p.name === name);
         return property.value;
+    }
+    timeevaluate(seconds)
+    {
+        // El resultado de this.timeonlevel se
+        // redondea para evitar decimales.
+        const str1 = Math.floor(seconds/60);
+        const str2 = Math.floor(seconds%60);
+        if (str1 < 10 && str2 < 10) return "0" + str1 + ":0" + str2;
+        else if (str1 < 10) return "0" + str1 + ":" + str2;
+        else if (str2 < 10) return str1 + ":0" + str2;
+        else return str1 + ":" + str2;
     }
 
 }

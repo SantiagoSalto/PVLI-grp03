@@ -32,7 +32,7 @@ export default class LevelInfo extends Phaser.Scene {
             color: '#000000ff',
             fontStyle: 'bold'
         };
-
+        
         let nostar = this.add.image(estrellaX, estrellaY, 'nostar');
         nostar.setScale(1.2)
 
@@ -74,6 +74,8 @@ export default class LevelInfo extends Phaser.Scene {
             fontStyle: 'bold'
 
         };
+
+
         // Mejor Puntuacion
         let bestScore =  this.add.text(margenIzquierdo, puntuacionY, "Mejor puntuación: ", estiloTitulos);
 
@@ -84,6 +86,10 @@ export default class LevelInfo extends Phaser.Scene {
         let bestTime = this.add.text(margenIzquierdo, tiempoY, "Mejor tiempo: ", estiloTitulos);
 
         this.valorBestTime = this.add.text(margenIzquierdo + bestTime.displayWidth + 10, tiempoY, "00:00", estiloPuntos);
+
+        let TimeObjective = this.add.text(margenIzquierdo - 20, tiempoY - 70, "Tiempo objetivo: ", estiloTitulos);
+
+        this.valorTimeObjective = this.add.text(margenIzquierdo + bestTime.displayWidth + 20, tiempoY - 70, this.timeevaluate(this.objectivetime()), estiloPuntos);
 
         //--------------------BOTONES JUGAR Y SALIR--------------
         //Boton play
@@ -116,5 +122,26 @@ export default class LevelInfo extends Phaser.Scene {
         nostar.setTexture('star');
         // };
         
+    }
+    timeevaluate(seconds)
+    {
+        const str1 = Math.floor(seconds/60);
+        const str2 = Math.floor(seconds%60);
+        if (str1 < 10 && str2 < 10) return "0" + str1 + ":0" + str2;
+        else if (str1 < 10) return "0" + str1 + ":" + str2;
+        else if (str2 < 10) return str1 + ":0" + str2;
+        else return str1 + str2;
+
+    }
+    objectivetime()
+    {
+        switch(this.level)
+        {
+            case 1: return 15; break;
+            case 2: return 20; break;
+            case 3: return 25; break;
+            case 4: return 30; break;
+            case 5: return 15; break;
+        }
     }
 };
