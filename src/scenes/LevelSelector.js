@@ -73,6 +73,10 @@ create() {
         // Niveles jugables
         var iconLevel6 = this.add.image(width + width/2-372, height/2-80, 'iconLevel');
         iconLevel6.setScale(0.5);
+        iconLevel6.setInteractive();
+        iconLevel6.on('pointerdown', () =>{
+            this.scene.launch('LevelInfo', { level: 6 });
+        });
 
         var iconLevel7 = this.add.image(width + width/2-186, height/2+80, 'iconLevel');
         iconLevel7.setScale(0.5);
