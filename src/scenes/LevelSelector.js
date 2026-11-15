@@ -101,6 +101,10 @@ create() {
 
         var iconLevel10 = this.add.image(width + width/2+372, height/2-80, 'iconLevel');
         iconLevel10.setScale(0.5);
+        iconLevel10.setInteractive();
+        iconLevel10.on('pointerdown', () =>{
+            this.scene.launch('LevelInfo', { level: 10 });
+        });
 
 
         //Boton retorno
