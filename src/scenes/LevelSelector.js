@@ -87,6 +87,10 @@ create() {
 
         var iconLevel8 = this.add.image(width + width/2, height/2-80, 'iconLevel');
         iconLevel8.setScale(0.5);
+        iconLevel8.setInteractive();
+        iconLevel8.on('pointerdown', () =>{
+            this.scene.launch('LevelInfo', { level: 8 });
+        });
 
         var iconLevel9 = this.add.image(width + width/2+186, height/2+80, 'iconLevel');
         iconLevel9.setScale(0.5);
