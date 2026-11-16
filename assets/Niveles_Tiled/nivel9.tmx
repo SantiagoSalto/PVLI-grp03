@@ -128,6 +128,7 @@
   <object id="2" name="spike" x="656" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -135,6 +136,7 @@
   <object id="3" name="spike" x="688" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -142,6 +144,7 @@
   <object id="4" name="spike" x="720" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -149,6 +152,7 @@
   <object id="5" name="spike" x="752" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -156,6 +160,7 @@
   <object id="6" name="spike" x="784" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -163,6 +168,7 @@
   <object id="7" name="spike" x="816" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -170,6 +176,7 @@
   <object id="8" name="spike" x="848" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -177,6 +184,7 @@
   <object id="9" name="spike" x="880" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -184,6 +192,7 @@
   <object id="10" name="spike" x="1296" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -191,6 +200,7 @@
   <object id="11" name="spike" x="1328" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -198,6 +208,7 @@
   <object id="12" name="spike" x="1360" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -205,6 +216,7 @@
   <object id="13" name="spike" x="1392" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -212,6 +224,7 @@
   <object id="14" name="spike" x="1424" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -219,6 +232,7 @@
   <object id="15" name="spike" x="1456" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -226,6 +240,7 @@
   <object id="16" name="spike" x="1488" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -233,6 +248,7 @@
   <object id="17" name="spike" x="1520" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -240,6 +256,7 @@
   <object id="18" name="spike" x="1552" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -247,6 +264,7 @@
   <object id="19" name="spike" x="1584" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -254,6 +272,7 @@
   <object id="20" name="spike" x="1616" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -261,6 +280,7 @@
   <object id="21" name="spike" x="1648" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -268,6 +288,7 @@
   <object id="22" name="spike" x="1680" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -275,6 +296,7 @@
   <object id="23" name="spike" x="1712" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -282,6 +304,7 @@
   <object id="24" name="spike" x="1744" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -289,6 +312,7 @@
   <object id="25" name="spike" x="1776" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -296,6 +320,7 @@
   <object id="26" name="spike" x="1808" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -303,6 +328,7 @@
   <object id="27" name="spike" x="1840" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -310,6 +336,7 @@
   <object id="28" name="spike" x="1872" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -317,6 +344,7 @@
   <object id="29" name="spike" x="2256" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -324,6 +352,7 @@
   <object id="30" name="spike" x="2288" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -331,6 +360,7 @@
   <object id="31" name="spike" x="2320" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -338,6 +368,7 @@
   <object id="32" name="spike" x="2352" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -345,6 +376,7 @@
   <object id="33" name="spike" x="2384" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -352,6 +384,7 @@
   <object id="34" name="spike" x="2416" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -359,6 +392,7 @@
   <object id="35" name="spike" x="2448" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -366,6 +400,7 @@
   <object id="36" name="spike" x="2480" y="2768">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -373,6 +408,7 @@
   <object id="37" name="spike" x="1776" y="2288">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -380,6 +416,7 @@
   <object id="38" name="spike" x="1808" y="2288">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -387,6 +424,7 @@
   <object id="39" name="spike" x="1840" y="2288">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -394,6 +432,7 @@
   <object id="40" name="spike" x="1872" y="2288">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -401,6 +440,7 @@
   <object id="41" name="spike" x="1904" y="2288">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -408,6 +448,7 @@
   <object id="42" name="spike" x="1936" y="2288">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -415,6 +456,7 @@
   <object id="43" name="spike" x="1968" y="2288">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -422,6 +464,7 @@
   <object id="44" name="spike" x="2000" y="2288">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -429,6 +472,7 @@
   <object id="45" name="spike" x="1296" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -436,6 +480,7 @@
   <object id="46" name="spike" x="1328" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -443,6 +488,7 @@
   <object id="47" name="spike" x="1360" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -450,6 +496,7 @@
   <object id="48" name="spike" x="1392" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -457,6 +504,7 @@
   <object id="49" name="spike" x="1424" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -464,6 +512,7 @@
   <object id="50" name="spike" x="1456" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -471,6 +520,7 @@
   <object id="51" name="spike" x="1488" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -478,6 +528,7 @@
   <object id="52" name="spike" x="1520" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -485,6 +536,7 @@
   <object id="53" name="spike" x="1552" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -492,6 +544,7 @@
   <object id="54" name="spike" x="1584" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -499,6 +552,7 @@
   <object id="55" name="spike" x="1616" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -506,6 +560,7 @@
   <object id="56" name="spike" x="1648" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -513,6 +568,7 @@
   <object id="57" name="spike" x="1680" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -520,6 +576,7 @@
   <object id="58" name="spike" x="1712" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -527,6 +584,7 @@
   <object id="59" name="spike" x="1744" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -534,6 +592,7 @@
   <object id="60" name="spike" x="1776" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -541,6 +600,7 @@
   <object id="61" name="spike" x="1808" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -548,6 +608,7 @@
   <object id="62" name="spike" x="1840" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -555,6 +616,7 @@
   <object id="63" name="spike" x="1872" y="1840">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -562,6 +624,7 @@
   <object id="64" name="spike" x="1936" y="1392">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -569,6 +632,7 @@
   <object id="65" name="spike" x="1968" y="1392">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -576,6 +640,7 @@
   <object id="66" name="spike" x="2000" y="1392">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -583,6 +648,7 @@
   <object id="67" name="spike" x="2032" y="1392">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -590,6 +656,7 @@
   <object id="68" name="spike" x="2064" y="1392">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -597,6 +664,7 @@
   <object id="69" name="spike" x="2096" y="1392">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -604,6 +672,7 @@
   <object id="70" name="spike" x="2128" y="1392">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -611,6 +680,7 @@
   <object id="71" name="spike" x="1616" y="944">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -618,6 +688,7 @@
   <object id="72" name="spike" x="1648" y="944">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -625,6 +696,7 @@
   <object id="73" name="spike" x="1680" y="944">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -632,6 +704,7 @@
   <object id="74" name="spike" x="1712" y="944">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -639,6 +712,7 @@
   <object id="75" name="spike" x="1744" y="944">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>

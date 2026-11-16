@@ -4,6 +4,7 @@ import Platform from '../Platform.js';
 import Box from '../structures/Box.js';
 import DestructibleBlock from '../structures/DestructibleBlock.js';
 import Spike from '../structures/Spike.js';
+import Lava from '../structures/Lava.js';
 import Target from '../structures/Target.js';
 import Piece from '../structures/Piece.js';
 import PortalSymbol from '../structures/PortalSymbol.js';
@@ -136,7 +137,13 @@ export default class PlayScene extends Phaser.Scene {
                 case 'spike':
                     this.spikes.add(new Spike(this, object.x, object.y,
                         toPx(this.getProperty(object, 'width')),      //width y height en bloques
-                        toPx(this.getProperty(object, 'height'))));
+                        toPx(this.getProperty(object, 'height')),
+                        this.getProperty(object, 'mortal')));         //bool en Tiled, solo en Infierno
+                    break;
+                case 'lava':
+                    //Lava que sube desde (x, y) y cubre hasta el fondo del mapa; speed en bloques por segundo
+                    this.lava = new Lava(this, object.x, object.y, object.width,
+                        map.heightInPixels * SCALE, toPx(this.getProperty(object, 'speed')));
                     break;
             }
         });
@@ -169,6 +176,8 @@ export default class PlayScene extends Phaser.Scene {
                 this.platforms.add(platform);
             }
         });
+        //La lava tapa las plataformas que se traga (la UI se crea despues y queda encima)
+        if (this.lava) this.children.bringToTop(this.lava);
 
 
 
@@ -279,18 +288,28 @@ export default class PlayScene extends Phaser.Scene {
         // Al tocar un enemigo o pincho en el aire, overlap hace creer al jugador que esta en el suelo y podria volver a saltar
         // Por eso guardamos touching.down antes de comprobarlo y lo dejamos como estaba despues
         const touchingDown = this.player.body.touching.down;
-        const touchingDanger = this.physics.overlap(this.player, this.enemies) || this.physics.overlap(this.player, this.spikes);
+        let touchingDanger = this.physics.overlap(this.player, this.enemies);
+        let touchingMortal = false;
+        this.physics.overlap(this.player, this.spikes, (player, spike) => {
+            touchingDanger = true;
+            if (spike.mortal) touchingMortal = true;            // pincho mortal del Infierno
+        });
+        if (this.lava && this.physics.overlap(this.player, this.lava)) touchingMortal = true; // la lava tambien es mortal
         this.physics.overlap(this.player, this.pieces, (player, piece) => this.collectPiece(piece));
         this.player.body.touching.down = touchingDown;
-        if (touchingDanger && !this.player.invencible)
+        if (touchingMortal) // Lo mortal mata de un golpe, aunque sea invencible
+        {
+            this.player.lives = 0;
+        }
+        else if (touchingDanger && !this.player.invencible)
         {
             this.player.lives -= 1; // Pierde una vida
             this.player.invencible = true; // El jugador se vuelve invencible temporalmente
-            if (this.player.lives <= 0) // Cuando el jugador se queda sin vidas pierde el nivel
-            {
-                this.scene.pause();
-                this.scene.launch('LoseScene');
-            }
+        }
+        if (this.player.lives <= 0) // Cuando el jugador se queda sin vidas pierde el nivel
+        {
+            this.scene.pause();
+            this.scene.launch('LoseScene');
         }
         if (this.player.lives == 3) // 3 vidas
         {

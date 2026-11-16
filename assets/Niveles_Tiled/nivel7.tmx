@@ -168,6 +168,7 @@
   <object id="2" name="spike" x="848" y="3952">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -175,6 +176,7 @@
   <object id="3" name="spike" x="880" y="3952">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -182,6 +184,7 @@
   <object id="4" name="spike" x="912" y="3952">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -189,6 +192,7 @@
   <object id="5" name="spike" x="944" y="3952">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -196,6 +200,7 @@
   <object id="6" name="spike" x="976" y="3952">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -203,6 +208,7 @@
   <object id="7" name="spike" x="1008" y="3952">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -210,6 +216,7 @@
   <object id="8" name="spike" x="1040" y="3952">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>
@@ -217,6 +224,7 @@
   <object id="9" name="spike" x="1072" y="3952">
    <properties>
     <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
     <property name="width" type="float" value="1"/>
    </properties>
    <point/>

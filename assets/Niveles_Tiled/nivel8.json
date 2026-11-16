@@ -86,6 +86,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -107,6 +112,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -132,6 +142,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -153,6 +168,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -178,6 +198,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -199,6 +224,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -224,6 +254,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -245,6 +280,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -270,6 +310,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -291,6 +336,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -316,6 +366,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -337,6 +392,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -362,6 +422,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -383,6 +448,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -408,6 +478,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -429,6 +504,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -454,6 +534,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -475,6 +560,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -500,6 +590,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -521,6 +616,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -546,6 +646,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -567,6 +672,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -592,6 +702,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -613,6 +728,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -638,6 +758,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -659,6 +784,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -684,6 +814,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -705,6 +840,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -730,6 +870,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -751,6 +896,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -776,6 +926,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -797,6 +952,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -822,6 +982,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -843,6 +1008,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -868,6 +1038,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -889,6 +1064,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -914,6 +1094,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -935,6 +1120,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -960,6 +1150,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -981,6 +1176,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1006,6 +1206,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1027,6 +1232,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1052,6 +1262,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1073,6 +1288,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1098,6 +1318,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1119,6 +1344,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1144,6 +1374,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1165,6 +1400,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1190,6 +1430,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1211,6 +1456,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1236,6 +1486,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1257,6 +1512,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1282,6 +1542,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1303,6 +1568,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1328,6 +1598,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1349,6 +1624,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1374,6 +1654,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1395,6 +1680,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
@@ -1420,6 +1710,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1443,6 +1738,11 @@
                          "value":1
                         }, 
                         {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"width",
                          "type":"float",
                          "value":1
@@ -1464,6 +1764,11 @@
                          "name":"height",
                          "type":"float",
                          "value":1
+                        }, 
+                        {
+                         "name":"mortal",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"width",
