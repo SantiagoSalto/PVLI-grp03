@@ -16,9 +16,13 @@ create() {
         this.background2.setScale(1.9);
         this.background2.setFlipX(true);
 
+        // Tercera pantalla para el mundo Infierno (sin voltear: encaja con el borde de la volteada)
+        this.background3 = this.add.image(width * 2 + width/2, height/2, 'background4');
+        this.background3.setScale(1.9);
+
         // Camara scroll
-        //el mapa mide 2 pantallas de ancho
-        this.cameras.main.setBounds(0, 0, width * 2, height);
+        //el mapa mide 3 pantallas de ancho
+        this.cameras.main.setBounds(0, 0, width * 3, height);
 
         this.edgeMargin = 240;       //px desde el borde donde empieza a contar
         this.edgeDelay = 300;       //ms que hay que estar en el borde antes de moverse
@@ -104,6 +108,13 @@ create() {
         iconLevel10.setInteractive();
         iconLevel10.on('pointerdown', () =>{
             this.scene.launch('LevelInfo', { level: 10 });
+        });
+
+        var iconLevel11 = this.add.image(width * 2 + width/2-372, height/2-80, 'iconLevel');
+        iconLevel11.setScale(0.5);
+        iconLevel11.setInteractive();
+        iconLevel11.on('pointerdown', () =>{
+            this.scene.launch('LevelInfo', { level: 11 });
         });
 
 
