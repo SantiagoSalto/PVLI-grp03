@@ -117,6 +117,13 @@ create() {
             this.scene.launch('LevelInfo', { level: 11 });
         });
 
+        var iconLevel12 = this.add.image(width * 2 + width/2-186, height/2+80, 'iconLevel');
+        iconLevel12.setScale(0.5);
+        iconLevel12.setInteractive();
+        iconLevel12.on('pointerdown', () =>{
+            this.scene.launch('LevelInfo', { level: 12 });
+        });
+
 
         //Boton retorno
         var exit = this.add.image(width-50, 50, 'exit');
