@@ -90,6 +90,8 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('yellowSquare', './assets/Menu/creditsSquare.png')
         
         this.load.image('projectile', './assets/Personajes/projectile.png')
+
+        this.load.spritesheet('player','./assets/Personajes/animacion_prototipo.png',{frameWidth:30,frameHeight:60} )
     }
 
     create() {
