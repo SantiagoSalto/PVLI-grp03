@@ -1061,7 +1061,7 @@
    </properties>
    <point/>
   </object>
-  <object id="116" name="destructible" x="4880" y="800">
+  <object id="116" name="destructible" x="4896" y="800">
    <properties>
     <property name="height" type="float" value="2"/>
     <property name="width" type="float" value="6"/>
@@ -1194,7 +1194,7 @@
    </properties>
    <point/>
   </object>
-  <object id="133" name="movingPlatform" x="1904" y="3434">
+  <object id="133" name="movingPlatform" x="1920" y="3434">
    <properties>
     <property name="height" type="float" value="6"/>
     <property name="range" type="float" value="6"/>
@@ -1263,7 +1263,7 @@
    </properties>
    <point/>
   </object>
-  <object id="141" name="movingPlatform" x="3328" y="1610">
+  <object id="141" name="movingPlatform" x="3360" y="1610">
    <properties>
     <property name="height" type="float" value="6"/>
     <property name="range" type="float" value="4"/>
