@@ -1574,7 +1574,7 @@
    </properties>
    <point/>
   </object>
-  <object id="180" name="enemy" x="2384" y="3744">
+  <object id="180" name="enemy" x="2384" y="3680">
    <properties>
     <property name="range" type="float" value="3"/>
     <property name="speedX" type="float" value="0"/>
@@ -1590,11 +1590,11 @@
    </properties>
    <point/>
   </object>
-  <object id="182" name="enemy" x="4160" y="3584">
+  <object id="182" name="enemy" x="4032" y="3520">
    <properties>
-    <property name="range" type="float" value="3"/>
-    <property name="speedX" type="float" value="0"/>
-    <property name="speedY" type="float" value="70"/>
+    <property name="range" type="float" value="2"/>
+    <property name="speedX" type="float" value="70"/>
+    <property name="speedY" type="float" value="0"/>
    </properties>
    <point/>
   </object>
@@ -1638,9 +1638,9 @@
    </properties>
    <point/>
   </object>
-  <object id="188" name="enemy" x="992" y="2304">
+  <object id="188" name="enemy" x="992" y="2240">
    <properties>
-    <property name="range" type="float" value="3"/>
+    <property name="range" type="float" value="2"/>
     <property name="speedX" type="float" value="0"/>
     <property name="speedY" type="float" value="70"/>
    </properties>

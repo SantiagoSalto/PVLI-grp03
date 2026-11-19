@@ -5109,7 +5109,7 @@
                  "visible":true,
                  "width":0,
                  "x":2384,
-                 "y":3744
+                 "y":3680
                 }, 
                 {
                  "height":0,
@@ -5148,24 +5148,24 @@
                         {
                          "name":"range",
                          "type":"float",
-                         "value":3
+                         "value":2
                         }, 
                         {
                          "name":"speedX",
                          "type":"float",
-                         "value":0
+                         "value":70
                         }, 
                         {
                          "name":"speedY",
                          "type":"float",
-                         "value":70
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":4160,
-                 "y":3584
+                 "x":4032,
+                 "y":3520
                 }, 
                 {
                  "height":0,
@@ -5316,7 +5316,7 @@
                         {
                          "name":"range",
                          "type":"float",
-                         "value":3
+                         "value":2
                         }, 
                         {
                          "name":"speedX",
@@ -5333,7 +5333,7 @@
                  "visible":true,
                  "width":0,
                  "x":992,
-                 "y":2304
+                 "y":2240
                 }, 
                 {
                  "height":0,
