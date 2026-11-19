@@ -32,7 +32,12 @@ export default class PlayerMoveState extends BaseState {
         player.setFlipX(direction < 0);
 
         // aplicar velocidad horizontal
-        player.setVelocityX(direction * player.getSpeed(distance));
+        let speed = player.getSpeed(distance);
+        player.setVelocityX(direction * speed);
+
+        // animacion segun la velocidad
+        if (speed === player.runSpeed) player.play('player_run', true);
+        else player.play('player_walk', true);
     }
 
     exit(player) {

@@ -91,11 +91,37 @@ export default class PreloadScene extends Phaser.Scene {
         
         this.load.image('projectile', './assets/Personajes/projectile.png')
 
-        this.load.spritesheet('player','./assets/Personajes/animacion_prototipo.png',{frameWidth:30,frameHeight:60} )
+        this.load.spritesheet('player','./assets/Personajes/Placeholder.jpg',{frameWidth:147,frameHeight:274} )
     }
 
     create() {
-        this.scene.stop();          
+        // Animaciones
+        this.anims.create({
+            key: 'player_idle',
+            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 4 }),
+            frameRate: 6,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'player_walk',
+            frames: this.anims.generateFrameNumbers('player', { start: 5, end: 9 }),
+            frameRate: 8,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'player_run',
+            frames: this.anims.generateFrameNumbers('player', { start: 10, end: 14 }),
+            frameRate: 12,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'player_jump',
+            frames: this.anims.generateFrameNumbers('player', { start: 15, end: 19 }),
+            frameRate: 8,
+            repeat: 0                                           // una sola vez, se queda en el ultimo frame
+        });
+
+        this.scene.stop();
         this.scene.start('MainMenuScene'); 
         
     }

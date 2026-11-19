@@ -8,7 +8,7 @@ import { SCALE } from '../Measures.js';
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     constructor(scene, x, y) {
-        super(scene, x, y, 'squirrel');
+        super(scene, x, y, 'player');
 
         scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
@@ -60,6 +60,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
     preUpdate(t, dt)
     {
+        super.preUpdate(t, dt);                                // necesario para que avancen las animaciones
+
         //Hang time = Flotando unos instantes cuando llega a punto maximo de salto
         if (!this.isGrounded()) {
             // Si la velocidad vertical es cercana a 0 (está en la cúspide del salto)
