@@ -151,6 +151,7 @@ export default class LevelInfo extends Phaser.Scene {
             case 12: return 240; break;
             case 13: return 240; break;
             case 14: return 270; break;
+            case 15: return 240; break;
         }
     }
 };

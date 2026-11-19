@@ -73,6 +73,12 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('pentagram3', './assets/Objetos/Simbolos/pentagram3.png');
         this.load.image('pentagram4', './assets/Objetos/Simbolos/pentagram4.png');
         this.load.image('pentagram5', './assets/Objetos/Simbolos/pentagram5.png');
+        this.load.image('pentacle1', './assets/Objetos/Simbolos/pentacle1.png');
+        this.load.image('pentacle2', './assets/Objetos/Simbolos/pentacle2.png');
+        this.load.image('pentacle3', './assets/Objetos/Simbolos/pentacle3.png');
+        this.load.image('pentacle4', './assets/Objetos/Simbolos/pentacle4.png');
+        this.load.image('pentacle5', './assets/Objetos/Simbolos/pentacle5.png');
+        this.load.image('pentacle6', './assets/Objetos/Simbolos/pentacle6.png');
         //Tiled
         this.load.image('tilesGrass1', './assets/Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Grass1_pipo.png');
         this.load.tilemapTiledJSON('level1', './assets/Niveles_Tiled/nivel1.json');
@@ -90,6 +96,7 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.tilemapTiledJSON('level12', './assets/Niveles_Tiled/nivel12.json');
         this.load.tilemapTiledJSON('level13', './assets/Niveles_Tiled/nivel13.json');
         this.load.tilemapTiledJSON('level14', './assets/Niveles_Tiled/nivel14.json');
+        this.load.tilemapTiledJSON('level15', './assets/Niveles_Tiled/nivel15.json');
 
         //Iconos
         this.load.image('ajustes', './assets/Menu/gear.png');
