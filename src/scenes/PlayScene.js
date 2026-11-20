@@ -33,7 +33,7 @@ export default class PlayScene extends Phaser.Scene {
 
         this.inputManager = new InputManager(this);
 
-        // CARGA DEL TILEMAP (Tiled)
+        // ---------------CARGA DEL TILEMAP (Tiled)---------------
         const map = this.make.tilemap({ key: 'level' + this.level });
         let tileset;
         if (this.level === 1) tileset = map.addTilesetImage('Pipoya_Grass1', 'tilesGrass1');   //nombre en Tiled, clave en Preload
@@ -66,7 +66,7 @@ export default class PlayScene extends Phaser.Scene {
         this.timeonlevelText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 4, true, true); // Añado una sombra para que el
                                                                                   // texto siempre sea legible.
 
-        // PERSONAJES
+        // ---------------PERSONAJES---------------
         this.enemies = this.add.group();
         map.getObjectLayer('Characters').objects.forEach((object) => {
             switch (object.name) {
@@ -83,7 +83,7 @@ export default class PlayScene extends Phaser.Scene {
             }
         });
 
-        // ESTRUCTURAS
+        // ---------------ESTRUCTURAS---------------
         this.boxes = this.add.group();
         this.destructibles = this.add.group();
         this.spikes = this.add.group();
@@ -147,7 +147,7 @@ export default class PlayScene extends Phaser.Scene {
                     break;
             }
         });
-        // ---------PLATAFORMAS----------
+        // ---------------PLATAFORMAS---------------
         this.platforms = this.add.group();
         map.getObjectLayer('Platforms').objects.forEach((object) => {
             if (object.name === 'platform') {
@@ -182,7 +182,7 @@ export default class PlayScene extends Phaser.Scene {
 
 
 
-        // ------------COLISIONES------------
+        // ---------------COLISIONES---------------
         this.physics.add.collider(this.player, ground);
         this.physics.add.collider(this.player, this.boxes);
         this.physics.add.collider(this.boxes, ground);
@@ -215,7 +215,7 @@ export default class PlayScene extends Phaser.Scene {
             enemy.destroy();
         });
 
-        //-----------ICONOS UI-------------
+        //---------------ICONOS UI---------------
         // Vidas del jugador en el UI
         this.heart1 = this.add.image(ancho - 900, 10, 'life');
         this.heart1.setOrigin(1, 0);
