@@ -110,7 +110,7 @@ export default class LevelInfo extends Phaser.Scene {
 
         exit.on('pointerdown', () => {
             this.scene.stop();
-            this.scene.start('LevelSelector'); 
+            this.scene.resume('LevelSelector'); 
         });
 
         //Funcion a futuro:

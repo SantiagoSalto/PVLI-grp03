@@ -147,7 +147,7 @@ export default class PlayScene extends Phaser.Scene {
                     break;
             }
         });
-        // PLATAFORMAS
+        // ---------PLATAFORMAS----------
         this.platforms = this.add.group();
         map.getObjectLayer('Platforms').objects.forEach((object) => {
             if (object.name === 'platform') {
@@ -182,7 +182,7 @@ export default class PlayScene extends Phaser.Scene {
 
 
 
-        // COLISIONES
+        // ------------COLISIONES------------
         this.physics.add.collider(this.player, ground);
         this.physics.add.collider(this.player, this.boxes);
         this.physics.add.collider(this.boxes, ground);
@@ -215,17 +215,7 @@ export default class PlayScene extends Phaser.Scene {
             enemy.destroy();
         });
 
-        //Iconos Interaccionables UI
-        var play = this.add.image(ancho - 10, 10, 'play');
-        play.setOrigin(1, 0);
-        play.setScale(0.3);
-        play.setInteractive();
-        play.setScrollFactor(0);
-        play.on('pointerdown', () => {
-            this.scene.stop();
-            this.scene.start('GameOverScene');
-        });
-
+        //-----------ICONOS UI-------------
         // Vidas del jugador en el UI
         this.heart1 = this.add.image(ancho - 900, 10, 'life');
         this.heart1.setOrigin(1, 0);
@@ -254,7 +244,7 @@ export default class PlayScene extends Phaser.Scene {
         }
 
         //Icono menu de pausa
-        var pausa = this.add.image(100, 100, 'pausa');
+        var pausa = this.add.image(ancho-50, 50, 'pausa');
         pausa.setInteractive();
         pausa.setScrollFactor(0);
         pausa.on('pointerdown', () =>{
