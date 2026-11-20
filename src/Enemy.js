@@ -35,10 +35,12 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         this.body.setSize(320, 650);                           // hitbox ajustada
         this.body.setOffset(150, 50);                          // colocar hitbox
 
-
+		this.anims.play('enemy_fly');
 		//this.body.setVelocity(speedX, speedY);
-		
+	
+  	
     }
+
 	preUpdate (t, dt) {
     super.preUpdate(t, dt)
     dt = dt * this.scene.gameSpeed; // bullet time: mas lento si el juego va lento
@@ -54,5 +56,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 	{
 		this.speedY = -this.speedY; // Este enemigo da la vuelta en el eje Y si supera el rango límite de movimiento
 	}
+
   }
+
 }

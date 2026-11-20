@@ -15,7 +15,7 @@ export default class PreloadScene extends Phaser.Scene {
         //Jugador
         this.load.image('squirrel', './assets/Personajes/squirrel.png');
         //Enemigo
-        this.load.image('enemy', './assets/Personajes/parrot.png');
+        //this.load.image('enemy', './assets/Personajes/parrot.png');
         //Plataforma
         this.load.image('platform1', './assets/Suelos/hierba-1.png');
 
@@ -92,6 +92,7 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('projectile', './assets/Personajes/projectile.png')
 
         this.load.spritesheet('player','./assets/Personajes/Placeholder.jpg',{frameWidth:147,frameHeight:274} )
+        this.load.spritesheet('enemy','./assets/Personajes/Placeholder.jpg',{frameWidth:147,frameHeight:274} )
     }
 
     create() {
@@ -120,6 +121,21 @@ export default class PreloadScene extends Phaser.Scene {
             frameRate: 8,
             repeat: 0                                           // una sola vez, se queda en el ultimo frame
         });
+
+          console.log('¿Existe la textura enemy?', this.textures.exists('enemy'));
+
+         this.anims.create({
+        key: 'enemy_fly',
+        frames: this.anims.generateFrameNumbers('enemy', {
+            start: 15,
+            end: 19
+        }),
+        frameRate: 8,
+        repeat: -1
+         });
+
+            console.log('¿Existe enemy_fly?', this.anims.exists('enemy_fly'));
+
 
         this.scene.stop();
         this.scene.start('MainMenuScene'); 
