@@ -15,7 +15,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.setCollideWorldBounds(true);                      // colision con bordes
 
         //Cambios suavizado eje Y
-        this.setGravityY(1050 * SCALE);                                  // gravedad
+        this.setGravityY(550 * SCALE);                                  // gravedad
         this.body.setMaxVelocityY(900 * SCALE); //900                   // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
         this.body.setDragY(20 * SCALE)                                  //Añade ligera resistencia al aire vertical
 
