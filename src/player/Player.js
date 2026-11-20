@@ -25,13 +25,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
         // movimiento
         this.walkSpeed = 120 * SCALE;                                  // velocidad andando
-        this.runSpeed = 380 * SCALE;                                   // velocidad corriendo
-        this.runDistance = 200 * SCALE;                                // distancia al cursor a partir de la que corre
+        //nuevos
+        this.maxSpeedMultiplier = 4.2;                              //velocidad maxima = 120 *4.2 = 504
+        this.maxSpeedDistance = 250 * SCALE;                        //Distna cia a la que ya no acelera mas
+
         this.stopDistance = 5 * SCALE;                                 // distancia al cursor para pararse
 
         // salto
         this.jumpSpeed = 700 * SCALE;                                  // fuerza del salto (altura fija)
-
+        this.jumpMargin = 65* SCALE;                                    //margen de salto (cuanto arriba tiene que estar el raton de la ardilla para que salte)
         // ataque
         this.minShotSpeed = 400 * SCALE;                               // velocidad del proyectil con muy poco arrastre
         this.maxShotSpeed = 1150 * SCALE;                              // velocidad del proyectil con arrastre maximo
@@ -94,16 +96,36 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         return Math.abs(this.mouse.getX() - this.x) > this.stopDistance;
     }
 
+    //Comprobador de zona valida para saltar
+    //Aplicado en player y en ArrowCursor, para que vayan a la par
+    isInJumpZone() {
+        return this.mouse.getY() < this.body.top - this.jumpMargin;
+    }
+
     // clic con el cursor por encima de la cabeza estando en el suelo
     wantsToJump() {
         if (!this.mouse.isLeftDown() || !this.isGrounded()) return false;
-        return this.mouse.getY() < this.body.top;
+        return this.isInJumpZone();
     }
 
     // velocidad horizontal segun la distancia al cursor: lejos corre, cerca anda
     getSpeed(distance) {
-        if (Math.abs(distance) > this.runDistance) return this.runSpeed;
-        return this.walkSpeed;
+        //Como distancia puede sern negativa, hacemos el valor absoluto
+        const absDist = Math.abs(distance);
+        //Si la distancia esta a 5 px o menos anda
+        if (absDist <= this.stopDistance){
+            return this.walkSpeed;
+        }
+        //Ponerle el tope a de velocidad 
+        const maxDist = Math.min(absDist, this.maxSpeedDistance);
+
+        // Calculamos PORCENTAJE DE LEJANIA (0.0 cerca = 5px y 1.0 límite = 250px)
+        const ratio = (maxDist - this.stopDistance) / (this.maxSpeedDistance - this.stopDistance);
+
+        // Multiplicador progresivo: empieza en 1x (walkSpeed) y sube hasta maxSpeedMultiplier
+        const multiplier = 1 + ratio * (this.maxSpeedMultiplier - 1); //se le resta 1 ya que el rango va desde (1-4.2) es decir 3.2 valores
+
+        return this.walkSpeed * multiplier;
     }
 
     // mantener el clic derecho para apuntar

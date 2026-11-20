@@ -68,19 +68,21 @@ export default class ArrowCursor extends Phaser.GameObjects.Sprite {
 
         const distanceX = this.mouse.getX() - this.player.x;
         const distanceY = this.mouse.getY() - this.player.y;
+        const inJumpZone = this.player.isInJumpZone();
 
         // por encima de la cabeza salta: apunta hacia el cursor
         // a la altura de la ardilla anda: apunta a izquierda o derecha
-        if (this.mouse.getY() < this.player.body.top) this.setRotation(Math.atan2(distanceY, distanceX));
+        // if (this.mouse.getY() < this.player.body.top) this.setRotation(Math.atan2(distanceY, distanceX));
+        if (inJumpZone) this.setRotation(Math.atan2(distanceY, distanceX));
         else if (distanceX < 0) this.setRotation(Math.PI);
         else this.setRotation(0);
 
         // cambia de color si al hacer clic va a saltar (en el aire no se puede)
-        if (this.mouse.getY() < this.player.body.top && this.player.isGrounded()) this.setTint(this.jumpColor);
+        if (inJumpZone && this.player.isGrounded()) this.setTint(this.jumpColor);
         else this.clearTint();
 
         // encima de la ardilla no se mueve: flecha casi transparente
-        const stopped = this.mouse.getY() >= this.player.body.top && Math.abs(distanceX) <= this.player.stopDistance;
+        const stopped = !inJumpZone && Math.abs(distanceX) <= this.player.stopDistance;
         if (stopped) this.setAlpha(0.4);
         else this.setAlpha(1);
     }

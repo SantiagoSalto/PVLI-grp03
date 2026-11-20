@@ -8,7 +8,7 @@ export default class PlayerJumpState extends BaseState {
         this.reachedCursor = false;
 
         // velocidad horizontal fija durante todo el salto (segun la distancia al cursor al saltar)
-        this.speedX = player.getSpeed(player.mouse.getX() - player.x);
+        // this.speedX = player.getSpeed(player.mouse.getX() - player.x);
 
         // la altura del salto siempre es la misma (solo desde el suelo: al volver de attack en el aire no hay impulso)
         if (player.isGrounded()) player.setVelocityY(-player.jumpSpeed);
@@ -55,6 +55,7 @@ export default class PlayerJumpState extends BaseState {
         if (Math.abs(distance) <= player.stopDistance) {
             this.reachedCursor = true;
             this.reachedMouseX = player.mouse.getX();
+            player.setVelocityX(0);
             return;
         }
 
@@ -62,6 +63,7 @@ export default class PlayerJumpState extends BaseState {
         player.setFlipX(direction < 0);
 
         // aplicar velocidad horizontal
-        player.setVelocityX(direction * this.speedX);
+        // player.setVelocityX(direction * this.speedX);
+        player.setVelocityX(direction * player.getSpeed(distance));
     }
 }
