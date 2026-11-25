@@ -17,12 +17,12 @@ constructor() {
         this.background.setScale(3);
         
         //Boton continuar ->level selector
-        var resume = this.add.image(ancho/2, alto/2-100, 'bluebutton');
+        var resume = this.add.image(ancho/2, alto/2 + 50, 'bluebutton');
         resume.setScale(0.5);
         resume.setInteractive();
 
         //texto
-        var resetTexto = this.add.text(ancho/2, alto/2-100, 'CONTINUE', {
+        var resetTexto = this.add.text(ancho/2, alto/2 + 50, 'CONTINUE', {
             fontFamily: 'Arial',
             fontSize: '24px',
             color: '#000000ff',
@@ -37,13 +37,24 @@ constructor() {
         });
 
         //boton reset nivel 
-        var reset = this.add.image(ancho/2, alto/2, 'bluebutton');
+        var reset = this.add.image(ancho/2, alto/2 + 120, 'bluebutton');
         reset.setScale(0.5);
         reset.setInteractive();
 
 
+        const estrellaX = ancho/2 -100;
+        const estrellaY = alto/3.5; 
+
+        const estiloPuntuacion = {
+            fontFamily: 'Arial',
+            fontSize: '15px',
+            color: '#000000ff',
+            fontStyle: 'bold'
+        };
+
+
         //texto
-        var resetTexto = this.add.text(ancho/2, alto/2, 'RESET', {
+        var resetTexto = this.add.text(ancho/2, alto/2 + 120, 'RESET', {
             fontFamily: 'Arial',
             fontSize: '24px',
             color: '#000000ff',
@@ -55,6 +66,57 @@ constructor() {
             this.scene.stop();
             this.scene.start('PlayScene'); 
         });
+
+        const playscene = this.scene.get('PlayScene');
+        var puntos = 0;
+        var completedpoints = 500;
+        puntos += completedpoints;
+        var timepoints = (playscene.objectivetime()/playscene.leveltimer*1.5)**5 * 10;
+        puntos += timepoints;
+
+        //puntos += this.scene.timeonlevel;
+        var puntostext = this.add.text(ancho/2,alto/2-70, "Puntos totales: " + Math.floor(puntos), {
+            fontFamily: 'Arial',
+            fontSize: '20px',
+            color: 'rgb(255, 255, 255)',
+            fontStyle: 'bold'
+        });
+        var levelcompletedpointstext = this.add.text(ancho/2,alto/2-50, "Tiempo tardado: +" + Math.floor(completedpoints) + "pts", {
+            fontFamily: 'Arial',
+            fontSize: '16px',
+            color: 'rgb(26, 129, 0)',
+            fontStyle: 'bold'
+        });
+        var timepointstext = this.add.text(ancho/2,alto/2-30, "Tiempo tardado: +" + Math.floor(timepoints) + "pts", {
+            fontFamily: 'Arial',
+            fontSize: '16px',
+            color: 'rgb(26, 129, 0)',
+            fontStyle: 'bold'
+        });
+        puntostext.setOrigin(0.5);
+        levelcompletedpointstext.setOrigin(0.5);
+        timepointstext.setOrigin(0.5);
+
+
+
+
+        let nostar = this.add.image(estrellaX, estrellaY, 'nostar');
+        nostar.setScale(1.2)
+
+        let puntuacion = this.add.text(estrellaX,estrellaY, '500',estiloPuntuacion);
+        puntuacion.setOrigin(0.5);
+
+
+        let nostar1 = this.add.image(estrellaX+ 100, estrellaY, 'nostar');
+        nostar1.setScale(1.2)
+        let puntuacion1 = this.add.text(estrellaX + 100,estrellaY, '1500', estiloPuntuacion);
+        puntuacion1.setOrigin(0.5);
+
+
+        let nostar2 = this.add.image(estrellaX + 200, estrellaY, 'nostar');
+        nostar2.setScale(1.2)
+        let puntuacion2 = this.add.text(estrellaX + 200,estrellaY, '2500', estiloPuntuacion);
+        puntuacion2.setOrigin(0.5);
     }
 };
 

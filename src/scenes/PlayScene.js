@@ -10,6 +10,7 @@ import Piece from '../structures/Piece.js';
 import PortalSymbol from '../structures/PortalSymbol.js';
 import InputManager from '../managers/InputManager.js';
 import ArrowCursor from '../managers/ArrowCursor.js';
+
 import { toPx, SCALE } from '../Measures.js';
 
 export default class PlayScene extends Phaser.Scene {
@@ -33,6 +34,8 @@ export default class PlayScene extends Phaser.Scene {
 
         this.inputManager = new InputManager(this);
 
+        this.leveltimer = 0;
+
         // ---------------CARGA DEL TILEMAP (Tiled)---------------
         const map = this.make.tilemap({ key: 'level' + this.level });
         let tileset;
@@ -54,10 +57,9 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, map.widthInPixels * SCALE, map.heightInPixels * SCALE);
 
 
-        // Cronómetro del nivel
-        this.timeonlevel = 0;
+        // Tiempo pasado en el nivel y el objetivo
 
-        this.timeonlevelText = this.add.text(ancho - 600, ancho - 1000, 'Tiempo: segundos', { // Uso un texto para indicar el tiempo en el nivel.
+        this.timeonlevelText = this.add.text(ancho - 600, ancho - 1000, 'Tiempo:', { // Uso un texto para indicar el tiempo en el nivel.
             fontFamily: 'Arial',
             fontSize: '32px',
             fill: '#ffffff'
@@ -267,12 +269,12 @@ export default class PlayScene extends Phaser.Scene {
         this.player.update(time, delta);
         this.arrowCursor.update();
 
-        this.timeonlevel += delta / 1000 * this.gameSpeed; // El tiempo del nivel se actualiza cada instante de update, dividido entre 1000 para
+        this.leveltimer += delta / 1000 * this.gameSpeed; // El tiempo del nivel se actualiza cada instante de update, dividido entre 1000 para
                                                            // que se exprese el tiempo en segundos y no en milisegundos.
                                                            // También haré que la velocidad del juego afecte al cronómetro
-        this.timeonlevelText.setText("Tiempo: " + this.timeevaluate(this.timeonlevel)); 
-    
 
+        this.timeonlevelText.setText("Tiempo: " + this.timeevaluate(this.leveltimer)); 
+        this.children.bringToTop(this.timeonlevelText);
 
         // enemigos y pinchos hacen el mismo daño
         // Al tocar un enemigo o pincho en el aire, overlap hace creer al jugador que esta en el suelo y podria volver a saltar
@@ -363,16 +365,61 @@ export default class PlayScene extends Phaser.Scene {
         const property = object.properties.find(p => p.name === name);
         return property.value;
     }
+    objectivetime()
+    {
+        switch(this.level)
+        {
+            case 1: return 15; break;
+            case 2: return 20; break;
+            case 3: return 25; break;
+            case 4: return 30; break;
+            case 5: return 15; break;
+            case 6: return 150; break;
+            case 7: return 150; break;
+            case 8: return 200; break;
+            case 9: return 180; break;
+            case 10: return 240; break;
+            case 11: return 240; break;
+            case 12: return 240; break;
+            case 13: return 240; break;
+            case 14: return 270; break;
+            case 15: return 240; break;
+        }
+    }
     timeevaluate(seconds)
     {
-        // El resultado de this.timeonlevel se
-        // redondea para evitar decimales.
-        const str1 = Math.floor(seconds/60);
-        const str2 = Math.floor(seconds%60);
-        if (str1 < 10 && str2 < 10) return "0" + str1 + ":0" + str2;
-        else if (str1 < 10) return "0" + str1 + ":" + str2;
-        else if (str2 < 10) return str1 + ":0" + str2;
-        else return str1 + ":" + str2;
-    }
 
+        var timeremaining = this.objectivetime() - seconds;
+
+        // const str1 = Math.floor(seconds/60);
+        // const str2 = Math.floor(seconds%60);
+
+        if (timeremaining > 0)
+        {
+            // El resultado de this.timeonlevel se
+            // redondea para evitar decimales.
+            var str1 = Math.floor(timeremaining/60);
+            var str2 = Math.floor(timeremaining%60);
+            var str3 = Math.floor((timeremaining*1000)%1000);
+            this.timeonlevelText.setTint(0xffffff);
+        }
+        else
+        {
+            // El resultado de this.timeonlevel se
+            // redondea para evitar decimales.
+            seconds -= this.objectivetime();
+            var str1 = Math.floor(seconds/60);
+            var str2 = Math.floor(seconds%60);
+            var str3 = Math.floor((seconds*1000)%1000);
+            this.timeonlevelText.setTint(0xff8585);
+        }
+        if (str1 < 10 && str2 < 10) return "0" + str1 + ":0" + str2 + "," + str3;
+        else if (str1 < 10) return "0" + str1 + ":" + str2 + "," + str3;
+        else if (str2 < 10) return str1 + ":0" + str2 + "," + str3;
+        else return str1 + ":" + str2 + "," + str3;
+    }
+    getTime()
+    {
+        return this.leveltimer;
+    }
 }
