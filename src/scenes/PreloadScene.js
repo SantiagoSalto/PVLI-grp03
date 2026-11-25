@@ -11,6 +11,8 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('background4', './assets/Mapa/islandfirst.png');
         this.load.image('background5', './assets/Mapa/asia.jpg');
         this.load.image('background6', './assets/Mapa/hell.png');
+        //Fondo efecto slow
+        this.load.image('borde', '.assets/Mapa/borde.png');
 
         //Provisionales
         this.load.image('play', './assets/Menu/playProvisional.png');
@@ -23,11 +25,10 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('platform1', './assets/Suelos/hierba-1.png');
 
         //Mascarilla AURA
-        this.load.image('aura','./assets/Personajes/aura.png')
-        this.load.image('invmask','./assets/Personajes/invmask.png')
+        this.load.image('aura','./assets/Personajes/aura.png');
+        this.load.image('invmask','./assets/Personajes/invmask.png');
 
         //OBJETOS INTERACTUABLES
-
         //Caja
         this.load.image('box', './assets/Objetos/Box.png');
         //Pincho

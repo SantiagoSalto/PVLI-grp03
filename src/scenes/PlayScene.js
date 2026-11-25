@@ -189,9 +189,6 @@ export default class PlayScene extends Phaser.Scene {
         //La lava tapa las plataformas que se traga (la UI se crea despues y queda encima)
         if (this.lava) this.children.bringToTop(this.lava);
 
-
-
-
         // ---------------COLISIONES---------------
         this.physics.add.collider(this.player, ground);
         this.physics.add.collider(this.player, this.boxes);

@@ -13,6 +13,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
         this.setCollideWorldBounds(true);                      // colision con bordes
+
         //Efectos ataque lento
         this.shine = this.scene.add.sprite(x,y,'aura'); //efecto
         this.shine.setScale(1 * SCALE);
@@ -168,6 +169,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             ease: 'Sine.easeInOut',
         });
     }
+    
     stopSlowEffect(){
         if(this.tweenSlow){
             this.tweenSlow.stop(); //Lo para
