@@ -1,3 +1,5 @@
+import TimersScoreManager from '../managers/TimersScoreManager.js';
+
 export default class LevelInfo extends Phaser.Scene {
 
     constructor(){
@@ -11,6 +13,11 @@ export default class LevelInfo extends Phaser.Scene {
     create(){
         const ancho = this.cameras.main.width;
         const alto = this.cameras.main.height;
+
+        this.timescoreManager = new TimersScoreManager(this);
+
+        if (!this.registry.get('recordpuntos')) this.registry.set('recordpuntos', this.timescoreManager.mejorpuntos)
+        if (!this.registry.get('recordtiempo')) this.registry.set('recordtiempo', this.timescoreManager.mejortiempo)
 
         //-------------RECTANGULO NEGRO OPACO FONDO------------
         let overlay = this.add.rectangle(ancho / 2, alto / 2, ancho, alto, 0x000000);
@@ -33,23 +40,34 @@ export default class LevelInfo extends Phaser.Scene {
             fontStyle: 'bold'
         };
         
+        const mejorpuntos = this.registry.get('recordpuntos');
+        const mejortiempo = this.registry.get('recordtiempo'); 
+ 
+
         let nostar = this.add.image(estrellaX, estrellaY, 'nostar');
         nostar.setScale(1.2)
 
-        let puntuacion = this.add.text(estrellaX,estrellaY, '500',estiloPuntuacion);
+        let puntuacion = this.add.text(estrellaX,estrellaY, this.getStarScore(this.level, 1),estiloPuntuacion);
         puntuacion.setOrigin(0.5);
+
+        if (this.checkStar(this.level, 1, mejorpuntos[this.level-1])) nostar.setTexture('star');
 
 
         let nostar1 = this.add.image(estrellaX+ 100, estrellaY, 'nostar');
         nostar1.setScale(1.2)
-        let puntuacion1 = this.add.text(estrellaX + 100,estrellaY, '1500', estiloPuntuacion);
+        let puntuacion1 = this.add.text(estrellaX + 100,estrellaY, this.getStarScore(this.level, 2), estiloPuntuacion);
         puntuacion1.setOrigin(0.5);
+
+        if (this.checkStar(this.level, 2, mejorpuntos[this.level-1])) nostar1.setTexture('star');
 
 
         let nostar2 = this.add.image(estrellaX + 200, estrellaY, 'nostar');
         nostar2.setScale(1.2)
-        let puntuacion2 = this.add.text(estrellaX + 200,estrellaY, '2500', estiloPuntuacion);
+        let puntuacion2 = this.add.text(estrellaX + 200,estrellaY, this.getStarScore(this.level, 3), estiloPuntuacion);
         puntuacion2.setOrigin(0.5);
+
+        if (this.checkStar(this.level, 3, mejorpuntos[this.level-1])) nostar2.setTexture('star');
+
 
         //-----------------TEXTOS PUNTUACION Y TIEMPO--------------
         //cogemos la poscion donde esta el bloque y le restamos la mitad de su ancho = BORDE IZQUIERDO BLOQUE AZUL
@@ -76,16 +94,17 @@ export default class LevelInfo extends Phaser.Scene {
         };
 
 
+
         // Mejor Puntuacion
         let bestScore =  this.add.text(margenIzquierdo, puntuacionY, "Mejor puntuación: ", estiloTitulos);
 
         // El texto dinámico empieza donde termina la etiqueta (usando su ancho 'displayWidth') más un pequeño espacio
-        this.valorBestScore = this.add.text(margenIzquierdo + bestScore.displayWidth + 10, puntuacionY, "0", estiloPuntos);
+        this.valorBestScore = this.add.text(margenIzquierdo + bestScore.displayWidth + 10, puntuacionY, mejorpuntos[this.level - 1], estiloPuntos);
 
         // Mejor tiempo
         let bestTime = this.add.text(margenIzquierdo, tiempoY, "Mejor tiempo: ", estiloTitulos);
 
-        this.valorBestTime = this.add.text(margenIzquierdo + bestTime.displayWidth + 10, tiempoY, "00:00", estiloPuntos);
+        this.valorBestTime = this.add.text(margenIzquierdo + bestTime.displayWidth + 10, tiempoY, this.timeevaluate(mejortiempo[this.level-1]), estiloPuntos);
 
         let TimeObjective = this.add.text(margenIzquierdo - 20, tiempoY - 70, "Tiempo objetivo: ", estiloTitulos);
 
@@ -113,25 +132,27 @@ export default class LevelInfo extends Phaser.Scene {
             this.scene.resume('LevelSelector'); 
         });
 
+        // USADA. DÉJARE ESTO AQUÍ POR SI ACASO
         //Funcion a futuro:
         // mostrarResultado(nuevaPuntuacion, nuevoTiempo){
         // if (nuevaPuntuacion > bestScore) this.bestScore.setText(nuevaPuntuacion);
         // if (nuevoTiempo > bestTime) this.bestTime.setText(nuevoTiempo);
 
         //Si puntuacion > valor estrella 1 
-        nostar.setTexture('star');
+        //nostar.setTexture('star');
         // };
         
     }
     timeevaluate(seconds)
     {
-        const str1 = Math.floor(seconds/60);
-        const str2 = Math.floor(seconds%60);
-        if (str1 < 10 && str2 < 10) return "0" + str1 + ":0" + str2;
-        else if (str1 < 10) return "0" + str1 + ":" + str2;
-        else if (str2 < 10) return str1 + ":0" + str2;
-        else return str1 + str2;
+        var str1 = Math.floor(seconds/60);
+        var str2 = Math.floor(seconds%60);
+        var str3 = Math.floor((seconds*1000)%1000);
 
+        if (str1 < 10 && str2 < 10) return "0" + str1 + ":0" + str2 + "," + str3;
+        else if (str1 < 10) return "0" + str1 + ":" + str2 + "," + str3;
+        else if (str2 < 10) return str1 + ":0" + str2 + "," + str3;
+        else return str1 + ":" + str2 + "," + str3;
     }
     objectivetime()
     {
@@ -153,5 +174,13 @@ export default class LevelInfo extends Phaser.Scene {
             case 14: return 270; break;
             case 15: return 240; break;
         }
+    }
+    checkStar(level, star, puntos)
+    {
+        return puntos >= this.timescoreManager.estrellas[level-1][star-1];
+    }
+    getStarScore(level, star)
+    {
+        return this.timescoreManager.estrellas[level-1][star-1];
     }
 };

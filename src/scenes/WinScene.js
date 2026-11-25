@@ -1,3 +1,5 @@
+import TimersScoreManager from '../managers/TimersScoreManager.js';
+
 export default class WinScene extends Phaser.Scene{
 
 constructor() {
@@ -7,6 +9,8 @@ constructor() {
     create(){
         const ancho = this.cameras.main.width;
         const alto = this.cameras.main.height;
+
+        this.timescoreManager = new TimersScoreManager(this);
 
         //Creamos manualmente rectangulo negro que ocupe toda la pantalla
         let overlay = this.add.rectangle(ancho / 2, alto / 2, ancho, alto, 0x000000);
@@ -97,26 +101,78 @@ constructor() {
         levelcompletedpointstext.setOrigin(0.5);
         timepointstext.setOrigin(0.5);
 
-
-
-
         let nostar = this.add.image(estrellaX, estrellaY, 'nostar');
-        nostar.setScale(1.2)
+        nostar.setScale(1.2);
+        
+        if (this.checkStar(playscene.level, 1, puntos)) nostar.setTexture('star');
 
-        let puntuacion = this.add.text(estrellaX,estrellaY, '500',estiloPuntuacion);
+        let puntuacion = this.add.text(estrellaX,estrellaY, this.getStarScore(playscene.level, 1),estiloPuntuacion);
         puntuacion.setOrigin(0.5);
 
-
-        let nostar1 = this.add.image(estrellaX+ 100, estrellaY, 'nostar');
+        let nostar1 = this.add.image(estrellaX + 100, estrellaY, 'nostar');
         nostar1.setScale(1.2)
-        let puntuacion1 = this.add.text(estrellaX + 100,estrellaY, '1500', estiloPuntuacion);
-        puntuacion1.setOrigin(0.5);
 
+        if (this.checkStar(playscene.level, 2, puntos)) nostar1.setTexture('star');
+
+        let puntuacion1 = this.add.text(estrellaX + 100,estrellaY, this.getStarScore(playscene.level, 2), estiloPuntuacion);
+        puntuacion1.setOrigin(0.5);
 
         let nostar2 = this.add.image(estrellaX + 200, estrellaY, 'nostar');
         nostar2.setScale(1.2)
-        let puntuacion2 = this.add.text(estrellaX + 200,estrellaY, '2500', estiloPuntuacion);
+
+        if (this.checkStar(playscene.level, 3, puntos)) nostar2.setTexture('star');
+
+
+        let puntuacion2 = this.add.text(estrellaX + 200,estrellaY, this.getStarScore(playscene.level, 3), estiloPuntuacion);
         puntuacion2.setOrigin(0.5);
+
+        this.checkRecords(puntos, playscene.leveltimer, playscene.level);
+        
+    }
+    checkStar(level, star, puntos)
+    {
+        return puntos >= this.timescoreManager.estrellas[level-1][star-1];
+    }
+    getStarScore(level, star)
+    {
+        return this.timescoreManager.estrellas[level-1][star-1];
+    }
+    checkRecords(nuevaPuntuacion, nuevoTiempo, level)
+    {
+        if (this.registry.get('recordpuntos')) 
+        { 
+            const mejorpuntos = this.registry.get('recordpuntos');
+            if (nuevaPuntuacion > mejorpuntos[level-1])
+            {
+                console.log("¡Nuevo récord de puntuación!");
+                mejorpuntos[level-1] = Math.floor(nuevaPuntuacion);
+                this.registry.set('recordpuntos', mejorpuntos);
+            }
+        }   
+        else
+        {
+            console.log("¡Nuevo récord de puntuación!");
+            this.timescoreManager.mejorpuntos[level-1] = Math.floor(nuevaPuntuacion);
+            this.registry.set('recordpuntos', this.timescoreManager.mejorpuntos);
+        }
+
+        if (this.registry.get('recordtiempo'))
+        {
+            const mejortiempo = this.registry.get('recordtiempo');
+            if (nuevoTiempo < mejortiempo[level-1] || mejortiempo[level-1] == 0)
+            {
+                console.log("¡Nuevo récord de tiempo!");
+                mejortiempo[level-1] = nuevoTiempo;
+                this.registry.set('recordtiempo', mejortiempo);
+            }
+        }
+        else 
+        {
+            console.log("¡Nuevo récord de tiempo!");
+            this.timescoreManager.mejortiempo[level-1] = nuevoTiempo;
+            this.registry.set('recordtiempo', this.timescoreManager.mejortiempo);
+        }
+
     }
 };
 

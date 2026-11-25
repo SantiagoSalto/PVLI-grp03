@@ -10,6 +10,7 @@ import Piece from '../structures/Piece.js';
 import PortalSymbol from '../structures/PortalSymbol.js';
 import InputManager from '../managers/InputManager.js';
 import ArrowCursor from '../managers/ArrowCursor.js';
+import TimersScoreManager from '../managers/TimersScoreManager.js';
 
 import { toPx, SCALE } from '../Measures.js';
 
@@ -33,6 +34,7 @@ export default class PlayScene extends Phaser.Scene {
         this.background.setScrollFactor(0.05);
 
         this.inputManager = new InputManager(this);
+        this.timescoreManager = new TimersScoreManager(this);
 
         this.leveltimer = 0;
 
@@ -367,28 +369,10 @@ export default class PlayScene extends Phaser.Scene {
     }
     objectivetime()
     {
-        switch(this.level)
-        {
-            case 1: return 15; break;
-            case 2: return 20; break;
-            case 3: return 25; break;
-            case 4: return 30; break;
-            case 5: return 15; break;
-            case 6: return 150; break;
-            case 7: return 150; break;
-            case 8: return 200; break;
-            case 9: return 180; break;
-            case 10: return 240; break;
-            case 11: return 240; break;
-            case 12: return 240; break;
-            case 13: return 240; break;
-            case 14: return 270; break;
-            case 15: return 240; break;
-        }
+        return this.timescoreManager.objetivo[this.level - 1];
     }
     timeevaluate(seconds)
     {
-
         var timeremaining = this.objectivetime() - seconds;
 
         // const str1 = Math.floor(seconds/60);
@@ -417,9 +401,5 @@ export default class PlayScene extends Phaser.Scene {
         else if (str1 < 10) return "0" + str1 + ":" + str2 + "," + str3;
         else if (str2 < 10) return str1 + ":0" + str2 + "," + str3;
         else return str1 + ":" + str2 + "," + str3;
-    }
-    getTime()
-    {
-        return this.leveltimer;
     }
 }
