@@ -13,6 +13,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
         this.setCollideWorldBounds(true);                      // colision con bordes
+        //Efectos ataque lento
+        this.shine = this.scene.add.sprite(x,y,'aura'); //efecto
+        this.shine.setScale(1 * SCALE);
+        this.maskShape = this.scene.add.sprite(x,y,'invmask'); //mascara
+        this.maskShape.setScale(1 * SCALE);
+        this.maskShape.setVisible(false);
+        this.shine.setVisible(false); //aura invisible hasta que se de el caso
+        this.shine.enableFilters();
+        this.shine.filters.external.addMask(this.maskShape);
+        this.maskOffset =  {x: 0, y: 0};
 
         //Cambios suavizado eje Y
         this.setGravityY(550 * SCALE);                                  // gravedad
@@ -84,6 +94,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
                 this.invincibilityframe = 0;
             }
         }
+
+        //sigue a player efecto
+        if (this.shine.visible){
+            this.shine.setPosition(this.x, this.y);
+            this.maskShape.setPosition(this.x + this.maskOffset.x, this.y + this.maskOffset.y);
+        }
+
         else this.setAlpha(1);
     }
     update(time, delta) {
@@ -137,4 +154,26 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         // touching.down cuenta tambien las cajas (onFloor solo cuenta objetos inmoviles)
         return this.body.onFloor() || this.body.touching.down;
     }
+    slowEffect(){
+    if(this.tweenSlow && this.tweenSlow.isPlaying()) return;
+
+    this.shine.setVisible(true);
+
+     this.tweenSlow = this.scene.tweens.add({
+            targets: this.maskOffset,
+            y: { from: -32, to: 40 },
+            duration: 800,
+            repeat:-1,
+            yoyo: true,
+            ease: 'Sine.easeInOut',
+        });
+    }
+    stopSlowEffect(){
+        if(this.tweenSlow){
+            this.tweenSlow.stop(); //Lo para
+            this.tweenSlow = null;
+        }
+        this.shine.setVisible(false);
+    }
+
 }

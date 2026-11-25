@@ -97,6 +97,15 @@ export default class PlayScene extends Phaser.Scene {
                 let goal = this.add.zone(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
                 this.physics.add.existing(goal, true);
                 this.portal = this.add.image(goal.x, goal.y, 'portal').setDisplaySize(object.width, object.height);
+                this.tweens.add({
+                    targets: this.portal,
+                    y: this.portal.y-5,
+                    duration: 400,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'Sine.easeInOut'
+
+                });
                 this.physics.add.overlap(this.player, goal, () => {
                     this.scene.pause();
                     this.scene.launch('WinScene');
@@ -147,6 +156,7 @@ export default class PlayScene extends Phaser.Scene {
                     break;
             }
         });
+
         // ---------------PLATAFORMAS---------------
         this.platforms = this.add.group();
         map.getObjectLayer('Platforms').objects.forEach((object) => {
@@ -232,6 +242,42 @@ export default class PlayScene extends Phaser.Scene {
         this.heart3.setScale(0.017);
         this.heart3.setScrollFactor(0);
 
+        // this.tweens.add({
+        //     targets: [this.heart1, this.heart2, this.heart3],
+        //     x: {from: ancho-900, to: ancho-900-10},
+        //     duration: 1200, 
+        //     repeat:-1,
+        //     yoyo: true, 
+        //     ease: 'Sine.easeInOut'
+        // });
+
+        this.tweens.add({
+            targets: this.heart1,
+            x: {from: ancho-900, to: ancho-900-10},
+            duration: 1800, 
+            repeat:-1,
+            yoyo: true, 
+            ease: 'Sine.easeInOut'
+        });
+
+        this.tweens.add({
+            targets: this.heart2,
+            x: {from: ancho-800, to: ancho-800-10},
+            duration: 1800, 
+            repeat:-1,
+            yoyo: true, 
+            ease: 'Sine.easeInOut'
+        });
+
+        this.tweens.add({
+            targets: this.heart3,
+            x: {from: ancho-700, to: ancho-700-10},
+            duration: 1800, 
+            repeat:-1,
+            yoyo: true, 
+            ease: 'Sine.easeInOut'
+        });
+
         //Si el nivel tiene piezas, el portal esta cerrado y la letra por completar sale sobre el portal y junto a las vidas
         if (this.pieces.getLength() > 0) {
             const strokes = this.pieces.getChildren().map((piece) => piece.texture.key);
@@ -262,6 +308,9 @@ export default class PlayScene extends Phaser.Scene {
 
         //Flecha que hace de puntero del raton
         this.arrowCursor = new ArrowCursor(this, this.player);
+
+        //Ponerle aura a la ardilla
+        //Contenedor
 	}
     update(time, delta) {
         this.player.update(time, delta);
@@ -343,6 +392,17 @@ export default class PlayScene extends Phaser.Scene {
         if (this.pieces.getLength() > 0) return;
 
         this.portalSymbol.complete();
+        
+        this.tweens.add({
+            targets: [this.portalSymbol, this.portal, this.portalOpen],
+            y: '-=20',
+            // y: {from: 100, to: 140},
+            duration: 2000, //2 segundos
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat:-1,
+        });
+
         this.uiSymbol.complete();
         this.portal.clearTint();
         this.portalOpen = true;
@@ -374,5 +434,7 @@ export default class PlayScene extends Phaser.Scene {
         else if (str2 < 10) return str1 + ":0" + str2;
         else return str1 + ":" + str2;
     }
+
+
 
 }

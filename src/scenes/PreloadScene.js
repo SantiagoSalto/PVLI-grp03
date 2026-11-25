@@ -22,6 +22,10 @@ export default class PreloadScene extends Phaser.Scene {
         //Plataforma
         this.load.image('platform1', './assets/Suelos/hierba-1.png');
 
+        //Mascarilla AURA
+        this.load.image('aura','./assets/Personajes/aura.png')
+        this.load.image('invmask','./assets/Personajes/invmask.png')
+
         //OBJETOS INTERACTUABLES
 
         //Caja
