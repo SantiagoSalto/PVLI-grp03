@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="245" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="96">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="245" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="98">
  <tileset firstgid="1" name="Pipoya_Dirt1" tilewidth="32" tileheight="32" tilecount="5" columns="1">
   <image source="../Tiled/Pipoya RPG Tileset 32x32/Pipoya RPG Tileset 32x32/[A]_type1/[A]Dirt2_pipo.png" width="32" height="160"/>
   <tile id="0">
@@ -67,12 +67,12 @@
 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
-5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
-5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
-5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
-5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
-5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
-5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
   </data>
@@ -80,7 +80,7 @@
  <objectgroup id="2" name="Structures">
   <object id="1" name="meta" x="4128" y="512" width="80" height="128">
   </object>
-  <object id="2" name="spike" x="784" y="1360">
+  <object id="2" name="spike" x="784" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -88,7 +88,7 @@
    </properties>
    <point/>
   </object>
-  <object id="3" name="spike" x="816" y="1360">
+  <object id="3" name="spike" x="816" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -96,7 +96,7 @@
    </properties>
    <point/>
   </object>
-  <object id="4" name="spike" x="848" y="1360">
+  <object id="4" name="spike" x="848" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -104,7 +104,7 @@
    </properties>
    <point/>
   </object>
-  <object id="5" name="spike" x="880" y="1360">
+  <object id="5" name="spike" x="880" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -112,7 +112,7 @@
    </properties>
    <point/>
   </object>
-  <object id="6" name="spike" x="912" y="1360">
+  <object id="6" name="spike" x="912" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -120,7 +120,7 @@
    </properties>
    <point/>
   </object>
-  <object id="7" name="spike" x="944" y="1360">
+  <object id="7" name="spike" x="944" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -128,7 +128,7 @@
    </properties>
    <point/>
   </object>
-  <object id="8" name="spike" x="1168" y="1360">
+  <object id="8" name="spike" x="1168" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -136,7 +136,7 @@
    </properties>
    <point/>
   </object>
-  <object id="9" name="spike" x="1200" y="1360">
+  <object id="9" name="spike" x="1200" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -144,7 +144,7 @@
    </properties>
    <point/>
   </object>
-  <object id="10" name="spike" x="1232" y="1360">
+  <object id="10" name="spike" x="1232" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -152,7 +152,7 @@
    </properties>
    <point/>
   </object>
-  <object id="11" name="spike" x="1264" y="1360">
+  <object id="11" name="spike" x="1264" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -160,7 +160,7 @@
    </properties>
    <point/>
   </object>
-  <object id="12" name="spike" x="1296" y="1360">
+  <object id="12" name="spike" x="1296" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -168,7 +168,7 @@
    </properties>
    <point/>
   </object>
-  <object id="13" name="spike" x="1328" y="1360">
+  <object id="13" name="spike" x="1328" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -176,7 +176,7 @@
    </properties>
    <point/>
   </object>
-  <object id="14" name="spike" x="1488" y="1360">
+  <object id="18" name="spike" x="2416" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -184,7 +184,7 @@
    </properties>
    <point/>
   </object>
-  <object id="15" name="spike" x="1520" y="1360">
+  <object id="19" name="spike" x="2448" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -192,7 +192,7 @@
    </properties>
    <point/>
   </object>
-  <object id="16" name="spike" x="1552" y="1360">
+  <object id="20" name="spike" x="2480" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -200,7 +200,7 @@
    </properties>
    <point/>
   </object>
-  <object id="17" name="spike" x="1584" y="1360">
+  <object id="21" name="spike" x="2512" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -208,7 +208,7 @@
    </properties>
    <point/>
   </object>
-  <object id="18" name="spike" x="2416" y="1360">
+  <object id="22" name="spike" x="2544" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -216,7 +216,7 @@
    </properties>
    <point/>
   </object>
-  <object id="19" name="spike" x="2448" y="1360">
+  <object id="23" name="spike" x="2576" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -224,7 +224,7 @@
    </properties>
    <point/>
   </object>
-  <object id="20" name="spike" x="2480" y="1360">
+  <object id="24" name="spike" x="2608" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -232,7 +232,7 @@
    </properties>
    <point/>
   </object>
-  <object id="21" name="spike" x="2512" y="1360">
+  <object id="25" name="spike" x="2640" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -240,7 +240,7 @@
    </properties>
    <point/>
   </object>
-  <object id="22" name="spike" x="2544" y="1360">
+  <object id="26" name="spike" x="2736" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -248,7 +248,7 @@
    </properties>
    <point/>
   </object>
-  <object id="23" name="spike" x="2576" y="1360">
+  <object id="27" name="spike" x="2768" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -256,7 +256,7 @@
    </properties>
    <point/>
   </object>
-  <object id="24" name="spike" x="2608" y="1360">
+  <object id="28" name="spike" x="2800" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -264,7 +264,7 @@
    </properties>
    <point/>
   </object>
-  <object id="25" name="spike" x="2640" y="1360">
+  <object id="29" name="spike" x="2832" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -272,7 +272,7 @@
    </properties>
    <point/>
   </object>
-  <object id="26" name="spike" x="2736" y="1360">
+  <object id="30" name="spike" x="2864" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -280,7 +280,7 @@
    </properties>
    <point/>
   </object>
-  <object id="27" name="spike" x="2768" y="1360">
+  <object id="31" name="spike" x="2896" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -288,7 +288,7 @@
    </properties>
    <point/>
   </object>
-  <object id="28" name="spike" x="2800" y="1360">
+  <object id="32" name="spike" x="2928" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -296,7 +296,7 @@
    </properties>
    <point/>
   </object>
-  <object id="29" name="spike" x="2832" y="1360">
+  <object id="33" name="spike" x="2960" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -304,7 +304,7 @@
    </properties>
    <point/>
   </object>
-  <object id="30" name="spike" x="2864" y="1360">
+  <object id="34" name="spike" x="3440" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -312,7 +312,7 @@
    </properties>
    <point/>
   </object>
-  <object id="31" name="spike" x="2896" y="1360">
+  <object id="35" name="spike" x="3472" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -320,7 +320,7 @@
    </properties>
    <point/>
   </object>
-  <object id="32" name="spike" x="2928" y="1360">
+  <object id="36" name="spike" x="3504" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -328,7 +328,7 @@
    </properties>
    <point/>
   </object>
-  <object id="33" name="spike" x="2960" y="1360">
+  <object id="37" name="spike" x="3536" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -336,7 +336,7 @@
    </properties>
    <point/>
   </object>
-  <object id="34" name="spike" x="3440" y="1360">
+  <object id="38" name="spike" x="3568" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -344,7 +344,7 @@
    </properties>
    <point/>
   </object>
-  <object id="35" name="spike" x="3472" y="1360">
+  <object id="39" name="spike" x="3600" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -352,7 +352,7 @@
    </properties>
    <point/>
   </object>
-  <object id="36" name="spike" x="3504" y="1360">
+  <object id="40" name="spike" x="4752" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -360,7 +360,7 @@
    </properties>
    <point/>
   </object>
-  <object id="37" name="spike" x="3536" y="1360">
+  <object id="41" name="spike" x="4784" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -368,7 +368,7 @@
    </properties>
    <point/>
   </object>
-  <object id="38" name="spike" x="3568" y="1360">
+  <object id="42" name="spike" x="4816" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -376,7 +376,7 @@
    </properties>
    <point/>
   </object>
-  <object id="39" name="spike" x="3600" y="1360">
+  <object id="43" name="spike" x="4848" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -384,7 +384,7 @@
    </properties>
    <point/>
   </object>
-  <object id="40" name="spike" x="4752" y="1360">
+  <object id="44" name="spike" x="4880" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -392,7 +392,7 @@
    </properties>
    <point/>
   </object>
-  <object id="41" name="spike" x="4784" y="1360">
+  <object id="45" name="spike" x="4912" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -400,7 +400,7 @@
    </properties>
    <point/>
   </object>
-  <object id="42" name="spike" x="4816" y="1360">
+  <object id="46" name="spike" x="5424" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -408,7 +408,7 @@
    </properties>
    <point/>
   </object>
-  <object id="43" name="spike" x="4848" y="1360">
+  <object id="47" name="spike" x="5456" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -416,7 +416,7 @@
    </properties>
    <point/>
   </object>
-  <object id="44" name="spike" x="4880" y="1360">
+  <object id="48" name="spike" x="5488" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -424,7 +424,7 @@
    </properties>
    <point/>
   </object>
-  <object id="45" name="spike" x="4912" y="1360">
+  <object id="49" name="spike" x="5520" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -432,7 +432,7 @@
    </properties>
    <point/>
   </object>
-  <object id="46" name="spike" x="5424" y="1360">
+  <object id="50" name="spike" x="5552" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -440,7 +440,7 @@
    </properties>
    <point/>
   </object>
-  <object id="47" name="spike" x="5456" y="1360">
+  <object id="51" name="spike" x="5584" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -448,7 +448,7 @@
    </properties>
    <point/>
   </object>
-  <object id="48" name="spike" x="5488" y="1360">
+  <object id="52" name="spike" x="5616" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -456,7 +456,7 @@
    </properties>
    <point/>
   </object>
-  <object id="49" name="spike" x="5520" y="1360">
+  <object id="53" name="spike" x="5904" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -464,7 +464,7 @@
    </properties>
    <point/>
   </object>
-  <object id="50" name="spike" x="5552" y="1360">
+  <object id="54" name="spike" x="5936" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -472,7 +472,7 @@
    </properties>
    <point/>
   </object>
-  <object id="51" name="spike" x="5584" y="1360">
+  <object id="55" name="spike" x="5968" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -480,7 +480,7 @@
    </properties>
    <point/>
   </object>
-  <object id="52" name="spike" x="5616" y="1360">
+  <object id="56" name="spike" x="6000" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -488,7 +488,7 @@
    </properties>
    <point/>
   </object>
-  <object id="53" name="spike" x="5904" y="1360">
+  <object id="57" name="spike" x="6032" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -496,71 +496,7 @@
    </properties>
    <point/>
   </object>
-  <object id="54" name="spike" x="5936" y="1360">
-   <properties>
-    <property name="height" type="float" value="1"/>
-    <property name="mortal" type="bool" value="false"/>
-    <property name="width" type="float" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="55" name="spike" x="5968" y="1360">
-   <properties>
-    <property name="height" type="float" value="1"/>
-    <property name="mortal" type="bool" value="false"/>
-    <property name="width" type="float" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="56" name="spike" x="6000" y="1360">
-   <properties>
-    <property name="height" type="float" value="1"/>
-    <property name="mortal" type="bool" value="false"/>
-    <property name="width" type="float" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="57" name="spike" x="6032" y="1360">
-   <properties>
-    <property name="height" type="float" value="1"/>
-    <property name="mortal" type="bool" value="false"/>
-    <property name="width" type="float" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="58" name="spike" x="6064" y="1360">
-   <properties>
-    <property name="height" type="float" value="1"/>
-    <property name="mortal" type="bool" value="false"/>
-    <property name="width" type="float" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="59" name="spike" x="6928" y="1360">
-   <properties>
-    <property name="height" type="float" value="1"/>
-    <property name="mortal" type="bool" value="false"/>
-    <property name="width" type="float" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="60" name="spike" x="6960" y="1360">
-   <properties>
-    <property name="height" type="float" value="1"/>
-    <property name="mortal" type="bool" value="false"/>
-    <property name="width" type="float" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="61" name="spike" x="6992" y="1360">
-   <properties>
-    <property name="height" type="float" value="1"/>
-    <property name="mortal" type="bool" value="false"/>
-    <property name="width" type="float" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="62" name="spike" x="7024" y="1360">
+  <object id="58" name="spike" x="6064" y="1200">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -646,7 +582,23 @@
    </properties>
    <point/>
   </object>
- </objectgroup>
+   <object id="96" name="spike" x="2672" y="1200">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="97" name="spike" x="2704" y="1200">
+   <properties>
+    <property name="height" type="float" value="1"/>
+    <property name="mortal" type="bool" value="false"/>
+    <property name="width" type="float" value="1"/>
+   </properties>
+   <point/>
+  </object>
+</objectgroup>
  <objectgroup id="3" name="Characters">
   <object id="73" name="player" x="4416" y="992">
    <point/>
@@ -727,7 +679,7 @@
    <properties>
     <property name="height" type="float" value="6"/>
     <property name="range" type="float" value="7.5"/>
-    <property name="speedX" type="float" value="80"/>
+    <property name="speedX" type="float" value="180"/>
     <property name="speedY" type="float" value="0"/>
     <property name="width" type="float" value="40"/>
    </properties>
@@ -792,7 +744,7 @@
    <properties>
     <property name="height" type="float" value="6"/>
     <property name="range" type="float" value="3"/>
-    <property name="speedX" type="float" value="70"/>
+    <property name="speedX" type="float" value="180"/>
     <property name="speedY" type="float" value="0"/>
     <property name="width" type="float" value="40"/>
    </properties>

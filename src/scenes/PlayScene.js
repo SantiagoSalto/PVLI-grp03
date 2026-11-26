@@ -10,6 +10,8 @@ import Piece from '../structures/Piece.js';
 import PortalSymbol from '../structures/PortalSymbol.js';
 import InputManager from '../managers/InputManager.js';
 import ArrowCursor from '../managers/ArrowCursor.js';
+import TimersScoreManager from '../managers/TimersScoreManager.js';
+
 import { toPx, SCALE } from '../Measures.js';
 
 export default class PlayScene extends Phaser.Scene {
@@ -35,6 +37,9 @@ export default class PlayScene extends Phaser.Scene {
         this.createSlowAttackEffect(ancho,alto);
 
         this.inputManager = new InputManager(this);
+        this.timescoreManager = new TimersScoreManager(this);
+
+        this.leveltimer = 0;
 
         // ---------------CARGA DEL TILEMAP (Tiled)---------------
         const map = this.make.tilemap({ key: 'level' + this.level });
@@ -57,10 +62,9 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, map.widthInPixels * SCALE, map.heightInPixels * SCALE);
 
 
-        // Cronómetro del nivel
-        this.timeonlevel = 0;
+        // Tiempo pasado en el nivel y el objetivo
 
-        this.timeonlevelText = this.add.text(ancho - 600, ancho - 1000, 'Tiempo: segundos', { // Uso un texto para indicar el tiempo en el nivel.
+        this.timeonlevelText = this.add.text(ancho - 600, ancho - 1000, 'Tiempo:', { // Uso un texto para indicar el tiempo en el nivel.
             fontFamily: 'Arial',
             fontSize: '32px',
             fill: '#ffffff'
@@ -313,12 +317,12 @@ export default class PlayScene extends Phaser.Scene {
         this.player.update(time, delta);
         this.arrowCursor.update();
 
-        this.timeonlevel += delta / 1000 * this.gameSpeed; // El tiempo del nivel se actualiza cada instante de update, dividido entre 1000 para
+        this.leveltimer += delta / 1000 * this.gameSpeed; // El tiempo del nivel se actualiza cada instante de update, dividido entre 1000 para
                                                            // que se exprese el tiempo en segundos y no en milisegundos.
                                                            // También haré que la velocidad del juego afecte al cronómetro
-        this.timeonlevelText.setText("Tiempo: " + this.timeevaluate(this.timeonlevel)); 
-    
 
+        this.timeonlevelText.setText("Tiempo: " + this.timeevaluate(this.leveltimer)); 
+        this.children.bringToTop(this.timeonlevelText);
 
         // enemigos y pinchos hacen el mismo daño
         // Al tocar un enemigo o pincho en el aire, overlap hace creer al jugador que esta en el suelo y podria volver a saltar
@@ -433,16 +437,40 @@ export default class PlayScene extends Phaser.Scene {
         const property = object.properties.find(p => p.name === name);
         return property.value;
     }
+    objectivetime()
+    {
+        return this.timescoreManager.objetivo[this.level - 1];
+    }
     timeevaluate(seconds)
     {
-        // El resultado de this.timeonlevel se
-        // redondea para evitar decimales.
-        const str1 = Math.floor(seconds/60);
-        const str2 = Math.floor(seconds%60);
-        if (str1 < 10 && str2 < 10) return "0" + str1 + ":0" + str2;
-        else if (str1 < 10) return "0" + str1 + ":" + str2;
-        else if (str2 < 10) return str1 + ":0" + str2;
-        else return str1 + ":" + str2;
+        var timeremaining = this.objectivetime() - seconds;
+         // const str1 = Math.floor(seconds/60);
+        // const str2 = Math.floor(seconds%60);
+
+        if (timeremaining > 0)
+        {
+            // El resultado de this.timeonlevel se
+            // redondea para evitar decimales.
+            var str1 = Math.floor(timeremaining/60);
+            var str2 = Math.floor(timeremaining%60);
+            var str3 = Math.floor((timeremaining*1000)%1000);
+            this.timeonlevelText.setTint(0xffffff);
+        }
+        else
+        {
+            // El resultado de this.timeonlevel se
+            // redondea para evitar decimales.
+            seconds -= this.objectivetime();
+            var str1 = Math.floor(seconds/60);
+            var str2 = Math.floor(seconds%60);
+            var str3 = Math.floor((seconds*1000)%1000);
+            this.timeonlevelText.setTint(0xff8585);
+        }
+        if (str1 < 10 && str2 < 10) return "0" + str1 + ":0" + str2 + "," + str3;
+        else if (str1 < 10) return "0" + str1 + ":" + str2 + "," + str3;
+        else if (str2 < 10) return str1 + ":0" + str2 + "," + str3;
+        else return str1 + ":" + str2 + "," + str3;
+
     }
 
     createSlowAttackEffect(ancho, alto){
@@ -494,6 +522,6 @@ export default class PlayScene extends Phaser.Scene {
             this.screenTweenSlow = null;
         }
         this.screenBorder.setVisible(false);
-        this.screenMask.setScale(this.maskScaleX, this.maskScaleY); //Reinciar escala o sino cada vez que ejecutemos posibildad de que empiece con una escala distinta    
-    }
+        this.screenMask.setScale(this.maskScaleX, this.maskScaleY); //Reinciar escala o sino cada vez que ejecutemos posibildad de que empiece con una escala distinta  
+    }  
 }
