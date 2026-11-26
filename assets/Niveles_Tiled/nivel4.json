@@ -45,31 +45,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":448,
-                 "y":768
-                }, 
-                {
-                 "height":0,
-                 "id":3,
-                 "name":"destructible",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"height",
-                         "type":"float",
-                         "value":2
-                        }, 
-                        {
-                         "name":"width",
-                         "type":"float",
-                         "value":1
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":448,
-                 "y":836
+                 "x":256,
+                 "y":784
                 }, 
                 {
                  "height":0,
@@ -845,7 +822,7 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":192,
+                 "x":128,
                  "y":800
                 }, 
                 {

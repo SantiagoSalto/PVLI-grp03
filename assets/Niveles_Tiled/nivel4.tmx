@@ -36,17 +36,10 @@ y también sirven para subir</property>
    </properties>
    <point/>
   </object>
-  <object id="2" name="box" x="448" y="768">
+  <object id="2" name="box" x="256" y="784">
    <properties>
     <property name="height" type="float" value="1.5"/>
     <property name="width" type="float" value="1.5"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="3" name="destructible" x="448" y="836">
-   <properties>
-    <property name="height" type="float" value="2"/>
-    <property name="width" type="float" value="1"/>
    </properties>
    <point/>
   </object>
@@ -264,7 +257,7 @@ y también sirven para subir</property>
   <object id="30" name="meta" x="2224" y="160" width="80" height="128"/>
  </objectgroup>
  <objectgroup id="3" name="Characters">
-  <object id="31" name="player" x="192" y="800">
+  <object id="31" name="player" x="128" y="800">
    <point/>
   </object>
   <object id="32" name="enemy" x="1232" y="816">
