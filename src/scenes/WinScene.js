@@ -74,9 +74,31 @@ constructor() {
         const playscene = this.scene.get('PlayScene');
         var puntos = 0;
         var completedpoints = 500;
+
+        if (playscene.objectivetime() > playscene.leveltimer) 
+        {
+            var timepoints = (playscene.objectivetime()/playscene.leveltimer*1.5)**5 * 10;
+            puntos += timepoints;
+            var timepointstext = this.add.text(ancho/2,alto/2-30, "Tiempo tardado: +" + Math.floor(timepoints) + "pts", {
+                fontFamily: 'Arial',
+                fontSize: '16px',
+                color: 'rgb(26, 129, 0)',
+                fontStyle: 'bold'
+            });
+        }
+        else if (playscene.objectivetime() < playscene.leveltimer)
+        {
+            var timepenpoints = (playscene.objectivetime()/playscene.leveltimer)**2;
+            completedpoints *= timepenpoints;
+            var timepointstext = this.add.text(ancho/2,alto/2-30, "Tiempo tardado: x" + Phaser.Math.FloorTo(timepenpoints, -3, 10) + "pts", {
+                fontFamily: 'Arial',
+                fontSize: '16px',
+                color: 'rgb(177, 0, 0)',
+                fontStyle: 'bold'
+            });
+        }
+
         puntos += completedpoints;
-        var timepoints = (playscene.objectivetime()/playscene.leveltimer*1.5)**5 * 10;
-        puntos += timepoints;
 
         //puntos += this.scene.timeonlevel;
         var puntostext = this.add.text(ancho/2,alto/2-70, "Puntos totales: " + Math.floor(puntos), {
@@ -85,13 +107,7 @@ constructor() {
             color: 'rgb(255, 255, 255)',
             fontStyle: 'bold'
         });
-        var levelcompletedpointstext = this.add.text(ancho/2,alto/2-50, "Tiempo tardado: +" + Math.floor(completedpoints) + "pts", {
-            fontFamily: 'Arial',
-            fontSize: '16px',
-            color: 'rgb(26, 129, 0)',
-            fontStyle: 'bold'
-        });
-        var timepointstext = this.add.text(ancho/2,alto/2-30, "Tiempo tardado: +" + Math.floor(timepoints) + "pts", {
+        var levelcompletedpointstext = this.add.text(ancho/2,alto/2-50, "Nivel completado: +" + Math.floor(completedpoints) + "pts", {
             fontFamily: 'Arial',
             fontSize: '16px',
             color: 'rgb(26, 129, 0)',
