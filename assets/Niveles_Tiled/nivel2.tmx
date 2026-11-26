@@ -56,7 +56,7 @@ como un tirachinas y suelta para disparar</property>
    </properties>
    <point/>
   </object>
-  <object id="5" name="hint" x="1600" y="672">
+  <object id="5" name="hint" x="1696" y="576">
    <properties>
     <property name="text">Súbete a la plataforma y deja que te lleve
 luego rompe el bloque desde arriba</property>
