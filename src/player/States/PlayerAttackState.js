@@ -14,11 +14,13 @@ export default class PlayerAttackState extends BaseState {
         if (!this.wasAirborne) {
             player.setVelocityX(0);
             player.stopSlowEffect();
+            player.scene.stopScreenSlowEffect();
             //matar tween aqui
         } else {
             // Bullet time: apuntando en el aire todo el juego va lento
             player.scene.setGameSpeed(player.bulletTimeSpeed);
             player.slowEffect(); //solo se reproduce cuando esta asi
+            player.scene.startScreenSlowEffect();
         }
 
         // Coordenadas de pantalla: el arrastre no depende de la camara
@@ -170,6 +172,7 @@ export default class PlayerAttackState extends BaseState {
         // Volver a la velocidad normal
         player.scene.setGameSpeed(1);
         player.stopSlowEffect();
+        player.scene.stopScreenSlowEffect();
         // Borrar la línea de apuntado
         this.aimLine.destroy();
         this.aimLine = null;

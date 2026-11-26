@@ -30,6 +30,9 @@ export default class PlayScene extends Phaser.Scene {
 
         this.background = this.add.image(ancho / 2, alto / 2, 'background3');
         this.background.setScrollFactor(0.05);
+        
+        //Mascara efecto slowmotion de pantalla
+        this.createSlowAttackEffect(ancho,alto);
 
         this.inputManager = new InputManager(this);
 
@@ -65,7 +68,7 @@ export default class PlayScene extends Phaser.Scene {
         this.timeonlevelText.setScrollFactor(0); // El texto se queda quieto en la pantalla
         this.timeonlevelText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 4, true, true); // Añado una sombra para que el
                                                                                   // texto siempre sea legible.
-
+        this.timeonlevelText.setDepth(2);
         // ---------------PERSONAJES---------------
         this.enemies = this.add.group();
         map.getObjectLayer('Characters').objects.forEach((object) => {
@@ -224,29 +227,25 @@ export default class PlayScene extends Phaser.Scene {
 
         //---------------ICONOS UI---------------
         // Vidas del jugador en el UI
-        this.heart1 = this.add.image(ancho - 900, 10, 'life');
+        this.heart1 = this.add.image(ancho - 900, 10, 'life').setDepth(2);
         this.heart1.setOrigin(1, 0);
         this.heart1.setScale(0.017);
         this.heart1.setScrollFactor(0);
+        
 
         this.heart2 = this.add.image(ancho - 800, 10, 'life');
         this.heart2.setOrigin(1, 0);
         this.heart2.setScale(0.017);
         this.heart2.setScrollFactor(0);
+        this.heart2.setDepth(2);
 
         this.heart3 = this.add.image(ancho - 700, 10, 'life');
         this.heart3.setOrigin(1, 0);
         this.heart3.setScale(0.017);
         this.heart3.setScrollFactor(0);
+        this.heart3.setDepth(2);
 
-        // this.tweens.add({
-        //     targets: [this.heart1, this.heart2, this.heart3],
-        //     x: {from: ancho-900, to: ancho-900-10},
-        //     duration: 1200, 
-        //     repeat:-1,
-        //     yoyo: true, 
-        //     ease: 'Sine.easeInOut'
-        // });
+
 
         this.tweens.add({
             targets: this.heart1,
@@ -290,6 +289,7 @@ export default class PlayScene extends Phaser.Scene {
         var pausa = this.add.image(ancho-50, 50, 'pausa');
         pausa.setInteractive();
         pausa.setScrollFactor(0);
+        pausa.setDepth(200);
         pausa.on('pointerdown', () =>{
             this.scene.pause();
             this.scene.launch('PauseScene');
@@ -370,9 +370,22 @@ export default class PlayScene extends Phaser.Scene {
             this.heart1.setAlpha(0);
             this.heart2.setAlpha(0);
             this.heart3.setAlpha(0);
-        }
+        } 
+        
+        //Tracking screenBorderOffset para que siga a camara
+        if (this.screenBorder && this.screenBorder.visible) {
+        const cam = this.cameras.main;
+        const centerX = cam.scrollX + cam.width / 2;
+        const centerY = cam.scrollY + cam.height / 2;
+
+        this.screenBorder.setPosition(centerX, centerY);
+        this.screenMask.setPosition(
+        centerX + this.screenMaskOffset.x,
+        centerY + this.screenMaskOffset.y
+        );}
     }
 
+   
     // Velocidad de todo el juego (1 = normal, 0.1 = diez veces mas lento) para el bullet time
     // se mantienen 60 pasos de fisica por segundo, cada uno mas pequeño, para que no vaya a tirones
     setGameSpeed(speed) {
@@ -432,6 +445,55 @@ export default class PlayScene extends Phaser.Scene {
         else return str1 + ":" + str2;
     }
 
+    createSlowAttackEffect(ancho, alto){
+        this.screenBorder = this.add.image(ancho/2, alto/2, 'fondo2')
+        .setDisplaySize(ancho, alto)
+        .setDepth(1)
+        .setVisible(false);
 
+        //Creacion mascara y aplicacion
+        this.screenMask = this.add.image(ancho/2,alto/2,'invmask3')
+        .setDisplaySize(ancho*SCALE, alto*SCALE)
+        .setVisible(false);
 
+        this.maskScaleX = this.screenMask.scaleX;
+        this.maskScaleY = this.screenMask.scaleY;
+
+        this.screenBorder.enableFilters();
+        this.screenBorder.filters.external.addMask(this.screenMask);
+        this.screenMaskOffset = {x: 0, y:0};
+    }
+
+    startScreenSlowEffect(){
+        if(this.screenTweenSlow && this.screenTweenSlow.isPlaying()) return;
+
+        this.screenBorder.setVisible(true);
+        //Palpitacion
+        const pasoLatido = (porcentaje, duracion, suavizado) => ({
+            scaleX: this.maskScaleX * porcentaje,
+            scaleY: this.maskScaleY * porcentaje,
+            duration: duracion,
+            ease: suavizado
+        });
+
+        this.screenTweenSlow = this.tweens.chain({
+            targets: this.screenMask,
+            repeat: -1,
+            tweens: [
+                pasoLatido(0.82, 180, 'Quad.easeOut'), // Primer latido
+                pasoLatido(0.94, 210, 'Quad.easeIn'),  // Se abre un poco
+                pasoLatido(0.86, 150, 'Quad.easeOut'), // Segundo latido
+                pasoLatido(1.00, 450, 'Sine.easeOut')  // Vuelve a su tamaño normal y descansa
+            ]
+        });
+    }
+
+    stopScreenSlowEffect(){
+        if(this.screenTweenSlow){
+            this.screenTweenSlow.stop();
+            this.screenTweenSlow = null;
+        }
+        this.screenBorder.setVisible(false);
+        this.screenMask.setScale(this.maskScaleX, this.maskScaleY); //Reinciar escala o sino cada vez que ejecutemos posibildad de que empiece con una escala distinta    
+    }
 }
