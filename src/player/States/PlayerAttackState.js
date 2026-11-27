@@ -45,6 +45,8 @@ export default class PlayerAttackState extends BaseState {
         // Al aterrizar deja de conservar la velocidad del salto y acaba el bullet time
         if (this.wasAirborne && player.isGrounded()) {
             this.wasAirborne = false;
+            //Metodo para limpiar bien efectos pantalla de de slowmotino
+            this.resetEffects(player);
             player.scene.setGameSpeed(1);
         }
 
@@ -176,5 +178,13 @@ export default class PlayerAttackState extends BaseState {
         // Borrar la línea de apuntado
         this.aimLine.destroy();
         this.aimLine = null;
+    }
+
+    resetEffects(player){
+        player.stopSlowEffect();
+        player.scene.stopScreenSlowEffect();
+        
+        // Cambia la animación de salto a idle
+        player.play('player_idle', true); 
     }
 }
