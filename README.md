@@ -485,3 +485,14 @@ https://pipoya.itch.io/pipoya-rpg-tileset-32x32
 - Corazón de vidas: Clipartpng.com: Licencia Propietaria
 
 - Caja de madera: Opengameart.org: Licencia Libre
+
+- Fondo Mundo 1: Canva.com: Licencia Libre
+
+- Fondo Mundo 2: Pixabay.com. Licencia de contenido de Pixabay
+  https://pixabay.com/illustrations/mountain-cloud-fog-chinese-style-7618940/
+  
+- Fondo Mundo 3: Arte hecho por AlexAntropov86, Pixabay.com. Licencia de contenido de Pixabay
+ https://pixabay.com/es/illustrations/lava-magma-islas-venus-paisaje-3492940/
+
+- Efecto Aura Personaje: Aura VFX assets por Dolkyns. itch.io. Licencia CCBY
+https://dolkyns.itch.io/aura-pack-animated-2d-vfx
