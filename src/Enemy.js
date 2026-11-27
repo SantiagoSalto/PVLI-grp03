@@ -23,8 +23,8 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 		this.speedX = speedX;
 		this.speedY = speedY;
 
-		this.originX = x;
-		this.originY = y;
+		this.startX = x;
+		this.startY = y;
 
 	    this.range = range;
 
@@ -35,20 +35,25 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         this.body.setSize(320, 650);                           // hitbox ajustada
         this.body.setOffset(150, 50);                          // colocar hitbox
 
-
+		this.anims.play('enemy_fly');
 		//this.body.setVelocity(speedX, speedY);
-		
+	
+  	
     }
+
 	preUpdate (t, dt) {
     super.preUpdate(t, dt)
     dt = dt * this.scene.gameSpeed; // bullet time: mas lento si el juego va lento
     // la lógica particular de `FallingMartian`, aquí
     this.x += this.speedX * dt / 1000; // 2 unidades por segundo
-	// Si supera el rango limite va hacia dentro
+
+		// Si supera el rango limite va hacia dentro
 	if (this.x > this.originX + this.range) this.speedX = -Math.abs(this.speedX);
 	if (this.x < this.originX - this.range) this.speedX = Math.abs(this.speedX);
 
 	this.y += this.speedY * dt / 1000; // 2 unidades por segundo
+
+
 	if (this.y > this.originY + this.range) this.speedY = -Math.abs(this.speedY);
 	if (this.y < this.originY - this.range) this.speedY = Math.abs(this.speedY);
   }

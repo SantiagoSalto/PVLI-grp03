@@ -4,6 +4,7 @@ export default class PlayerIdleState extends BaseState {
 
     enter(player) {
         player.setVelocityX(0);                // detener movimiento horizontal
+        player.play('player_idle', true);      // animacion idle
     }
 
     execute(player) {

@@ -21,7 +21,7 @@ export default class PreloadScene extends Phaser.Scene {
         //Jugador
         this.load.image('squirrel', './assets/Personajes/squirrel.png');
         //Enemigo
-        this.load.image('enemy', './assets/Personajes/parrot.png');
+        //this.load.image('enemy', './assets/Personajes/parrot.png');
         //Plataforma
         this.load.image('platform1', './assets/Suelos/hierba-1.png');
 
@@ -148,10 +148,56 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('yellowSquare', './assets/Menu/creditsSquare.png')
         
         this.load.image('projectile', './assets/Personajes/projectile.png')
+
+        this.load.spritesheet('player','./assets/Personajes/Placeholder2.png',{frameWidth:64,frameHeight:64} )
+        // this.load.spritesheet('player','./assets/Personajes/Placeholder.png',{frameWidth:147,frameHeight:245} )
+        this.load.spritesheet('enemy','./assets/Personajes/ParrotAssets.png',{frameWidth:1024,frameHeight:1024} )
     }
 
     create() {
-        this.scene.stop();          
+        // Animaciones
+        this.anims.create({
+            key: 'player_idle',
+            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
+            frameRate: 6,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'player_walk',
+            frames: this.anims.generateFrameNumbers('player', { start: 11*3+1, end: 11*3+7 }),
+            frameRate: 8,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'player_run',
+            frames: this.anims.generateFrameNumbers('player', { start: 11*5+1, end: 11*5+7 }),
+            frameRate: 12,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'player_jump',
+            frames: this.anims.generateFrameNumbers('player', { start:11*8+3, end: 11*8 +8 }),
+            // frames: this.anims.generateFrameNumbers('player', { start:11*7+3, end: 11*7+7 }),
+            frameRate: 8,
+            repeat: 0                                           // una sola vez, se queda en el ultimo frame
+        });
+
+        console.log('¿Existe la textura enemy?', this.textures.exists('enemy'));
+
+        this.anims.create({
+        key: 'enemy_fly',
+        frames: this.anims.generateFrameNumbers('enemy', {
+            start: 0,
+            end: 4
+        }),
+        frameRate: 8,
+        repeat: -1
+         });
+
+        console.log('¿Existe enemy_fly?', this.anims.exists('enemy_fly'));
+
+
+        this.scene.stop();
         this.scene.start('MainMenuScene'); 
         
     }

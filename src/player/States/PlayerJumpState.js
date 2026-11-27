@@ -4,6 +4,9 @@ export default class PlayerJumpState extends BaseState {
 
     enter(player) {
 
+        // animacion de salto
+        player.play('player_jump');
+
         // booleano para comprobar si player ha llegado al cursor
         this.reachedCursor = false;
 

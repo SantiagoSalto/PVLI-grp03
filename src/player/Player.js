@@ -8,7 +8,7 @@ import { SCALE } from '../Measures.js';
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     constructor(scene, x, y) {
-        super(scene, x, y, 'squirrel');
+        super(scene, x, y, 'player');
 
         scene.add.existing(this);                              // agregar sprite
         scene.physics.add.existing(this);                      // activar fisicas
@@ -29,10 +29,20 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.setGravityY(550 * SCALE);                                  // gravedad
         this.body.setMaxVelocityY(900 * SCALE); //900                   // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
         this.body.setDragY(20 * SCALE)                                  //Añade ligera resistencia al aire vertical
+        //tamaños spritesheet 1
+        // this.setScale(0.28 * SCALE);        
+        // this.body.setSize(86, 214);         
+        // this.body.setOffset(37, 38);
+        
+        //tamaño spritesheet 2
+        this.setScale(1.4 * SCALE);      
+        this.body.setSize(32, 48);   
+        this.body.setOffset(16, 16);
 
-        this.setScale(0.15 * SCALE);                                   // tamaño en pantalla
-        this.body.setSize(300, 400);                           // hitbox ajustada
-        this.body.setOffset(130, 70);                          // colocar hitbox
+        //Tamaños png ardilla
+        // this.setScale(0.15 * SCALE);                            // tamaño en pantalla
+        // this.body.setSize(300, 400);                           // hitbox ajustada
+        // this.body.setOffset(130, 70);                          // colocar hitbox
 
         // movimiento
         this.walkSpeed = 120 * SCALE;                                  // velocidad andando
@@ -73,6 +83,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
     preUpdate(t, dt)
     {
+        super.preUpdate(t, dt);                                // necesario para que avancen las animaciones
+
         //Hang time = Flotando unos instantes cuando llega a punto maximo de salto
         if (!this.isGrounded()) {
             // Si la velocidad vertical es cercana a 0 (está en la cúspide del salto)
