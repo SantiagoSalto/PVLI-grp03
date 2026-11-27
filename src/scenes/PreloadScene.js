@@ -36,6 +36,12 @@ export default class PreloadScene extends Phaser.Scene {
             frameHeight: 256
         });
 
+        this.load.spritesheet('slowaura2', './assets/Personajes/arcaneaura.png',{
+            frameWidth: 256,
+            frameHeight: 256
+        });
+
+
         //OBJETOS INTERACTUABLES
         //Caja
         this.load.image('box', './assets/Objetos/Box.png');

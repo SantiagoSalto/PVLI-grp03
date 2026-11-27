@@ -41,12 +41,22 @@ export default class PlayScene extends Phaser.Scene {
 
         this.leveltimer = 0;
 
-        //Animacion aura
-        if (!this.anims.exists('slowKillEffect')) {
+        //Animacion aura v.1
+        // if (!this.anims.exists('slowKillEffect')) {
+        //     this.anims.create({
+        //     key: 'slowKillEffect',
+        //     frames: this.anims.generateFrameNumbers('slowaura', { start: 0, end: 34 }),
+        //     frameRate: 80,
+        //     repeat: 0 // Se reproduce una sola vez
+        //     });
+        // }
+
+        //Animacion aura v.2
+         if (!this.anims.exists('slowKillEffect')) {
             this.anims.create({
             key: 'slowKillEffect',
-            frames: this.anims.generateFrameNumbers('slowaura', { start: 0, end: 63 }),
-            frameRate: 60,
+            frames: this.anims.generateFrameNumbers('slowaura2', { start: 0, end: 15 }),
+            frameRate: 22,
             repeat: 0 // Se reproduce una sola vez
             });
         }
@@ -235,10 +245,12 @@ export default class PlayScene extends Phaser.Scene {
 
         // el proyectil derrota al enemigo de un golpe (overlap para no empujarlo)
         this.physics.add.overlap(this.projectiles, this.enemies, (projectile, enemy) => {
+            
+            const wasSlowShot = projectile.IsSlowMotionShot;
             projectile.impact();
             enemy.destroy();
             //Si se esta en slow motion y matas a un enemigo se reproduce la animacion
-            if (this.gameSpeed < 1) {
+            if (wasSlowShot || this.gameSpeed < 1) {
             this.playSlowKillAnim();
             }
         });
@@ -549,7 +561,7 @@ export default class PlayScene extends Phaser.Scene {
             this.slowKillEffect.destroy();
         }   
         this.slowKillEffect = this.add.sprite(this.player.x, this.player.y, 'slowaura')
-            .setScale(SCALE*0.85) 
+            .setScale(SCALE*0.75) 
             .setDepth(1);  
 
         this.slowKillEffect.play('slowKillEffect');

@@ -20,6 +20,7 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
 
         this.despawnDistance = 200;                            // distancia fuera de la camara a la que se destruye
 
+        this.IsSlowMotionShot = false;                         //Condicion de saber si nacio en slow motion
         scene.projectiles.add(this);                           // las colisiones del grupo estan en PlayScene
     }
 
@@ -55,6 +56,15 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     shoot(directionX, directionY, speed, gravity) {
         this.setGravityY(gravity);                             // cada disparo tiene su propia curva
         this.setVelocity(directionX * speed, directionY * speed);
+
+        //Si es que se ha disparado mientras que el tiempo esta ralentizado
+        if (this.scene.gameSpeed < 1) {
+            this.IsSlowMotionShot = true;
+            this.setTint(0x00ffff); // Tinte de color
+        } else {
+            this.IsSlowMotionShot = false;
+            this.clearTint();       
+        }
     }
 
     // al chocar desaparece
