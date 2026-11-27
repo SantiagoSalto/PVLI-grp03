@@ -30,6 +30,11 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image('invmask','./assets/Personajes/invmask.png');
         this.load.image('invmask2','./assets/Personajes/invmask2.png');
         this.load.image('invmask3','./assets/Personajes/invmask3.png');
+        //Animacion Aura
+        this.load.spritesheet('slowaura', './assets/Personajes/natureaura.png',{
+            frameWidth: 256,
+            frameHeight: 256
+        });
 
         //OBJETOS INTERACTUABLES
         //Caja

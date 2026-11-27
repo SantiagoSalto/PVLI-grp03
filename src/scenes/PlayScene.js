@@ -41,6 +41,16 @@ export default class PlayScene extends Phaser.Scene {
 
         this.leveltimer = 0;
 
+        //Animacion aura
+        if (!this.anims.exists('slowKillEffect')) {
+            this.anims.create({
+            key: 'slowKillEffect',
+            frames: this.anims.generateFrameNumbers('slowaura', { start: 0, end: 63 }),
+            frameRate: 60,
+            repeat: 0 // Se reproduce una sola vez
+            });
+        }
+
         // ---------------CARGA DEL TILEMAP (Tiled)---------------
         const map = this.make.tilemap({ key: 'level' + this.level });
         let tileset;
@@ -227,6 +237,10 @@ export default class PlayScene extends Phaser.Scene {
         this.physics.add.overlap(this.projectiles, this.enemies, (projectile, enemy) => {
             projectile.impact();
             enemy.destroy();
+            //Si se esta en slow motion y matas a un enemigo se reproduce la animacion
+            if (this.gameSpeed < 1) {
+            this.playSlowKillAnim();
+            }
         });
 
         //---------------ICONOS UI---------------
@@ -387,6 +401,11 @@ export default class PlayScene extends Phaser.Scene {
         centerX + this.screenMaskOffset.x,
         centerY + this.screenMaskOffset.y
         );}
+
+        //Para que la animacion siga a la pos del jugador mientras que este se esta moviendo todavia en el aire
+        if (this.slowKillEffect && this.player) {
+            this.slowKillEffect.setPosition(this.player.x, this.player.y);
+        }
     }
 
    
@@ -524,4 +543,20 @@ export default class PlayScene extends Phaser.Scene {
         this.screenBorder.setVisible(false);
         this.screenMask.setScale(this.maskScaleX, this.maskScaleY); //Reinciar escala o sino cada vez que ejecutemos posibildad de que empiece con una escala distinta  
     }  
+
+    playSlowKillAnim() {
+        if (this.slowKillEffect) {
+            this.slowKillEffect.destroy();
+        }   
+        this.slowKillEffect = this.add.sprite(this.player.x, this.player.y, 'slowaura')
+            .setScale(SCALE*0.85) 
+            .setDepth(1);  
+
+        this.slowKillEffect.play('slowKillEffect');
+
+        // Se borra automáticamente al terminar los 64 frames
+        this.slowKillEffect.once('animationcomplete', () => {
+            this.slowKillEffect.destroy();
+        });
+    }
 }
