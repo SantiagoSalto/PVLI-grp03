@@ -18,10 +18,20 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.setGravityY(1050 * SCALE);                                  // gravedad
         this.body.setMaxVelocityY(900 * SCALE); //900                   // velocidad maxima de caida (si es mayor atraviesa el suelo de Tiled)
         this.body.setDragY(20 * SCALE)                                  //Añade ligera resistencia al aire vertical
+        //tamaños spritesheet 1
+        // this.setScale(0.28 * SCALE);        
+        // this.body.setSize(86, 214);         
+        // this.body.setOffset(37, 38);
+        
+        //tamaño spritesheet 2
+        this.setScale(1.4 * SCALE);      
+        this.body.setSize(32, 48);   
+        this.body.setOffset(16, 16);
 
-        this.setScale(0.15 * SCALE);                                   // tamaño en pantalla
-        this.body.setSize(300, 400);                           // hitbox ajustada
-        this.body.setOffset(130, 70);                          // colocar hitbox
+        //Tamaños png ardilla
+        // this.setScale(0.15 * SCALE);                            // tamaño en pantalla
+        // this.body.setSize(300, 400);                           // hitbox ajustada
+        // this.body.setOffset(130, 70);                          // colocar hitbox
 
         // movimiento
         this.walkSpeed = 120 * SCALE;                                  // velocidad andando

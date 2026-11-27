@@ -91,35 +91,35 @@ export default class PreloadScene extends Phaser.Scene {
         
         this.load.image('projectile', './assets/Personajes/projectile.png')
 
-        this.load.spritesheet('player','./assets/Personajes/Placeholder1.png',{frameWidth:147,frameHeight:274} )
-        // this.load.spritesheet('enemy','./assets/Personajes/Placeholder.jpg',{frameWidth:147,frameHeight:274} )
+        this.load.spritesheet('player','./assets/Personajes/Placeholder2.png',{frameWidth:64,frameHeight:64} )
+        // this.load.spritesheet('player','./assets/Personajes/Placeholder.png',{frameWidth:147,frameHeight:245} )
         this.load.spritesheet('enemy','./assets/Personajes/ParrotAssets.png',{frameWidth:1024,frameHeight:1024} )
-
     }
 
     create() {
         // Animaciones
         this.anims.create({
             key: 'player_idle',
-            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 4 }),
+            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
             frameRate: 6,
             repeat: -1
         });
         this.anims.create({
             key: 'player_walk',
-            frames: this.anims.generateFrameNumbers('player', { start: 5, end: 9 }),
+            frames: this.anims.generateFrameNumbers('player', { start: 11*3+1, end: 11*3+7 }),
             frameRate: 8,
             repeat: -1
         });
         this.anims.create({
             key: 'player_run',
-            frames: this.anims.generateFrameNumbers('player', { start: 10, end: 14 }),
+            frames: this.anims.generateFrameNumbers('player', { start: 11*5+1, end: 11*5+7 }),
             frameRate: 12,
             repeat: -1
         });
         this.anims.create({
             key: 'player_jump',
-            frames: this.anims.generateFrameNumbers('player', { start: 15, end: 19 }),
+            frames: this.anims.generateFrameNumbers('player', { start:11*8+3, end: 11*8 +8 }),
+            // frames: this.anims.generateFrameNumbers('player', { start:11*7+3, end: 11*7+7 }),
             frameRate: 8,
             repeat: 0                                           // una sola vez, se queda en el ultimo frame
         });
