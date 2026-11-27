@@ -44,15 +44,12 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     dt = dt * this.scene.gameSpeed; // bullet time: mas lento si el juego va lento
     // la lógica particular de `FallingMartian`, aquí
     this.x += this.speedX * dt / 1000; // 2 unidades por segundo
-	if (this.x > this.originX + this.range || this.x < this.originX - this.range)
-	{
-		this.speedX = -this.speedX; // Este enemigo da la vuelta en el eje X si supera el rango límite de movimiento
-	}
-	this.y += this.speedY * dt / 1000; // 2 unidades por segundo
+	// Si supera el rango limite va hacia dentro
+	if (this.x > this.originX + this.range) this.speedX = -Math.abs(this.speedX);
+	if (this.x < this.originX - this.range) this.speedX = Math.abs(this.speedX);
 
-	if (this.y > this.originY + this.range || this.y < this.originY - this.range)
-	{
-		this.speedY = -this.speedY; // Este enemigo da la vuelta en el eje Y si supera el rango límite de movimiento
-	}
+	this.y += this.speedY * dt / 1000; // 2 unidades por segundo
+	if (this.y > this.originY + this.range) this.speedY = -Math.abs(this.speedY);
+	if (this.y < this.originY - this.range) this.speedY = Math.abs(this.speedY);
   }
 }
