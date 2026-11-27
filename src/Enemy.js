@@ -46,15 +46,20 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     dt = dt * this.scene.gameSpeed; // bullet time: mas lento si el juego va lento
     // la lógica particular de `FallingMartian`, aquí
     this.x += this.speedX * dt / 1000; // 2 unidades por segundo
-
-		// Si supera el rango limite va hacia dentro
-	if (this.x > this.originX + this.range) this.speedX = -Math.abs(this.speedX);
-	if (this.x < this.originX - this.range) this.speedX = Math.abs(this.speedX);
+	
+	// Si supera el rango limite va hacia dentro
+	if (this.x > this.startX + this.range) this.speedX = -Math.abs(this.speedX);
+	if (this.x < this.startX - this.range) this.speedX = Math.abs(this.speedX);
+	
+	//Flipeo del sprite X del loro
+	if (this.speedX !== 0) {
+        this.setFlipX(this.speedX < 0);
+    }
 
 	this.y += this.speedY * dt / 1000; // 2 unidades por segundo
 
 
-	if (this.y > this.originY + this.range) this.speedY = -Math.abs(this.speedY);
-	if (this.y < this.originY - this.range) this.speedY = Math.abs(this.speedY);
+	if (this.y > this.startY + this.range) this.speedY = -Math.abs(this.speedY);
+	if (this.y < this.startY - this.range) this.speedY = Math.abs(this.speedY);
   }
 }
