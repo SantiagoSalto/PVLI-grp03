@@ -36,8 +36,11 @@ export default class PlayerMoveState extends BaseState {
         player.setVelocityX(direction * speed);
 
         // animacion segun la velocidad
-        if (speed === player.runSpeed) player.play('player_run', true);
-        else player.play('player_walk', true);
+        if (speed >= player.runSpeedAnimation) {
+            player.play('player_run', true);
+        } else {
+            player.play('player_walk', true);
+        }
     }
 
     exit(player) {

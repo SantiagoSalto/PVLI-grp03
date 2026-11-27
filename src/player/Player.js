@@ -49,7 +49,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         //nuevos
         this.maxSpeedMultiplier = 4.2;                              //velocidad maxima = 120 *4.2 = 504
         this.maxSpeedDistance = 250 * SCALE;                        //Distna cia a la que ya no acelera mas
-
+        this.runSpeedAnimation = 300 * SCALE;                       //300 porque es aprox la mitad entre 120 y 504 (vel andar y vel max)
         this.stopDistance = 5 * SCALE;                                 // distancia al cursor para pararse
 
         // salto
