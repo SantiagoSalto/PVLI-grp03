@@ -49,6 +49,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 	if (this.x > this.startX + this.range || this.x < this.startX - this.range)
 	{
 		this.speedX = -this.speedX; // Este enemigo da la vuelta en el eje X si supera el rango límite de movimiento
+		this.setFlipX(this.speedX<0);
 	}
 	this.y += this.speedY * dt / 1000; // 2 unidades por segundo
 
@@ -56,7 +57,5 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 	{
 		this.speedY = -this.speedY; // Este enemigo da la vuelta en el eje Y si supera el rango límite de movimiento
 	}
-
   }
-
 }

@@ -91,8 +91,10 @@ export default class PreloadScene extends Phaser.Scene {
         
         this.load.image('projectile', './assets/Personajes/projectile.png')
 
-        this.load.spritesheet('player','./assets/Personajes/Placeholder.jpg',{frameWidth:147,frameHeight:274} )
-        this.load.spritesheet('enemy','./assets/Personajes/Placeholder.jpg',{frameWidth:147,frameHeight:274} )
+        this.load.spritesheet('player','./assets/Personajes/Placeholder1.png',{frameWidth:147,frameHeight:274} )
+        // this.load.spritesheet('enemy','./assets/Personajes/Placeholder.jpg',{frameWidth:147,frameHeight:274} )
+        this.load.spritesheet('enemy','./assets/Personajes/ParrotAssets.png',{frameWidth:1024,frameHeight:1024} )
+
     }
 
     create() {
@@ -122,19 +124,19 @@ export default class PreloadScene extends Phaser.Scene {
             repeat: 0                                           // una sola vez, se queda en el ultimo frame
         });
 
-          console.log('¿Existe la textura enemy?', this.textures.exists('enemy'));
+        console.log('¿Existe la textura enemy?', this.textures.exists('enemy'));
 
-         this.anims.create({
+        this.anims.create({
         key: 'enemy_fly',
         frames: this.anims.generateFrameNumbers('enemy', {
-            start: 15,
-            end: 19
+            start: 0,
+            end: 4
         }),
         frameRate: 8,
         repeat: -1
          });
 
-            console.log('¿Existe enemy_fly?', this.anims.exists('enemy_fly'));
+        console.log('¿Existe enemy_fly?', this.anims.exists('enemy_fly'));
 
 
         this.scene.stop();
