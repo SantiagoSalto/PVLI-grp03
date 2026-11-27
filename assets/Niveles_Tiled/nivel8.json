@@ -2233,7 +2233,7 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":432,
+                 "x":448,
                  "y":778
                 }, 
                 {
@@ -2403,7 +2403,7 @@
                         {
                          "name":"range",
                          "type":"float",
-                         "value":3
+                         "value":2.2
                         }, 
                         {
                          "name":"speedX",

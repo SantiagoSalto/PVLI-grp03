@@ -236,7 +236,7 @@
    </properties>
    <point/>
   </object>
-   <object id="43" name="spike" x="1872" y="2832">
+  <object id="43" name="spike" x="1872" y="2832">
    <properties>
     <property name="height" type="float" value="1"/>
     <property name="mortal" type="bool" value="false"/>
@@ -396,7 +396,7 @@
    </properties>
    <point/>
   </object>
-</objectgroup>
+ </objectgroup>
  <objectgroup id="3" name="Characters">
   <object id="19" name="player" x="160" y="3936">
    <point/>
@@ -583,7 +583,7 @@
    </properties>
    <point/>
   </object>
-   <object id="63" name="platform" x="544" y="3456">
+  <object id="63" name="platform" x="544" y="3456">
    <properties>
     <property name="height" type="float" value="6"/>
     <property name="width" type="float" value="60"/>
@@ -597,5 +597,5 @@
    </properties>
    <point/>
   </object>
-</objectgroup>
+ </objectgroup>
 </map>

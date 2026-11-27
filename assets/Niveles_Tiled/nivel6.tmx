@@ -669,21 +669,21 @@
    </properties>
    <point/>
   </object>
-  <object id="80" name="platform" x="464" y="906">
+  <object id="80" name="platform" x="480" y="906">
    <properties>
     <property name="height" type="float" value="6"/>
     <property name="width" type="float" value="40"/>
    </properties>
    <point/>
   </object>
-  <object id="81" name="platform" x="464" y="778">
+  <object id="81" name="platform" x="480" y="778">
    <properties>
     <property name="height" type="float" value="6"/>
     <property name="width" type="float" value="40"/>
    </properties>
    <point/>
   </object>
-  <object id="82" name="platform" x="464" y="618">
+  <object id="82" name="platform" x="480" y="618">
    <properties>
     <property name="height" type="float" value="6"/>
     <property name="width" type="float" value="40"/>
