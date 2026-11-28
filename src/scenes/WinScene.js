@@ -77,7 +77,11 @@ constructor() {
 
         if (playscene.objectivetime() > playscene.leveltimer) 
         {
-            var timepoints = (playscene.objectivetime()/playscene.leveltimer*1.5)**5 * 10;
+            var timepoints = ((playscene.objectivetime()**1.5/playscene.leveltimer)) * 100;
+            if (timepoints >= 3000)
+            {
+                timepoints = 3000 + (timepoints-3000)**0.6;
+            }
             puntos += timepoints;
             var timepointstext = this.add.text(ancho/2,alto/2-30, "Tiempo tardado: +" + Math.floor(timepoints) + "pts", {
                 fontFamily: 'Arial',
@@ -155,38 +159,38 @@ constructor() {
     }
     checkRecords(nuevaPuntuacion, nuevoTiempo, level)
     {
-        if (this.registry.get('recordpuntos')) 
+        if (localStorage.getItem('recordpuntos')) 
         { 
-            const mejorpuntos = this.registry.get('recordpuntos');
+            const mejorpuntos = JSON.parse(localStorage.getItem('recordpuntos'));
             if (nuevaPuntuacion > mejorpuntos[level-1])
             {
                 console.log("¡Nuevo récord de puntuación!");
                 mejorpuntos[level-1] = Math.floor(nuevaPuntuacion);
-                this.registry.set('recordpuntos', mejorpuntos);
+                localStorage.setItem('recordpuntos', JSON.stringify(mejorpuntos));
             }
         }   
         else
         {
             console.log("¡Nuevo récord de puntuación!");
             this.timescoreManager.mejorpuntos[level-1] = Math.floor(nuevaPuntuacion);
-            this.registry.set('recordpuntos', this.timescoreManager.mejorpuntos);
+            localStorage.setItem('recordpuntos', JSON.stringify(this.timescoreManager.mejorpuntos))
         }
 
-        if (this.registry.get('recordtiempo'))
+        if (localStorage.getItem('recordtiempo'))
         {
-            const mejortiempo = this.registry.get('recordtiempo');
+            const mejortiempo = JSON.parse(localStorage.getItem('recordtiempo'));
             if (nuevoTiempo < mejortiempo[level-1] || mejortiempo[level-1] == 0)
             {
                 console.log("¡Nuevo récord de tiempo!");
                 mejortiempo[level-1] = nuevoTiempo;
-                this.registry.set('recordtiempo', mejortiempo);
+                localStorage.setItem('recordtiempo', JSON.stringify(mejortiempo));
             }
         }
         else 
         {
             console.log("¡Nuevo récord de tiempo!");
             this.timescoreManager.mejortiempo[level-1] = nuevoTiempo;
-            this.registry.set('recordtiempo', this.timescoreManager.mejortiempo);
+            localStorage.setItem('recordtiempo', JSON.stringify(this.timescoreManager.mejortiempo))
         }
 
     }

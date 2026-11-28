@@ -16,8 +16,8 @@ export default class LevelInfo extends Phaser.Scene {
 
         this.timescoreManager = new TimersScoreManager(this);
 
-        if (!this.registry.get('recordpuntos')) this.registry.set('recordpuntos', this.timescoreManager.mejorpuntos)
-        if (!this.registry.get('recordtiempo')) this.registry.set('recordtiempo', this.timescoreManager.mejortiempo)
+        if (!localStorage.getItem('recordpuntos')) localStorage.setItem('recordpuntos', JSON.stringify(this.timescoreManager.mejorpuntos))
+        if (!localStorage.getItem('recordtiempo')) localStorage.setItem('recordtiempo', JSON.stringify(this.timescoreManager.mejortiempo))
 
         //-------------RECTANGULO NEGRO OPACO FONDO------------
         let overlay = this.add.rectangle(ancho / 2, alto / 2, ancho, alto, 0x000000);
@@ -40,8 +40,8 @@ export default class LevelInfo extends Phaser.Scene {
             fontStyle: 'bold'
         };
         
-        const mejorpuntos = this.registry.get('recordpuntos');
-        const mejortiempo = this.registry.get('recordtiempo'); 
+        const mejorpuntos = JSON.parse(localStorage.getItem('recordpuntos'));
+        const mejortiempo = JSON.parse(localStorage.getItem('recordtiempo')); 
  
 
         let nostar = this.add.image(estrellaX, estrellaY, 'nostar');
@@ -156,24 +156,7 @@ export default class LevelInfo extends Phaser.Scene {
     }
     objectivetime()
     {
-        switch(this.level)
-        {
-            case 1: return 15; break;
-            case 2: return 20; break;
-            case 3: return 25; break;
-            case 4: return 30; break;
-            case 5: return 15; break;
-            case 6: return 150; break;
-            case 7: return 150; break;
-            case 8: return 200; break;
-            case 9: return 180; break;
-            case 10: return 240; break;
-            case 11: return 240; break;
-            case 12: return 240; break;
-            case 13: return 240; break;
-            case 14: return 270; break;
-            case 15: return 240; break;
-        }
+        return this.timescoreManager.objetivo[this.level - 1];
     }
     checkStar(level, star, puntos)
     {

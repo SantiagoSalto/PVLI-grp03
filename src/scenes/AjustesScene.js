@@ -117,6 +117,22 @@ create() {
             this.scene.stop();
             this.scene.start('MainMenuScene'); 
         });
+
+        var reset = this.add.image(ancho/2, alto/2 + 240, 'redbutton');
+        reset.setScale(1, 0.5);
+        reset.setInteractive();
+
+        var resetTexto = this.add.text(ancho/2, alto/2 + 240, 'Reestablecer resultados en niveles', {
+            fontFamily: 'Arial',
+            fontSize: '20px',
+            color: 'rgb(131, 0, 0)',
+            fontStyle: 'bold'
+        });
+        resetTexto.setOrigin(0.5);
+
+        reset.on('pointerdown', () => {
+            localStorage.clear();
+        });
     }
 
 }
